@@ -218,15 +218,20 @@
     box-shadow: 0 0 0 3px var(--accent);
   }
 
-  /* --- 受賞の一覧 --- */
+  /* --- ①の一覧。行ごと押せて、②の同じ見出しへ飛ぶ --- */
   .award {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px 0;
+    padding: 15px 6px;
     border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
   }
   .award:last-child { border-bottom: none; }
+  .award:hover { background: var(--surface-2); border-radius: 10px; }
+  .award:hover .award-go { color: var(--accent); transform: translateX(3px); }
+
   .award-faces { display: flex; flex-shrink: 0; }
   .award-faces img {
     width: 58px; height: 58px;
@@ -236,6 +241,15 @@
   }
   /* 2人受賞のときは少し重ねる */
   .award-faces img + img { margin-left: -14px; }
+
+  /* 人ではなく場面の行は、丸ではなく角丸にして見分けられるようにする */
+  .award-scene {
+    width: 58px; height: 58px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px var(--line);
+  }
   .award-none {
     width: 58px; height: 58px;
     border-radius: 50%;
@@ -243,14 +257,31 @@
     background: var(--surface-2);
     border: 2px dashed var(--line);
   }
-  .award-label { font-size: 13px; color: var(--ink-muted); }
-  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.4; }
-  .award-why { font-size: 13.5px; color: var(--ink-muted); }
+
+  .award-body { flex: 1; min-width: 0; }
+
+  /* 賞の名前。ここがいちばん目に入るようにする */
+  .award-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.45; }
+  .award-why { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* 「②へ飛べる」ことを示す矢印 */
+  .award-go {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: transform .12s ease, color .12s ease;
+  }
+  .award-go svg { width: 18px; height: 18px; display: block; }
 
   @media (max-width: 480px) {
+    .award-label { font-size: 15.5px; }
     .award-who { font-size: 17px; }
-    .award-faces img { width: 48px; height: 48px; }
-    .award-none { width: 48px; height: 48px; }
+    .award-faces img, .award-scene, .award-none { width: 48px; height: 48px; }
   }
 
   /* --- 場面の写真。押すと YouTube のその時刻から再生される --- */
@@ -317,121 +348,118 @@
   <span class="stage-label">① 結論だけ</span>
 
   <p class="shot-note" style="margin-bottom:14px">
-    写真はどれも押すと、YouTube のその場面から再生されます。
+    どの行も押すと、下の②の詳しいところへ飛びます。
   </p>
 
   <div class="card summary-card">
-    <div class="award">
+    <a class="award" href="#mvp">
       <div class="award-faces"><img src="faces/aki.jpg" alt="あき"></div>
-      <div>
+      <div class="award-body">
         <div class="award-label">MVP</div>
         <div class="award-who">あき</div>
         <div class="award-why">この日ただ一つの「狙って打った」アタック。声かけも最多</div>
       </div>
-    </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-    <div class="award">
+    <a class="award" href="#fine">
       <div class="award-faces">
         <img src="faces/yamasan.jpg" alt="やまさん"><img src="faces/komorin.jpg" alt="こもりん">
       </div>
-      <div>
+      <div class="award-body">
         <div class="award-label">ファインプレー賞</div>
         <div class="award-who">やまさん・こもりん</div>
         <div class="award-why">終盤、レシーブ→セットが2段そろった</div>
       </div>
-    </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-    <div class="award">
+    <a class="award" href="#enno">
       <div class="award-faces"><img src="faces/yassan.jpg" alt="やっさん"></div>
-      <div>
+      <div class="award-body">
         <div class="award-label">縁の下賞</div>
         <div class="award-who">やっさん</div>
         <div class="award-why">モップ、得点表示、説明役。休憩中もコートに残っていた</div>
       </div>
-    </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-    <div class="award">
+    <a class="award" href="#koe">
       <div class="award-faces"><img src="faces/kazuo.jpg" alt="かずお"></div>
-      <div>
+      <div class="award-body">
         <div class="award-label">声出し賞</div>
         <div class="award-who">かずお</div>
         <div class="award-why">あきと同時に声を出しているのが確認できた唯一の相方</div>
       </div>
-    </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-    <div class="award">
-      <div class="award-none"></div>
-      <div>
+    <a class="award" href="#chin">
+      <img class="award-scene" src="shots/camera.jpg" alt="" loading="lazy">
+      <div class="award-body">
         <div class="award-label">珍プレー賞</div>
         <div class="award-who">カメラ持ち上げ事件</div>
         <div class="award-why">試合中に景色が突然変わった。持ち上げた人は特定できず</div>
       </div>
-    </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-    <div class="award">
+    <a class="award" href="#shinka">
       <div class="award-none"></div>
-      <div>
+      <div class="award-body">
         <div class="award-label">また進化したで賞</div>
         <div class="award-who" style="color:var(--ink-muted)">該当なし</div>
         <div class="award-why">比べる過去の記録がまだありません</div>
       </div>
-    </div>
-  </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-  <div class="card summary-card">
-    <div class="summary-item">
-      <div class="summary-label">今日いちばんのプレー</div>
-      <div class="summary-value">終盤の5秒。レシーブ→セット→ブロックが揃った</div>
-      <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3452s" target="_blank" rel="noopener">
-        <img src="shots/best-play.jpg" alt="ネット際で跳ぶ選手と、打つ体勢に入った選手" loading="lazy">
-        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-        <span class="cap"><span class="at">57:32</span>ブロックが決まった瞬間(20:59:45)</span>
-      </a>
-    </div>
-
-    <div class="summary-item">
-      <div class="summary-label">伸びしろ3つ</div>
-      <div class="chip-row">
-        <span class="chip">ブロックの二人目</span>
-        <span class="chip">高いつなぎを攻撃に変える</span>
-        <span class="chip">クイックをトライする</span>
+    <a class="award" href="#best">
+      <img class="award-scene" src="shots/best-play.jpg" alt="" loading="lazy">
+      <div class="award-body">
+        <div class="award-label">今日いちばんのプレー</div>
+        <div class="award-who">終盤の5秒</div>
+        <div class="award-why">レシーブ→セット→ブロックが、ひとつのラリーで続けて出た</div>
       </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-      <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2191s" target="_blank" rel="noopener">
-        <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
-        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-        <span class="cap"><span class="at">36:31</span>ブロックの二人目 — この日できていた1枚(20:38:44)</span>
-      </a>
+    <a class="award" href="#nobishiro">
+      <img class="award-scene" src="shots/block-two.jpg" alt="" loading="lazy">
+      <div class="award-body">
+        <div class="award-label">伸びしろ3つ</div>
+        <div class="award-who">ブロックの二人目 / 高いつなぎを攻撃に / クイック</div>
+        <div class="award-why">3つとも、この日すでに「できている一枚」があります</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-      <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=584s" target="_blank" rel="noopener">
-        <img src="shots/toss-good.jpg" alt="ネットから離れた位置に上がったボールへ跳び込む選手" loading="lazy">
-        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-        <span class="cap"><span class="at">9:44</span>高いつなぎを攻撃に変える — 理想形に近い1枚(20:11:57)</span>
-      </a>
+    <a class="award" href="#kuuki">
+      <img class="award-scene" src="shots/voice.jpg" alt="" loading="lazy">
+      <div class="award-body">
+        <div class="award-label">チームの空気</div>
+        <div class="award-who">失点しても沈まない</div>
+        <div class="award-why">下を向いたり黙り込んだりするコマが一枚もありませんでした</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
 
-      <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2013s" target="_blank" rel="noopener">
-        <img src="shots/quick-base.jpg" alt="全員が上を向いているが、ボールは画面の外にある" loading="lazy">
-        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-        <span class="cap"><span class="at">33:33</span>クイックをトライする — ボールが高すぎて画面の外(20:35:46)</span>
-      </a>
-    </div>
-
-    <div class="summary-item">
-      <div class="summary-label">チームの空気</div>
-      <div class="summary-value">失点しても沈まない。声がよく出ている</div>
-      <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2000s" target="_blank" rel="noopener">
-        <img src="shots/team-mood.jpg" alt="左コートの4人が中央に集まって手を合わせている" loading="lazy">
-        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-        <span class="cap"><span class="at">33:20</span>得点のあと4人が中央に集まる(20:35:33)</span>
-      </a>
-    </div>
+    <a class="award" href="#yokatta">
+      <img class="award-scene" src="shots/team-mood.jpg" alt="" loading="lazy">
+      <div class="award-body">
+        <div class="award-label">良かったところ</div>
+        <div class="award-who">得点のたびに手を合わせる</div>
+        <div class="award-why">倒れた仲間のところへも、自然と人が集まっていました</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
   </div>
 
   <div class="stage-divider">↓ もう少し詳しく読む ↓</div>
 
   <span class="stage-label" style="margin-top:36px;">② もう少し詳しく</span>
 
-  <h2>MVP — あき</h2>
+  <h2 id="mvp">MVP — あき</h2>
   <div class="card">
     <div class="mvp-row" style="margin:16px 0 4px">
       <img class="mvp-face" src="faces/aki.jpg" alt="あき">
@@ -439,79 +467,79 @@
     </div>
     <p>決め手は 20:33:54 の一本です。腕を頭の後ろまで振りかぶった完全な強打のフォームから、相手の正面ではなく<strong>右奥の空いたスペース</strong>へ打ち込みました。この1時間を通じて「狙って打った」と言い切れるアタックは、これだけです。</p>
     <p>声も出ています。20:33:38、20:36:44、20:51:37、20:59:47 と、口を大きく開けて声を上げている場面がこの日いちばん多く残っていました。打つ人であり、同時に声で場を動かす人でもありました。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=1901s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1901" target="_blank" rel="noopener">
       <img src="shots/aki-attack.jpg" alt="白いシャツの選手が腕を頭の後ろまで振りかぶって打つ体勢" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">31:41</span>20:33:54。白シャツの「8」があき</span>
     </a>
   </div>
 
-  <h2>ファインプレー賞 — やまさん・こもりん</h2>
+  <h2 id="fine">ファインプレー賞 — やまさん・こもりん</h2>
   <div class="card">
     <p>終盤のたった2秒です。高いところから落ちてくるボールに<strong>やまさん</strong>が両腕を頭上に構えて真下に入り、続けて<strong>こもりん</strong>が頭の上で三角に構えてオーバーで上げました。</p>
     <p>「レシーブ→セット」が2段そろった場面は、この1時間で数えるほどしかありません。決めたのはこのあとネット際で跳んだ選手ですが、<strong>そこまで運んだのはこの2人</strong>でした。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3450s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=3450" target="_blank" rel="noopener">
       <img src="shots/receive.jpg" alt="両腕を頭上に構えてボールの真下に入る選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">57:30</span>20:59:43。やまさんが落下点の真下に入る</span>
     </a>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3451s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=3451" target="_blank" rel="noopener">
       <img src="shots/set.jpg" alt="黒い「12」のシャツの選手が頭の上で三角に構えている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">57:31</span>20:59:44。こもりんがオーバーで上げる</span>
     </a>
   </div>
 
-  <h2>縁の下賞 — やっさん</h2>
+  <h2 id="enno">縁の下賞 — やっさん</h2>
   <div class="card">
     <p>プレーの質だけならこの日いちばんでした。落下点への入り方が早く、ボールが来る前から低い姿勢を作れています。この日ほとんど出なかった「二人でのブロック」も、成立した数少ない例はどちらもやっさんが起点でした。</p>
     <p>それでもこの賞にしたのは、<strong>プレー以外の働きのほうが際立っていた</strong>からです。休憩中に長い柄のモップでコートを拭き、得点表示を操作し、タオルを首にかけて数人に説明し、ネットの張り具合を直す。<strong>休憩中にコートに残って動いていた唯一の人</strong>でもありました。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2191s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2191" target="_blank" rel="noopener">
       <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">36:31</span>20:38:44。緑シャツ「23」がやっさん。二人ブロックの起点</span>
     </a>
   </div>
 
-  <h2>声出し賞 — かずお</h2>
+  <h2 id="koe">声出し賞 — かずお</h2>
   <div class="card">
     <p>20:36:44、<strong>かずおとあきの2人が同時に上を向いて口を開けています。</strong>この日いちばん明確な声掛けの証拠で、声を出している相方がはっきり写っているのはこの場面だけでした。</p>
     <p>声は静止画にいちばん写りにくいものです。実際にはもっと多くの人が出していたはずで、次回は音声からも拾えるようにします。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2071s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2071" target="_blank" rel="noopener">
       <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">34:31</span>20:36:44。青いATHLETAがかずお、白があき</span>
     </a>
   </div>
 
-  <h2>珍プレー賞 — カメラ持ち上げ事件</h2>
+  <h2 id="chin">珍プレー賞 — カメラ持ち上げ事件</h2>
   <div class="card">
     <p>20:24:33、ごく普通のゲームの最中に<strong>画面がまったく別の景色に切り替わりました。</strong>体育館の反対側の壁、肋木、別のバスケットゴール。誰かがカメラごと持ち上げて運んでいたのです。その手前をやっさんがヘアバンド姿で笑いながら歩いていきました。</p>
     <p>持ち上げた本人はカメラを持っているので写りません。犯人は今のところ不明です。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=1347s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1347" target="_blank" rel="noopener">
       <img src="shots/camera.jpg" alt="体育館の別の場所が写っている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">22:27</span>20:24:40 あたり。景色が入れ替わっている</span>
     </a>
   </div>
 
-  <h2>今日いちばんのプレーの中身</h2>
+  <h2 id="best">今日いちばんのプレーの中身</h2>
   <div class="card">
     <p>終盤、高いところから落ちてくるボールに正面から低く入るレシーブ、頭上でしっかり構えたオーバーのセット、そしてネットの真上へ両腕をまっすぐ伸ばしたブロックが、ひとつのラリーの中で続けて出ました。</p>
     <p>決まった直後には仲間同士で声をかけ合う姿も。この日ずっと課題にしていた形が、まとまって出た貴重な場面です。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3452s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=3452" target="_blank" rel="noopener">
       <img src="shots/best-play.jpg" alt="ネット際で跳ぶ選手と、打つ体勢に入った選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">57:32</span>ブロックが決まった瞬間(20:59:45)</span>
     </a>
   </div>
 
-  <h2>伸びしろ3つの中身</h2>
+  <h2 id="nobishiro">伸びしろ3つの中身</h2>
 
   <h3>ブロックの二人目</h3>
   <div class="card">
     <p>跳ぶこと自体はできていますが、ほとんどの場面で一人きり。ただし特定の二人の間では二人ブロックがすでに成立しており、「揃わない」だけで「できない」わけではなさそうです。誰が跳んだら誰が寄るのか、あらかじめ決めておくと他の組み合わせにも広がりそうです。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2191s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2191" target="_blank" rel="noopener">
       <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">36:31</span>やっさんと黒シャツの選手が並んで跳べている(20:38:44)</span>
@@ -521,7 +549,7 @@
   <h3>高いつなぎを攻撃に変える</h3>
   <div class="card">
     <p>つなぎを高く上げて拾い切る場面はとても多いのですが、その後に助走してアタックへ入る流れがほとんど生まれていません。上げたボールをネットから少し離す「トス」に置き換えられれば、次のアタックにつながります。すでに成功例もあるので、回数を増やすだけの話だと思います。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=584s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=584" target="_blank" rel="noopener">
       <img src="shots/toss-good.jpg" alt="ネットから離れた位置に上がったボールへ跳び込む選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">9:44</span>その成功例。トスがネットから離れていて、詰まらずに振り切れている(20:11:57)</span>
@@ -531,25 +559,36 @@
   <h3>クイックをトライする</h3>
   <div class="card">
     <p>この日、クイックに挑戦した場面は見当たりませんでした。うまくやることより先に、まず一度トライしてみることが次の一歩になりそうです。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2013s" target="_blank" rel="noopener">
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2013" target="_blank" rel="noopener">
       <img src="shots/quick-base.jpg" alt="全員が上を向いているが、ボールは画面の外にある" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">33:33</span>ボールが高く上がりすぎて画面の外。この高さではクイックは成立しない(20:35:46)</span>
     </a>
   </div>
 
-  <h2>良かったところ</h2>
+  <h2 id="kuuki">チームの空気</h2>
   <div class="card">
-    <p>いちばん良かったのはチームの空気です。失点しても下を向いたり黙り込んだりする様子がなく、得点のたびに手を合わせる習慣がしっかり根づいています。</p>
-    <p>倒れた仲間のところへは自然と人が集まり、声もよく出ていました。内部練習でここまで空気が揃っているのは、なかなかないことだと思います。</p>
-    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2000s" target="_blank" rel="noopener">
-      <img src="shots/team-mood.jpg" alt="左コートの4人が中央に集まって手を合わせている" loading="lazy">
+    <p>この1時間を通じて、<strong>失点のあとに下を向いたり黙り込んだりしているコマが一枚もありませんでした。</strong>悔しさを出しているように見える場面はいくつかありますが(頭に両手を当てる、膝に手をついてうつむく)、いずれも直後には全員が位置に戻っており、引きずっていません。</p>
+    <p>声もよく出ています。20:36:44 にはかずおとあきが同時に声を上げているのが写っており、そのほかにも口を大きく開けている場面が各所に残っていました。</p>
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2071" target="_blank" rel="noopener">
+      <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">33:20</span>得点のあと、左コートの4人が中央に集まる(20:35:33)</span>
+      <span class="cap"><span class="at">34:31</span>20:36:44。2人が同時に声を上げている</span>
     </a>
   </div>
 
-  <h2>また進化したで賞は次回から</h2>
+  <h2 id="yokatta">良かったところ</h2>
+  <div class="card">
+    <p><strong>得点のたびに手を合わせる習慣が、しっかり根づいています。</strong>20:34:40(左右のコートで同時)、20:35:33(左コートの4人が中央に集まって全員が笑顔)、20:36:47、20:38:08、20:49:30、20:53:21、20:59:19、21:00:29。内部練習でここまで揃うのは珍しいことです。</p>
+    <p>倒れた仲間のところへも自然と人が集まっていました(20:37:51、20:41:59)。休憩中にモップでコートを拭く人がいて、待ち時間に一人で手の形を確かめている人もいる。<strong>技術より先に、こちらのほうが外から見ていていちばん印象に残りました。</strong></p>
+    <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2000" target="_blank" rel="noopener">
+      <img src="shots/team-mood.jpg" alt="左コートの4人が中央に集まって手を合わせている" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">33:20</span>20:35:33。得点のあと、左コートの4人が中央に集まる</span>
+    </a>
+  </div>
+
+  <h2 id="shinka">また進化したで賞は次回から</h2>
   <div class="card">
     <p>過去の記録と引き比べて成長を讃える賞ですが、今回が Drop の動画としては初めての分析のため、比較対象がありません。この日の選手ごとの記録は残してあるので、次回以降で状態を比べられるようにしています。</p>
   </div>
