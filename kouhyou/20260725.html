@@ -218,6 +218,41 @@
     box-shadow: 0 0 0 3px var(--accent);
   }
 
+  /* --- 受賞の一覧 --- */
+  .award {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .award:last-child { border-bottom: none; }
+  .award-faces { display: flex; flex-shrink: 0; }
+  .award-faces img {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+  }
+  /* 2人受賞のときは少し重ねる */
+  .award-faces img + img { margin-left: -14px; }
+  .award-none {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--surface-2);
+    border: 2px dashed var(--line);
+  }
+  .award-label { font-size: 13px; color: var(--ink-muted); }
+  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.4; }
+  .award-why { font-size: 13.5px; color: var(--ink-muted); }
+
+  @media (max-width: 480px) {
+    .award-who { font-size: 17px; }
+    .award-faces img { width: 48px; height: 48px; }
+    .award-none { width: 48px; height: 48px; }
+  }
+
   /* --- 場面の写真。押すと YouTube のその時刻から再生される --- */
   .shot {
     display: block;
@@ -273,7 +308,7 @@
       <img src="../assets/drop-icon.jpg" alt="">
       練習講評
     </h1>
-    <div class="subtitle">2026年7月25日(金) 20:02〜21:01 ・ 書き手: けんぴー</div>
+    <div class="subtitle">2026年7月25日(金) 20:02〜21:01 ・ 書き手: けんぴー(AI)</div>
   </div>
 </header>
 
@@ -286,14 +321,64 @@
   </p>
 
   <div class="card summary-card">
-    <div class="summary-item">
-      <div class="summary-label">今日のMVP</div>
-      <div class="mvp-row">
-        <img class="mvp-face" src="faces/yassan.jpg" alt="やっさん">
-        <div class="summary-value"><span class="mvp-name">やっさん</span></div>
+    <div class="award">
+      <div class="award-faces"><img src="faces/aki.jpg" alt="あき"></div>
+      <div>
+        <div class="award-label">MVP</div>
+        <div class="award-who">あき</div>
+        <div class="award-why">この日ただ一つの「狙って打った」アタック。声かけも最多</div>
       </div>
     </div>
 
+    <div class="award">
+      <div class="award-faces">
+        <img src="faces/yamasan.jpg" alt="やまさん"><img src="faces/komorin.jpg" alt="こもりん">
+      </div>
+      <div>
+        <div class="award-label">ファインプレー賞</div>
+        <div class="award-who">やまさん・こもりん</div>
+        <div class="award-why">終盤、レシーブ→セットが2段そろった</div>
+      </div>
+    </div>
+
+    <div class="award">
+      <div class="award-faces"><img src="faces/yassan.jpg" alt="やっさん"></div>
+      <div>
+        <div class="award-label">縁の下賞</div>
+        <div class="award-who">やっさん</div>
+        <div class="award-why">モップ、得点表示、説明役。休憩中もコートに残っていた</div>
+      </div>
+    </div>
+
+    <div class="award">
+      <div class="award-faces"><img src="faces/kazuo.jpg" alt="かずお"></div>
+      <div>
+        <div class="award-label">声出し賞</div>
+        <div class="award-who">かずお</div>
+        <div class="award-why">あきと同時に声を出しているのが確認できた唯一の相方</div>
+      </div>
+    </div>
+
+    <div class="award">
+      <div class="award-none"></div>
+      <div>
+        <div class="award-label">珍プレー賞</div>
+        <div class="award-who">カメラ持ち上げ事件</div>
+        <div class="award-why">試合中に景色が突然変わった。持ち上げた人は特定できず</div>
+      </div>
+    </div>
+
+    <div class="award">
+      <div class="award-none"></div>
+      <div>
+        <div class="award-label">また進化したで賞</div>
+        <div class="award-who" style="color:var(--ink-muted)">該当なし</div>
+        <div class="award-why">比べる過去の記録がまだありません</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card summary-card">
     <div class="summary-item">
       <div class="summary-label">今日いちばんのプレー</div>
       <div class="summary-value">終盤の5秒。レシーブ→セット→ブロックが揃った</div>
@@ -346,14 +431,68 @@
 
   <span class="stage-label" style="margin-top:36px;">② もう少し詳しく</span>
 
-  <h2>MVP — やっさん</h2>
+  <h2>MVP — あき</h2>
   <div class="card">
     <div class="mvp-row" style="margin:16px 0 4px">
-      <img class="mvp-face" src="faces/yassan.jpg" alt="やっさん">
-      <div class="summary-value"><span class="mvp-name">やっさん</span></div>
+      <img class="mvp-face" src="faces/aki.jpg" alt="あき">
+      <div class="summary-value"><span class="mvp-name">あき</span></div>
     </div>
-    <p>落下点への入り方がとにかく早く、ボールが来る前から低い姿勢を作れていました。この日ほとんど出なかった「二人でのブロック」も、多くはやっさんが起点になって成立しています。</p>
-    <p>プレーだけでなく、説明役や得点表示の操作、休憩中もコートに残って動くなど、場を回す役割も一手に引き受けていました。次点はかえでくん・あきちゃん・やまさんです。</p>
+    <p>決め手は 20:33:54 の一本です。腕を頭の後ろまで振りかぶった完全な強打のフォームから、相手の正面ではなく<strong>右奥の空いたスペース</strong>へ打ち込みました。この1時間を通じて「狙って打った」と言い切れるアタックは、これだけです。</p>
+    <p>声も出ています。20:33:38、20:36:44、20:51:37、20:59:47 と、口を大きく開けて声を上げている場面がこの日いちばん多く残っていました。打つ人であり、同時に声で場を動かす人でもありました。</p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=1901s" target="_blank" rel="noopener">
+      <img src="shots/aki-attack.jpg" alt="白いシャツの選手が腕を頭の後ろまで振りかぶって打つ体勢" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">31:41</span>20:33:54。白シャツの「8」があき</span>
+    </a>
+  </div>
+
+  <h2>ファインプレー賞 — やまさん・こもりん</h2>
+  <div class="card">
+    <p>終盤のたった2秒です。高いところから落ちてくるボールに<strong>やまさん</strong>が両腕を頭上に構えて真下に入り、続けて<strong>こもりん</strong>が頭の上で三角に構えてオーバーで上げました。</p>
+    <p>「レシーブ→セット」が2段そろった場面は、この1時間で数えるほどしかありません。決めたのはこのあとネット際で跳んだ選手ですが、<strong>そこまで運んだのはこの2人</strong>でした。</p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3450s" target="_blank" rel="noopener">
+      <img src="shots/receive.jpg" alt="両腕を頭上に構えてボールの真下に入る選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">57:30</span>20:59:43。やまさんが落下点の真下に入る</span>
+    </a>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3451s" target="_blank" rel="noopener">
+      <img src="shots/set.jpg" alt="黒い「12」のシャツの選手が頭の上で三角に構えている" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">57:31</span>20:59:44。こもりんがオーバーで上げる</span>
+    </a>
+  </div>
+
+  <h2>縁の下賞 — やっさん</h2>
+  <div class="card">
+    <p>プレーの質だけならこの日いちばんでした。落下点への入り方が早く、ボールが来る前から低い姿勢を作れています。この日ほとんど出なかった「二人でのブロック」も、成立した数少ない例はどちらもやっさんが起点でした。</p>
+    <p>それでもこの賞にしたのは、<strong>プレー以外の働きのほうが際立っていた</strong>からです。休憩中に長い柄のモップでコートを拭き、得点表示を操作し、タオルを首にかけて数人に説明し、ネットの張り具合を直す。<strong>休憩中にコートに残って動いていた唯一の人</strong>でもありました。</p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2191s" target="_blank" rel="noopener">
+      <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">36:31</span>20:38:44。緑シャツ「23」がやっさん。二人ブロックの起点</span>
+    </a>
+  </div>
+
+  <h2>声出し賞 — かずお</h2>
+  <div class="card">
+    <p>20:36:44、<strong>かずおとあきの2人が同時に上を向いて口を開けています。</strong>この日いちばん明確な声掛けの証拠で、声を出している相方がはっきり写っているのはこの場面だけでした。</p>
+    <p>声は静止画にいちばん写りにくいものです。実際にはもっと多くの人が出していたはずで、次回は音声からも拾えるようにします。</p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2071s" target="_blank" rel="noopener">
+      <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">34:31</span>20:36:44。青いATHLETAがかずお、白があき</span>
+    </a>
+  </div>
+
+  <h2>珍プレー賞 — カメラ持ち上げ事件</h2>
+  <div class="card">
+    <p>20:24:33、ごく普通のゲームの最中に<strong>画面がまったく別の景色に切り替わりました。</strong>体育館の反対側の壁、肋木、別のバスケットゴール。誰かがカメラごと持ち上げて運んでいたのです。その手前をやっさんがヘアバンド姿で笑いながら歩いていきました。</p>
+    <p>持ち上げた本人はカメラを持っているので写りません。犯人は今のところ不明です。</p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=1347s" target="_blank" rel="noopener">
+      <img src="shots/camera.jpg" alt="体育館の別の場所が写っている" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">22:27</span>20:24:40 あたり。景色が入れ替わっている</span>
+    </a>
   </div>
 
   <h2>今日いちばんのプレーの中身</h2>
@@ -420,7 +559,7 @@
 
   <div class="sign">
     <p>次回を楽しみにしています。</p>
-    <p>けんぴー</p>
+    <p>けんぴー(AI)</p>
   </div>
 
 </div>
