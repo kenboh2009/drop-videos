@@ -184,6 +184,59 @@
     h2 { font-size: 19px; }
     .card { padding: 4px 15px 16px; }
   }
+
+  /* --- MVP の顔写真(①②と同じもの) --- */
+  .mvp-row { display: flex; align-items: center; gap: 16px; margin: 16px 0 4px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+  .mvp-name { font-size: 22px; font-weight: 700; color: var(--accent); }
+
+  /* --- 場面の写真。押すと YouTube のその時刻から再生される --- */
+  .shot {
+    display: block;
+    position: relative;
+    margin-top: 12px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot:hover { border-color: var(--accent); }
+
+  .shot .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .shot .play span {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+
+  .shot .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .shot .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
@@ -252,6 +305,10 @@
 
   <h2>2. MVP — やっさん(23番 安田 勇介)</h2>
   <div class="card">
+    <div class="mvp-row">
+      <img class="mvp-face" src="faces/yassan.jpg" alt="やっさん">
+      <div class="mvp-name">やっさん</div>
+    </div>
     <p><strong>やっさん(23番 安田 勇介)</strong>を MVP とします。</p>
     <p>背番号23は、briefing にある「<strong>赤青チェックのハーフパンツが目印</strong>」という事前情報と、映像から読み取れた特徴(緑の「drop 23」シャツ、赤青チェック/タイダイ柄のハーフパンツ、白いヘッドバンド、黒のロングソックス)が<strong>複数のバッチで一致</strong>しています。この日の背番号のうち、名簿と照合して安心して実名を出せるのは、やっさん(23番)とやまさん(58番)くらいです(6番と12番の事情は「6. 気づき・ハプニング」に書きます)。</p>
     <p>選んだ理由は、<strong>技術と場の運営の両方で関与量が突出している</strong>ことです。</p>
@@ -265,6 +322,11 @@
       <li>21:00:22 — カメラ手前で低く沈み、ボールの正面に体を入れてのアンダー処理。終盤の記録の中で最も良いレシーブの体勢。</li>
       <li>20:38:44 / 20:39:43 — <strong>この日はっきり確認できた数少ない「二人ブロック」の起点</strong>が、どちらもやっさん。斜め後ろの黒シャツの選手が内側に寄り、二人とも両腕を上げて跳べている。</li>
     </ul>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2191s" target="_blank" rel="noopener">
+      <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">36:31</span>20:38:44 の二人ブロック。緑シャツ「23」がやっさん</span>
+    </a>
 
     <h3>場の運営</h3>
     <ul>
@@ -317,6 +379,11 @@
       <li><strong>20:59:47</strong> — 左コート奥のあきが<strong>口を大きく開けて声を上げ、両腕を前に出している。</strong></li>
       <li><strong>20:59:50</strong> — 左コートでかえでくんの肩に味方が手をかけている。称え合う形。</li>
     </ul>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=3452s" target="_blank" rel="noopener">
+      <img src="shots/best-play.jpg" alt="ネット際で跳ぶ選手と、打つ体勢に入った選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">57:32</span>20:59:45。左コートのブロックと、右コートで打つ体勢に入った選手</span>
+    </a>
     <p><strong>なぜこれがこの日の白眉なのか。</strong>この1時間を通じて、Drop の課題は一貫して「つなぎは上がるが攻撃の形にならない」「ブロックは一人・しかも片腕」でした。区間121は、<strong>その両方が同時に解けた唯一に近いラリー</strong>です。真下に入ったレシーブ、オーバーでのセット、両腕を揃えて正面から跳んだブロック、そして決まった直後の共有。評価観点の「良い」が3つ重なっています。</p>
     <p>ただし、<strong>跳んだのはやはり1人だけ</strong>です。20:59:44 のコマでは左コートのネット際に2人が並んでいたので、二人で跳ぶ時間はあったように見えます。結果的に1枚で仕留めていますが、「二人で対応できているか」という観点では、まだ届いていません。また、跳んだ選手がかえでくんか NEWERA シャツの選手かは、ブレていて特定できませんでした。</p>
     <p><strong>なお、盛り上がり度は基本的に当てになりません。</strong>同じ日の区間113(値98)は8秒間ラリーが一度も起きず、選手がネット越しに立ち話をしていただけでした。区間58(値90)は完全な休憩で、コートを歩いているだけ。区間91(値56)は無人のコート。逆に区間98(値19)は15秒続いたラリーでした。この指標は音量と動きの量を拾っているだけで、<strong>値が高い区間の中にたまに本物が混ざっている</strong>、というのが正確な言い方です。区間121は、その「たまに」に当たりました。</p>
@@ -392,6 +459,11 @@
       <li><strong>20:11:56 → 20:11:57</strong> — 右コートの黒シャツの選手が両腕を頭上に伸ばしてオーバーでトス、直後に赤青チェックのハーフパンツの選手がネットより明らかに上の打点で叩いた。<strong>トス→アタックの連携としては、この日の理想形に近い。</strong></li>
       <li><strong>20:59:44</strong> — 12番のオーバーでのセット(区間121)。</li>
     </ul>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=584s" target="_blank" rel="noopener">
+      <img src="shots/toss-good.jpg" alt="ネットから離れた位置に上がったボールへ跳び込む選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">9:44</span>20:11:57。トスがネットから離れており、詰まらずに振り切れている</span>
+    </a>
     <p><strong>悪い側の典型</strong>は 20:20:21 で、<strong>ネットに近すぎる位置でボールを扱った</strong>結果、6秒後の 20:20:27 にボールがネット直下の床に転がっています。つなぎがネット際で潰れた形。20:56:00 では、つなぎが味方の攻撃に使える高さ・位置ではなく<strong>コート左へ逃げて</strong>いきました。</p>
     <p>そして最大の問題は次項と地続きです。<strong>多くの場合、トスの前に「上げすぎたつなぎ」があります。</strong></p>
 
@@ -456,6 +528,11 @@
     <p><strong>124区間を通じて、クイックを狙った動きは一度も確認できませんでした。</strong></p>
     <p>これは特定のバッチの見落としではありません。batch-01(「この10区間では一度も確認できなかった」)、batch-04(「この15区間でも一度も確認できなかった」)、batch-05(「クイックを狙った動きも同様にゼロ」)、batch-07(「クイックを狙った動きも確認できなかった」)、batch-08(「一度も見られない」)、batch-09(「この17区間でも一度も確認できなかった」)と、<strong>担当者が入れ替わっても同じ結論</strong>です。</p>
     <p>kenboh の観点は「良い/悪い」ではなく「<strong>トライしているか / していない</strong>」でした。その基準で言えば、<strong>この日は「トライしていない」</strong>というのが記録から出る答えです。セッターとの呼吸以前に、短い助走で踏み込む動作そのものがコマに残っていません。</p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2013s" target="_blank" rel="noopener">
+      <img src="shots/quick-base.jpg" alt="全員が上を向いているが、ボールは画面の外にある" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">33:33</span>20:35:46。ボールが高く上がりすぎて画面の外。この高さではクイックは成立しない</span>
+    </a>
 
     <h3>7-2. 戦術・フォーメーション</h3>
 
@@ -538,6 +615,11 @@
     </ul>
     <p>悔しさの表現と読めるコマもあります(20:19:19 と 20:59:02 の「両手を頭に当てる」、20:20:45 の「膝に手をついてうつむく」、20:42:17 と 21:00:11 の「両腕を大きく横に広げる」)。ただし<strong>疲れ・髪を直す・息を整えるといった動作と区別がつかず、断定できません。</strong>いずれの場合も、直後には全員が位置に戻っており、引きずってはいません。</p>
     <p><strong>この日、いちばん明確に「良い」と言える観点はここです。</strong></p>
+    <a class="shot" href="https://www.youtube.com/watch?v=s8C9jfAcxgo&amp;t=2000s" target="_blank" rel="noopener">
+      <img src="shots/team-mood.jpg" alt="左コートの4人が中央に集まって手を合わせている" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">33:20</span>20:35:33。得点のあと、左コートの4人が中央に集まる</span>
+    </a>
 
     <h4>タイム(タイムアウト)</h4>
     <p><strong>公式試合中のタイムアウトに当たる場面はありません。</strong>内部練習なので当然です。</p>
