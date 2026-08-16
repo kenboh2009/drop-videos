@@ -101,13 +101,6 @@
     letter-spacing: 0.04em;
   }
 
-  .hero-note {
-    max-width: 46ch;
-    color: var(--ink-muted);
-    font-size: 13.5px;
-    margin-top: 4px;
-  }
-
   main {
     display: flex;
     flex-direction: column;
@@ -261,7 +254,17 @@
   .chip svg { width: 14px; height: 14px; flex-shrink: 0; }
   .chip.video svg { color: var(--accent); }
   .chip.photo svg { color: var(--ink-muted); }
-  .chip.review svg { color: var(--accent); }
+
+  /* 講評は動画とは性質が違う(読み物)ので、塗りつぶして明確に分ける。 */
+  .chip.review {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .chip.review svg { color: var(--accent-contrast); }
+  .chip.review:hover { border-color: var(--accent); opacity: .88; }
 
   .empty {
     color: var(--ink-muted);
@@ -369,7 +372,6 @@
     Drop
   </h1>
   <div class="team-sub">ソフトバレーチーム 動画・写真リンク集</div>
-  <p class="hero-note">練習・大会の動画(YouTube)と写真(Google Photos)をまとめています。</p>
 </header>
 
 <div class="wrap">
@@ -402,17 +404,17 @@
     { date: "2026/08/08", label: "くぬぎ台小学校 道場破り錬", videos: [{ name: "動画", id: "xZiFJFsI5cE" }] },
     { date: "2026/08/01", label: "Drop錬", videos: [{ name: "動画", id: "7jHipM13_IE" }] },
     { date: "2026/07/25", label: "練習", review: "kouhyou/20260725.html",
-      videos: [{ name: "Falcon", id: "s8C9jfAcxgo" }, { name: "GoPro", id: "EijMzowXRkw" }] },
-    { date: "2026/07/18", label: "練習", videos: [{ name: "Falcon", id: "8hG5M69iUE4" }] },
-    { date: "2026/07/11", label: "練習", videos: [{ name: "Falcon", id: "gVxT2RqwOx8" }] },
-    { date: "2026/07/04", label: "練習", videos: [{ name: "Falcon", id: "vR3vXw5qlLs" }] },
-    { date: "2026/06/20", label: "練習", videos: [{ name: "Falcon", id: "wlIHaKx_Pao" }] },
-    { date: "2026/06/13", label: "練習", videos: [{ name: "Falcon", id: "6af5_sazj8o" }] },
+      videos: [{ name: "メイン動画", id: "s8C9jfAcxgo" }, { name: "サブ動画", id: "EijMzowXRkw" }] },
+    { date: "2026/07/18", label: "練習", videos: [{ name: "動画", id: "8hG5M69iUE4" }] },
+    { date: "2026/07/11", label: "練習", videos: [{ name: "動画", id: "gVxT2RqwOx8" }] },
+    { date: "2026/07/04", label: "練習", videos: [{ name: "動画", id: "vR3vXw5qlLs" }] },
+    { date: "2026/06/20", label: "練習", videos: [{ name: "動画", id: "wlIHaKx_Pao" }] },
+    { date: "2026/06/13", label: "練習", videos: [{ name: "動画", id: "6af5_sazj8o" }] },
     { date: "2026/06/06", label: "練習(こもりんの誕生日)",
       videos: [
-        { name: "Falcon", id: "1u3BuIMz8L0" },
-        { name: "GoPro①", id: "G_1MAtVyERM" },
-        { name: "GoPro②", id: "9eJMYOJFfyA" },
+        { name: "メイン動画", id: "1u3BuIMz8L0" },
+        { name: "サブ動画①", id: "G_1MAtVyERM" },
+        { name: "サブ動画②", id: "9eJMYOJFfyA" },
         { name: "誕生日・じゃんけん", id: "U9L0rN6fII0" }
       ] }
   ];
