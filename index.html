@@ -269,6 +269,17 @@
     padding: 24px 4px;
   }
 
+  /* けんぴーHP でだけ開ける管理画面へのリンク。目立たせる必要はない。 */
+  .admin-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-size: 11.5px;
+    opacity: .55;
+  }
+  .admin-link:hover { opacity: 1; color: var(--accent); }
+
   footer {
     max-width: 760px;
     margin: 40px auto 0;
@@ -303,7 +314,10 @@
   <main id="app"></main>
 </div>
 
-<footer>随時更新 · このページのURLをチームで共有してご利用ください<br><span id="updated"></span></footer>
+<footer>随時更新 · このページのURLをチームで共有してご利用ください<br><span id="updated"></span>
+  <!-- 管理画面はけんぴーHPの中だけで動いている。他の人が押しても何も表示されない。 -->
+  <br><a class="admin-link" href="http://localhost:8787" target="_blank" rel="noopener">管理</a>
+</footer>
 
 <script>
   const iconVideo = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"></circle><path d="M10 8.5L16 12L10 15.5V8.5Z" fill="currentColor" stroke="none"></path></svg>';
