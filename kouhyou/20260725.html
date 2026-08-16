@@ -340,6 +340,44 @@
   }
 
   .shot-note { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
+  /* --- ページの中で再生するプレーヤー --- */
+  .player-box {
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: #000;
+  }
+  .player-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .player-box .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .player-box .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .player-out {
+    display: block;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    text-decoration: none;
+    border-top: 1px solid var(--line);
+  }
+  .player-out:hover { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -589,6 +627,69 @@
 </div>
 
 <footer>Drop ソフトバレーチーム · このページのURLをチームで共有してご利用ください</footer>
+
+<script>
+// 写真や時刻を押したとき、YouTube へ移動せず、その場で再生する。
+//
+// Android(Pixel)では、ブラウザから YouTube へ遷移すると自動再生が端末側で
+// 止められ、毎回 再生ボタンを押す必要があった。ページ内に埋め込めば、
+// 押した動作そのものが「利用者の操作」になるので、そのまま再生が始まる。
+//
+// もとのリンクはそのまま置いてあるので、この処理が動かない環境でも
+// これまでどおり YouTube が開く。
+(function () {
+  var parse = function (href) {
+    var m = href.match(/youtu\.be\/([\w-]+)\?t=(\d+)/);
+    return m ? { id: m[1], t: m[2] } : null;
+  };
+
+  var makeBox = function (v) {
+    var box = document.createElement("div");
+    box.className = "player-box";
+
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube.com/embed/" + v.id +
+            "?start=" + v.t + "&autoplay=1&rel=0&playsinline=1";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    box.appendChild(f);
+
+    // 埋め込みが拒否されたときのために、YouTube で開く道も残しておく。
+    var esc = document.createElement("a");
+    esc.className = "player-out";
+    esc.href = "https://youtu.be/" + v.id + "?t=" + v.t;
+    esc.target = "_blank";
+    esc.rel = "noopener";
+    esc.textContent = "うまく映らないときは YouTube で開く →";
+    box.appendChild(esc);
+
+    return box;
+  };
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="youtu.be"]') : null;
+    if (!a || a.classList.contains("player-out")) return;
+    var v = parse(a.getAttribute("href"));
+    if (!v) return;
+    e.preventDefault();
+
+    var box = makeBox(v);
+
+    if (a.classList.contains("shot")) {
+      // 写真そのものをプレーヤーに置き換える。説明文は残す。
+      var cap = a.querySelector(".cap");
+      if (cap) box.appendChild(cap.cloneNode(true));
+      a.replaceWith(box);
+    } else {
+      // 本文中の時刻。その段落の直後に出して、そこまで画面を送る。
+      var host = a.closest("p, li") || a.parentElement;
+      host.after(box);
+      box.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
