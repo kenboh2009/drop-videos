@@ -269,6 +269,68 @@
     padding: 24px 4px;
   }
 
+  /* --- 練習(日ごとに開く) --- */
+  details.practice {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  details.practice > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  details.practice > summary::-webkit-details-marker { display: none; }
+  details.practice > summary:hover { background: var(--surface-2); }
+
+  .practice-title { font-size: 15.5px; font-weight: 700; }
+  .practice-count { color: var(--ink-muted); font-size: 13px; }
+
+  /* 開閉の矢印 */
+  .caret {
+    margin-left: auto;
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: transform 0.15s ease;
+  }
+  .caret svg { width: 16px; height: 16px; display: block; }
+  details.practice[open] .caret { transform: rotate(90deg); }
+
+  .day-list { border-top: 1px solid var(--line); }
+
+  .day {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .day:last-child { border-bottom: none; }
+  .day:hover { background: var(--surface-2); }
+
+  .day-text {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  .day-label { font-size: 14.5px; font-weight: 600; }
+
+  .day .links { flex-wrap: wrap; }
+  .day .chip { padding: 5px 11px; font-size: 12.5px; }
+
+  @media (max-width: 480px) {
+    .day { flex-direction: column; align-items: flex-start; }
+    .day .links { width: 100%; }
+  }
+
   /* けんぴーHP でだけ開ける管理画面へのリンク。目立たせる必要はない。 */
   .admin-link {
     display: inline-block;
@@ -332,10 +394,31 @@
     { date: "2026/07/25", title: "練習 講評", review: "kouhyou/20260725.html" }
   ];
 
+  // Drop!練習。常設コレクションから独立させ、練習日ごとに選べるようにしたもの。
+  // 同じ日に複数のカメラ(Falcon = XBotGo の定点、GoPro など)がある日は動画を並べる。
+  const practicePlaylist = "https://www.youtube.com/playlist?list=PLUTpvcTnAowdnav0_-O7P8cx_rl_SJqYq";
+
+  const practiceDays = [
+    { date: "2026/08/08", label: "くぬぎ台小学校 道場破り錬", videos: [{ name: "動画", id: "xZiFJFsI5cE" }] },
+    { date: "2026/08/01", label: "Drop錬", videos: [{ name: "動画", id: "7jHipM13_IE" }] },
+    { date: "2026/07/25", label: "練習", review: "kouhyou/20260725.html",
+      videos: [{ name: "Falcon", id: "s8C9jfAcxgo" }, { name: "GoPro", id: "EijMzowXRkw" }] },
+    { date: "2026/07/18", label: "練習", videos: [{ name: "Falcon", id: "8hG5M69iUE4" }] },
+    { date: "2026/07/11", label: "練習", videos: [{ name: "Falcon", id: "gVxT2RqwOx8" }] },
+    { date: "2026/07/04", label: "練習", videos: [{ name: "Falcon", id: "vR3vXw5qlLs" }] },
+    { date: "2026/06/20", label: "練習", videos: [{ name: "Falcon", id: "wlIHaKx_Pao" }] },
+    { date: "2026/06/13", label: "練習", videos: [{ name: "Falcon", id: "6af5_sazj8o" }] },
+    { date: "2026/06/06", label: "練習(こもりんの誕生日)",
+      videos: [
+        { name: "Falcon", id: "1u3BuIMz8L0" },
+        { name: "GoPro①", id: "G_1MAtVyERM" },
+        { name: "GoPro②", id: "9eJMYOJFfyA" },
+        { name: "誕生日・じゃんけん", id: "U9L0rN6fII0" }
+      ] }
+  ];
+
   const evergreen = [
-    { title: "2026/07/25 練習", video: "https://www.youtube.com/watch?v=uUSaTvW0PjQ" },
     { title: "Drop女子ファインプレー集", video: "https://www.youtube.com/watch?v=J0OW8JrcjIY" },
-    { title: "Drop!練習", video: "https://www.youtube.com/playlist?list=PLUTpvcTnAowdnav0_-O7P8cx_rl_SJqYq", thumb: "thumbs/ev-00.jpg" },
     { title: "Drop公式試合ファインプレー集", video: "https://www.youtube.com/playlist?list=PLG93nQ7O-WOo", thumb: "thumbs/ev-01.jpg" },
     { title: "Drop!合宿", video: "https://www.youtube.com/playlist?list=PLJ7pCa6M_-j8", photo: "https://photos.app.goo.gl/mkm8Eg88DwBsZaMs7", thumb: "thumbs/ev-02.jpg" },
     { title: "Drop25thyear", photo: "https://photos.app.goo.gl/25v6etQ6R7iLJDyF9" }
@@ -384,6 +467,42 @@
     `;
   }
 
+  const iconCaret = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg>';
+
+  // 練習日ひとつぶん。動画が複数あるときはカメラごとに並べる。
+  function day(d) {
+    const links = d.videos
+      .map((v) => chip(v.name, `https://www.youtube.com/watch?v=${v.id}`, "video"))
+      .join("") + (d.review ? chip("講評を読む", d.review, "review") : "");
+    return `
+      <div class="day">
+        <div class="day-text">
+          <span class="card-date">${d.date}</span>
+          <span class="day-label">${d.label}</span>
+        </div>
+        <div class="links">${links}</div>
+      </div>
+    `;
+  }
+
+  function practiceBlock() {
+    return `
+      <details class="practice">
+        <summary>
+          <img class="thumb" src="thumbs/ev-00.jpg" alt="" loading="lazy">
+          <span class="practice-title">Drop!練習</span>
+          <span class="practice-count">${practiceDays.length}回ぶん</span>
+          <span class="caret">${iconCaret}</span>
+        </summary>
+        <div class="day-list">${practiceDays.map(day).join("")}</div>
+      </details>
+      <p class="empty" style="padding:10px 4px 0; font-size:13px">
+        再生リストをまとめて開く場合は
+        <a href="${practicePlaylist}" target="_blank" rel="noopener">こちら</a>。
+      </p>
+    `;
+  }
+
   // 大会・試合記録に含まれる年を新しい順に集める
   const years = [...new Set(events.map((e) => e.date.slice(0, 4)))].sort().reverse();
   let activeYear = "all";
@@ -396,13 +515,20 @@
     return `<div class="filter-bar">${buttons}<span class="filter-count">${shown}件</span></div>`;
   }
 
-  function render() {
+  function eventsInner() {
     const shownEvents = activeYear === "all" ? events : events.filter((e) => e.date.startsWith(activeYear));
     const eventList = shownEvents.length
       ? `<div class="card-list">${shownEvents.map(card).join("")}</div>`
       : `<p class="empty">この年の記録はまだありません。</p>`;
+    return filterBar() + eventList;
+  }
 
+  function render() {
     document.getElementById("app").innerHTML = `
+      <section>
+        <h2 class="group-title">練習</h2>
+        ${practiceBlock()}
+      </section>
       <section>
         <h2 class="group-title">講評</h2>
         <div class="card-list">${reviews.map(card).join("")}</div>
@@ -413,8 +539,7 @@
       </section>
       <section>
         <h2 class="group-title">大会・試合記録</h2>
-        ${filterBar()}
-        ${eventList}
+        <div id="events-body">${eventsInner()}</div>
       </section>
     `;
   }
@@ -423,13 +548,14 @@
     const btn = e.target.closest(".filter-btn");
     if (!btn) return;
     activeYear = btn.dataset.year;
-    render();
+    // 全体を描き直すと「Drop!練習」の開閉が閉じてしまうので、この節だけ入れ替える。
+    document.getElementById("events-body").innerHTML = eventsInner();
   });
 
   render();
 
   // 内容を更新したらこの日付も書き換える
-  document.getElementById("updated").textContent = "最終更新: 2026/08/14";
+  document.getElementById("updated").textContent = "最終更新: 2026/08/16";
 </script>
 
 </body>
