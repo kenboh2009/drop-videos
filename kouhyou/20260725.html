@@ -208,6 +208,18 @@
     margin: 40px 0 -4px;
   }
 
+  /* 本文中の時刻。押すとその少し前から YouTube が再生される。
+     壁時計(20:33:38)ではなく動画の再生位置(31:25)で書く。そのほうが探しやすい。 */
+  .card p a[href*="youtu.be"], .card li a[href*="youtu.be"] {
+    color: var(--accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .card p a[href*="youtu.be"]:hover, .card li a[href*="youtu.be"]:hover { opacity: .75; }
+
   /* --- MVP の顔写真 --- */
   .mvp-row { display: flex; align-items: center; gap: 16px; }
   .mvp-face {
@@ -436,8 +448,8 @@
       <img class="mvp-face" src="faces/aki.jpg" alt="あき">
       <div class="summary-value"><span class="mvp-name">あき</span></div>
     </div>
-    <p>決め手は 20:33:54 の<strong>バックトス</strong>です。後ろ向きに、見ていない側にいるやっさんへ正確に上げました。やっさんはそれを相手の正面ではなく<strong>右奥の空いたスペース</strong>へ打ち込んでいます。決めたのはやっさんですが、<strong>この得点を作ったのはあきのトスの精度</strong>でした。</p>
-    <p>声も出ています。20:33:38、20:36:44、20:51:37、20:59:47 と、口を大きく開けて声を上げている場面がこの日いちばん多く残っていました。</p>
+    <p>決め手は <a href="https://youtu.be/s8C9jfAcxgo?t=1893" target="_blank" rel="noopener">31:41</a> の<strong>バックトス</strong>です。後ろ向きに、見ていない側にいるやっさんへ正確に上げました。やっさんはそれを相手の正面ではなく<strong>右奥の空いたスペース</strong>へ打ち込んでいます。決めたのはやっさんですが、<strong>この得点を作ったのはあきのトスの精度</strong>でした。</p>
+    <p>声も出ています。<a href="https://youtu.be/s8C9jfAcxgo?t=1877" target="_blank" rel="noopener">31:25</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">34:31</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=2956" target="_blank" rel="noopener">49:24</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=3446" target="_blank" rel="noopener">57:34</a> と、口を大きく開けて声を上げている場面がこの日いちばん多く残っていました。</p>
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1893" target="_blank" rel="noopener">
       <img src="shots/aki-attack.jpg" alt="白いシャツの選手が腕を頭上に上げて後ろへ反っている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
@@ -474,7 +486,7 @@
 
   <h2 id="koe">声出し賞 — かずお</h2>
   <div class="card">
-    <p>20:36:44、<strong>かずおとあきの2人が同時に上を向いて口を開けています。</strong>この日いちばん明確な声掛けの証拠で、声を出している相方がはっきり写っているのはこの場面だけでした。</p>
+    <p><a href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">34:31</a>、<strong>かずおとあきの2人が同時に上を向いて口を開けています。</strong>この日いちばん明確な声掛けの証拠で、声を出している相方がはっきり写っているのはこの場面だけでした。</p>
     <p>声は静止画にいちばん写りにくいものです。実際にはもっと多くの人が出していたはずで、次回は音声からも拾えるようにします。</p>
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">
       <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
@@ -485,7 +497,7 @@
 
   <h2 id="chin">珍プレー賞 — カメラ持ち上げ事件</h2>
   <div class="card">
-    <p>20:24:33、ごく普通のゲームの最中に<strong>画面がまったく別の景色に切り替わりました。</strong>体育館の反対側の壁、肋木、別のバスケットゴール。誰かがカメラごと持ち上げて運んでいたのです。その手前をやっさんがヘアバンド姿で笑いながら歩いていきました。</p>
+    <p><a href="https://youtu.be/s8C9jfAcxgo?t=1332" target="_blank" rel="noopener">22:20</a>、ごく普通のゲームの最中に<strong>画面がまったく別の景色に切り替わりました。</strong>体育館の反対側の壁、肋木、別のバスケットゴール。誰かがカメラごと持ち上げて運んでいたのです。その手前をやっさんがヘアバンド姿で笑いながら歩いていきました。</p>
     <p>持ち上げた本人はカメラを持っているので写りません。犯人は今のところ不明です。</p>
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1339" target="_blank" rel="noopener">
       <img src="shots/camera.jpg" alt="体育館の別の場所が写っている" loading="lazy">
@@ -542,7 +554,7 @@
   <h2 id="kuuki">チームの空気</h2>
   <div class="card">
     <p>この1時間を通じて、<strong>失点のあとに下を向いたり黙り込んだりしているコマが一枚もありませんでした。</strong>悔しさを出しているように見える場面はいくつかありますが(頭に両手を当てる、膝に手をついてうつむく)、いずれも直後には全員が位置に戻っており、引きずっていません。</p>
-    <p>声もよく出ています。20:36:44 にはかずおとあきが同時に声を上げているのが写っており、そのほかにも口を大きく開けている場面が各所に残っていました。</p>
+    <p>声もよく出ています。<a href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">34:31</a> にはかずおとあきが同時に声を上げているのが写っており、そのほかにも口を大きく開けている場面が各所に残っていました。</p>
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">
       <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
@@ -552,8 +564,8 @@
 
   <h2 id="yokatta">良かったところ</h2>
   <div class="card">
-    <p><strong>得点のたびに手を合わせる習慣が、しっかり根づいています。</strong>20:34:40(左右のコートで同時)、20:35:33(左コートの4人が中央に集まって全員が笑顔)、20:36:47、20:38:08、20:49:30、20:53:21、20:59:19、21:00:29。内部練習でここまで揃うのは珍しいことです。</p>
-    <p>倒れた仲間のところへも自然と人が集まっていました(20:37:51、20:41:59)。休憩中にモップでコートを拭く人がいて、待ち時間に一人で手の形を確かめている人もいる。<strong>技術より先に、こちらのほうが外から見ていていちばん印象に残りました。</strong></p>
+    <p><strong>得点のたびに手を合わせる習慣が、しっかり根づいています。</strong><a href="https://youtu.be/s8C9jfAcxgo?t=1939" target="_blank" rel="noopener">32:27</a>(左右のコートで同時)、<a href="https://youtu.be/s8C9jfAcxgo?t=1992" target="_blank" rel="noopener">33:20</a>(左コートの4人が中央に集まって全員が笑顔)、<a href="https://youtu.be/s8C9jfAcxgo?t=2066" target="_blank" rel="noopener">34:34</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=2147" target="_blank" rel="noopener">35:55</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=2829" target="_blank" rel="noopener">47:17</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=3060" target="_blank" rel="noopener">51:08</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=3418" target="_blank" rel="noopener">57:06</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=3488" target="_blank" rel="noopener">58:16</a>。内部練習でここまで揃うのは珍しいことです。</p>
+    <p>倒れた仲間のところへも自然と人が集まっていました(<a href="https://youtu.be/s8C9jfAcxgo?t=2130" target="_blank" rel="noopener">35:38</a>、<a href="https://youtu.be/s8C9jfAcxgo?t=2378" target="_blank" rel="noopener">39:46</a>)。休憩中にモップでコートを拭く人がいて、待ち時間に一人で手の形を確かめている人もいる。<strong>技術より先に、こちらのほうが外から見ていていちばん印象に残りました。</strong></p>
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1992" target="_blank" rel="noopener">
       <img src="shots/team-mood.jpg" alt="左コートの4人が中央に集まって手を合わせている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
