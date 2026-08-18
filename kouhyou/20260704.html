@@ -130,15 +130,19 @@
   /* --- 要約段階(①)専用のスタイル --- */
   .stage-label {
     display: inline-block;
-    font-size: 12.5px;
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: .04em;
     color: var(--accent);
     background: var(--surface-2);
     border-radius: 999px;
-    padding: 4px 12px;
+    padding: 5px 16px;
     margin: 0 0 10px;
   }
+
+  /* MVP の冠 */
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
 
   .summary-card { padding: 18px 20px 22px; }
   .summary-item {
@@ -397,15 +401,11 @@
 
   <span class="stage-label">ダイジェスト</span>
 
-  <p class="shot-note" style="margin-bottom:14px">
-    どの行も押すと、下の詳細版へ飛びます。
-  </p>
-
   <div class="card summary-card">
     <a class="award" href="#mvp">
       <div class="award-faces"><img src="faces/ruki.jpg" alt="るき"></div>
       <div class="award-body">
-        <div class="award-label">MVP</div>
+        <div class="award-label"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP</div>
         <div class="award-who">るき</div>
         <div class="award-why">走り込んで打ち込んだ一本に、周りから声が上がった</div>
       </div>
@@ -487,7 +487,7 @@
 
   <span class="stage-label" style="margin-top:36px;">詳細版</span>
 
-  <h2 id="mvp">MVP — るき</h2>
+  <h2 id="mvp"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP — るき</h2>
   <div class="card">
     <div class="mvp-row" style="margin:16px 0 4px">
       <img class="mvp-face" src="faces/ruki.jpg" alt="るき">
@@ -497,7 +497,7 @@
     <a class="shot" href="https://youtu.be/vR3vXw5qlLs?t=3198" target="_blank" rel="noopener">
       <img src="shots0704/ruki-spike.jpg" alt="ネット際で跳んで打ち込む選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">53:18</span>後方から走り込んで打ち込むところ</span>
+      <span class="cap"><span class="at">53:26</span></span>
     </a>
     <p>他にも、<strong>アタック決定後のみんなとのハイタッチ、二枚ブロックへの対応</strong>などが光りました。</p>
   </div>
@@ -512,7 +512,7 @@
     <a class="shot" href="https://youtu.be/vR3vXw5qlLs?t=3197" target="_blank" rel="noopener">
       <img src="shots0704/yui-save.jpg" alt="上がったボールと、右から走り込む赤いシャツの選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">53:17</span>拾った球が上がり、るきが走り込んでくるところ</span>
+      <span class="cap"><span class="at">53:25</span></span>
     </a>
     <p>体から入った場面は、ほかにも
       <a href="https://youtu.be/vR3vXw5qlLs?t=3406" target="_blank" rel="noopener">56:54</a>、
@@ -547,7 +547,7 @@
     <a class="shot" href="https://youtu.be/vR3vXw5qlLs?t=2465" target="_blank" rel="noopener">
       <img src="shots0704/yuriko-save.jpg" alt="低い姿勢でボールに反応する選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">41:05</span>滑り込んで拾い、そこからトスへ</span>
+      <span class="cap"><span class="at">41:13</span></span>
     </a>
     <p>倒れ込んだ仲間のところへ真っ先に駆け寄る場面も
       <a href="https://youtu.be/vR3vXw5qlLs?t=3682" target="_blank" rel="noopener">1:01:22</a> にありました。</p>
@@ -563,7 +563,7 @@
     <a class="shot" href="https://youtu.be/vR3vXw5qlLs?t=5196" target="_blank" rel="noopener">
       <img src="shots0704/ohno-score.jpg" alt="ネット中央のポール脇に立つ選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">1:26:44</span>終盤、主審の位置に立っているところ</span>
+      <span class="cap"><span class="at">1:26:44</span></span>
     </a>
     <p>ソフトバレーでは、プレーしていないときに<strong>バレーの知識が高い人が審判を務めます。</strong>コートに立つのと同じくらい、試合を成り立たせている役割です。</p>
     <p>この日は
@@ -577,7 +577,7 @@
     <a class="shot" href="https://youtu.be/vR3vXw5qlLs?t=4993" target="_blank" rel="noopener">
       <img src="shots0704/yamasan-fall.jpg" alt="ネット際で崩れる選手と、周りの選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">1:23:13</span>膝から崩れたところ</span>
+      <span class="cap"><span class="at">1:23:21</span></span>
     </a>
     <p>転ぶのは、それだけ球に向かっているからでもあります。</p>
   </div>
@@ -589,7 +589,7 @@
     <a class="shot" href="https://youtu.be/vR3vXw5qlLs?t=2638" target="_blank" rel="noopener">
       <img src="shots0704/ohno-dive.jpg" alt="コート中央で飛び込む選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">44:06</span>追い上げの真ん中あたり</span>
+      <span class="cap"><span class="at">44:06</span></span>
     </a>
     <p><strong>点差が開いてからのほうが、動きが激しくなっていました。</strong>ゆきよの「頑張れ頑張れ！」が入るのも、ちょうどこの時間帯です。</p>
   </div>
@@ -648,15 +648,6 @@
     f.setAttribute("allowfullscreen", "");
     f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
     box.appendChild(f);
-
-    // 埋め込みが拒否されたときのために、YouTube で開く道も残しておく。
-    var esc = document.createElement("a");
-    esc.className = "player-out";
-    esc.href = "https://youtu.be/" + v.id + "?t=" + v.t;
-    esc.target = "_blank";
-    esc.rel = "noopener";
-    esc.textContent = "うまく映らないときは YouTube で開く →";
-    box.appendChild(esc);
 
     return box;
   };

@@ -130,15 +130,19 @@
   /* --- 要約段階(①)専用のスタイル --- */
   .stage-label {
     display: inline-block;
-    font-size: 12.5px;
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: .04em;
     color: var(--accent);
     background: var(--surface-2);
     border-radius: 999px;
-    padding: 4px 12px;
+    padding: 5px 16px;
     margin: 0 0 10px;
   }
+
+  /* MVP の冠 */
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
 
   .summary-card { padding: 18px 20px 22px; }
   .summary-item {
@@ -409,15 +413,11 @@
 
   <span class="stage-label">ダイジェスト</span>
 
-  <p class="shot-note" style="margin-bottom:14px">
-    どの行も押すと、下の詳細版へ飛びます。
-  </p>
-
   <div class="card summary-card">
     <a class="award" href="#mvp">
       <div class="award-faces"><img src="faces/aki.jpg" alt="あき"></div>
       <div class="award-body">
-        <div class="award-label">MVP</div>
+        <div class="award-label"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP</div>
         <div class="award-who">あき</div>
         <div class="award-why">やっさんへのバックトスが正確。この得点を作った一本。声かけも最多</div>
       </div>
@@ -492,7 +492,7 @@
 
   <span class="stage-label" style="margin-top:36px;">詳細版</span>
 
-  <h2 id="mvp">MVP — あき</h2>
+  <h2 id="mvp"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP — あき</h2>
   <div class="card">
     <div class="mvp-row" style="margin:16px 0 4px">
       <img class="mvp-face" src="faces/aki.jpg" alt="あき">
@@ -503,7 +503,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1893" target="_blank" rel="noopener">
       <img src="shots/aki-attack.jpg" alt="白いシャツの選手が腕を頭上に上げて後ろへ反っている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">31:33</span>20:33:54。白シャツの「8」があき。バックトスを上げているところ</span>
+      <span class="cap"><span class="at">31:41</span></span>
     </a>
   </div>
 
@@ -514,12 +514,12 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=3442" target="_blank" rel="noopener">
       <img src="shots/receive.jpg" alt="両腕を頭上に構えてボールの真下に入る選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">57:22</span>20:59:43。やまさんが落下点の真下に入る</span>
+      <span class="cap"><span class="at">57:30</span></span>
     </a>
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=3443" target="_blank" rel="noopener">
       <img src="shots/set.jpg" alt="黒い「12」のシャツの選手が頭の上で三角に構えている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">57:23</span>20:59:44。こもりんがオーバーで上げる</span>
+      <span class="cap"><span class="at">57:31</span></span>
     </a>
   </div>
 
@@ -530,7 +530,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2183" target="_blank" rel="noopener">
       <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">36:23</span>20:38:44。手前がやっさん、奥から寄っているのがかずお</span>
+      <span class="cap"><span class="at">36:31</span></span>
     </a>
   </div>
 
@@ -541,7 +541,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">
       <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">34:23</span>20:36:44。青いATHLETAがかずお、白があき</span>
+      <span class="cap"><span class="at">34:31</span></span>
     </a>
   </div>
 
@@ -552,7 +552,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1339" target="_blank" rel="noopener">
       <img src="shots/camera.jpg" alt="体育館の別の場所が写っている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">22:19</span>20:24:40 あたり。景色が入れ替わっている</span>
+      <span class="cap"><span class="at">22:27</span></span>
     </a>
   </div>
 
@@ -563,7 +563,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=3444" target="_blank" rel="noopener">
       <img src="shots/best-play.jpg" alt="ネット際で跳ぶ選手と、打つ体勢に入った選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">57:22</span>20:59:45。左コートの Kaede がブロックで決めたところ</span>
+      <span class="cap"><span class="at">57:32</span></span>
     </a>
   </div>
 
@@ -576,7 +576,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2183" target="_blank" rel="noopener">
       <img src="shots/block-two.jpg" alt="緑シャツと黒シャツの2人がネット際で並んで跳んでいる" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">36:23</span>20:38:44。手前がやっさん、奥から寄っているのがかずお</span>
+      <span class="cap"><span class="at">36:31</span></span>
     </a>
   </div>
 
@@ -587,7 +587,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=576" target="_blank" rel="noopener">
       <img src="shots/toss-good.jpg" alt="ネットから離れた位置に上がったボールへ跳び込む選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">9:36</span>20:11:57。りるのバックトスから、詰まらずに振り切れている</span>
+      <span class="cap"><span class="at">9:44</span></span>
     </a>
   </div>
 
@@ -597,7 +597,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2005" target="_blank" rel="noopener">
       <img src="shots/quick-base.jpg" alt="全員が上を向いているが、ボールは画面の外にある" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">33:25</span>20:35:46。ボールが画面の外まで高く上がっている。この高さがそろうと、クイックの土台ができる</span>
+      <span class="cap"><span class="at">33:33</span></span>
     </a>
   </div>
 
@@ -608,7 +608,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=2063" target="_blank" rel="noopener">
       <img src="shots/voice.jpg" alt="2人が同時に上を向いて口を開けている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">34:23</span>20:36:44。2人が同時に声を上げている</span>
+      <span class="cap"><span class="at">34:31</span></span>
     </a>
   </div>
 
@@ -619,7 +619,7 @@
     <a class="shot" href="https://youtu.be/s8C9jfAcxgo?t=1992" target="_blank" rel="noopener">
       <img src="shots/team-mood.jpg" alt="左コートの4人が中央に集まって手を合わせている" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">33:12</span>20:35:33。得点のあと、左コートの4人が中央に集まる</span>
+      <span class="cap"><span class="at">33:20</span></span>
     </a>
   </div>
 
@@ -665,15 +665,6 @@
     f.setAttribute("allowfullscreen", "");
     f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
     box.appendChild(f);
-
-    // 埋め込みが拒否されたときのために、YouTube で開く道も残しておく。
-    var esc = document.createElement("a");
-    esc.className = "player-out";
-    esc.href = "https://youtu.be/" + v.id + "?t=" + v.t;
-    esc.target = "_blank";
-    esc.rel = "noopener";
-    esc.textContent = "うまく映らないときは YouTube で開く →";
-    box.appendChild(esc);
 
     return box;
   };

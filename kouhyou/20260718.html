@@ -130,15 +130,19 @@
   /* --- 要約段階(①)専用のスタイル --- */
   .stage-label {
     display: inline-block;
-    font-size: 12.5px;
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: .04em;
     color: var(--accent);
     background: var(--surface-2);
     border-radius: 999px;
-    padding: 4px 12px;
+    padding: 5px 16px;
     margin: 0 0 10px;
   }
+
+  /* MVP の冠 */
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
 
   .summary-card { padding: 18px 20px 22px; }
   .summary-item {
@@ -397,15 +401,11 @@
 
   <span class="stage-label">ダイジェスト</span>
 
-  <p class="shot-note" style="margin-bottom:14px">
-    どの行も押すと、下の詳細版へ飛びます。
-  </p>
-
   <div class="card summary-card">
     <a class="award" href="#mvp">
       <div class="award-faces"><img src="faces/ruki.jpg" alt="るき"></div>
       <div class="award-body">
-        <div class="award-label">MVP</div>
+        <div class="award-label"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP</div>
         <div class="award-who">るき</div>
         <div class="award-why">ブロックの上から決めた一本に、50秒の歓声が続いた</div>
       </div>
@@ -457,7 +457,7 @@
 
   <span class="stage-label" style="margin-top:36px;">詳細版</span>
 
-  <h2 id="mvp">MVP — るき</h2>
+  <h2 id="mvp"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP — るき</h2>
   <div class="card">
     <div class="mvp-row" style="margin:16px 0 4px">
       <img class="mvp-face" src="faces/ruki.jpg" alt="るき">
@@ -467,7 +467,7 @@
     <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=3894" target="_blank" rel="noopener">
       <img src="shots0718/ruki-spike.jpg" alt="ネット際で跳んで打ち込む選手と、向かい側で腕を上げる選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">1:04:54</span>ブロックの上を越えて打ち込むところ</span>
+      <span class="cap"><span class="at">1:05:02</span></span>
     </a>
     <p><strong>この一本のあと、拍手と歓声が50秒続きます。</strong>この日いちばん長く沸いた場面でした。<strong>音を出して聞いてみてください。</strong></p>
   </div>
@@ -482,7 +482,7 @@
     <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=2743" target="_blank" rel="noopener">
       <img src="shots0718/yuriko-dive.jpg" alt="コートで選手が低く飛び込んでいる" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">45:43</span>飛び込んで拾ったところ</span>
+      <span class="cap"><span class="at">45:51</span></span>
     </a>
     <p>拾って終わりではなく、<strong>次につながる高さで上げられていた</strong>のが良いところです。</p>
   </div>
@@ -497,7 +497,7 @@
     <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=3152" target="_blank" rel="noopener">
       <img src="shots0718/uchi-kick.jpg" alt="低いボールに足を出す選手" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">52:32</span>足が出たところ</span>
+      <span class="cap"><span class="at">52:40</span></span>
     </a>
     <p>それでも<strong>とっさに足が出たのは、そこまで諦めていなかった</strong>ということです。</p>
   </div>
@@ -508,7 +508,7 @@
     <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=4142" target="_blank" rel="noopener">
       <img src="shots0718/katazuke.jpg" alt="ネットと床を片づける選手たち" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">1:09:02</span>片づけているところ</span>
+      <span class="cap"><span class="at">1:09:10</span></span>
     </a>
     <p>プレーではありませんが、<strong>この日を締めくくったのはこの場面</strong>でした。</p>
   </div>
@@ -554,15 +554,6 @@
     f.setAttribute("allowfullscreen", "");
     f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
     box.appendChild(f);
-
-    // 埋め込みが拒否されたときのために、YouTube で開く道も残しておく。
-    var esc = document.createElement("a");
-    esc.className = "player-out";
-    esc.href = "https://youtu.be/" + v.id + "?t=" + v.t;
-    esc.target = "_blank";
-    esc.rel = "noopener";
-    esc.textContent = "うまく映らないときは YouTube で開く →";
-    box.appendChild(esc);
 
     return box;
   };
