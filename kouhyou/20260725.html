@@ -69,8 +69,7 @@
     display: inline-flex; align-items: center; gap: 6px;
     color: var(--ink-muted); text-decoration: none;
     font-size: 14px; margin-bottom: 14px;
-  }
-  .back:hover { color: var(--accent); }
+  }@media (hover: hover) { .back:hover { color: var(--accent); } }
   .title {
     display: flex; align-items: center; gap: 12px;
     margin: 0; font-size: 27px; letter-spacing: .01em;
@@ -196,8 +195,7 @@
     padding: 16px 20px;
     border-radius: var(--radius);
     margin: 34px 0 8px;
-  }
-  .next-stage:hover { opacity: .9; }
+  }@media (hover: hover) { .next-stage:hover { opacity: .9; } }
   .next-stage-sub {
     text-align: center;
     color: var(--ink-muted);
@@ -221,8 +219,7 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     white-space: nowrap;
-  }
-  .card p a[href*="youtu.be"]:hover, .card li a[href*="youtu.be"]:hover { opacity: .75; }
+  }@media (hover: hover) { .card p a[href*="youtu.be"]:hover, .card li a[href*="youtu.be"]:hover { opacity: .75; } }
 
   /* --- MVP の顔写真 --- */
   .mvp-row { display: flex; align-items: center; gap: 16px; }
@@ -244,9 +241,7 @@
     text-decoration: none;
     color: inherit;
   }
-  .award:last-child { border-bottom: none; }
-  .award:hover { background: var(--surface-2); border-radius: 10px; }
-  .award:hover .award-go { color: var(--accent); transform: translateX(3px); }
+  .award:last-child { border-bottom: none; }@media (hover: hover) { .award:hover { background: var(--surface-2); border-radius: 10px; } }@media (hover: hover) { .award:hover .award-go { color: var(--accent); transform: translateX(3px); } }
 
   .award-faces { display: flex; flex-shrink: 0; }
   .award-faces img {
@@ -311,8 +306,7 @@
     border: 1px solid var(--line);
     background: var(--surface-2);
   }
-  .shot img { display: block; width: 100%; height: auto; }
-  .shot:hover { border-color: var(--accent); }
+  .shot img { display: block; width: 100%; height: auto; }@media (hover: hover) { .shot:hover { border-color: var(--accent); } }
 
   /* 再生の三角。写真の上に重ねる */
   .shot .play {
@@ -380,8 +374,7 @@
     background: var(--surface);
     text-decoration: none;
     border-top: 1px solid var(--line);
-  }
-  .player-out:hover { color: var(--accent); }
+  }@media (hover: hover) { .player-out:hover { color: var(--accent); } }
   /* ③④への導線。ボタンは目立ちすぎるので、ただのリンクにする(2026-08-18 kenboh) */
   .more-link {
     display: block;
@@ -391,8 +384,7 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     width: fit-content;
-  }
-  .more-link:hover { opacity: .75; }
+  }@media (hover: hover) { .more-link:hover { opacity: .75; } }
 
 </style>
 </head>

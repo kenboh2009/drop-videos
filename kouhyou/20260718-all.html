@@ -70,8 +70,7 @@
     display: inline-flex; align-items: center; gap: 6px;
     color: var(--ink-muted); text-decoration: none;
     font-size: 14px; margin-bottom: 14px;
-  }
-  .back:hover { color: var(--accent); }
+  }@media (hover: hover) { .back:hover { color: var(--accent); } }
   .title {
     display: flex; align-items: center; gap: 12px;
     margin: 0; font-size: 27px; letter-spacing: .01em;
@@ -132,8 +131,7 @@
   .back-links .back { margin-bottom:0; }
 
   .totoc { margin: 4px 0 20px; }
-  .totoc a { color: var(--ink-muted); text-decoration:none; font-size:13px; }
-  .totoc a:hover { color: var(--accent); }
+  .totoc a { color: var(--ink-muted); text-decoration:none; font-size:13px; }@media (hover: hover) { .totoc a:hover { color: var(--accent); } }
 
   h4 { font-size:15.5px; margin:24px 0 4px; color: var(--ink); }
   h5 { font-size:13.5px; margin:16px 0 2px; color: var(--ink-muted); font-weight:700; }
@@ -152,8 +150,7 @@
     min-width:30px; height:26px; padding:0 6px;
     background: var(--surface-2); border-radius:6px;
     color: var(--ink-muted); text-decoration:none; font-size:12.5px;
-  }
-  .index-grid a:hover { background: var(--accent); color: var(--accent-contrast); }
+  }@media (hover: hover) { .index-grid a:hover { background: var(--accent); color: var(--accent-contrast); } }
 
   .meta-badge {
     display:inline-block; font-size:12px; color: var(--ink-muted);
@@ -177,8 +174,7 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     white-space: nowrap;
-  }
-  .card p a[href*="youtu.be"]:hover, .card li a[href*="youtu.be"]:hover, td a[href*="youtu.be"]:hover { opacity: .75; }
+  }@media (hover: hover) { .card p a[href*="youtu.be"]:hover, .card li a[href*="youtu.be"]:hover, td a[href*="youtu.be"]:hover { opacity: .75; } }
 
   .player-box {
     margin: 12px 0;
