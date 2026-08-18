@@ -808,7 +808,7 @@
 
 </div>
 
-<footer>Drop ソフトバレーチーム · このページのURLをチームで共有してご利用ください</footer>
+<footer>Drop ソフトバレーチーム · このページのURLをチームで共有してご利用ください · <span id="ver">版 2026-08-18b</span></footer>
 
 <script>
 // 写真や時刻を押したとき、YouTube へ移動せず、その場で再生する。
@@ -861,6 +861,11 @@
       box.scrollIntoView({ block: "center", behavior: "smooth" });
     }
   });
+
+  // スクリプトが動いていることを、版の印の色で示す。
+  // 端末に古いページが残っていると、ここが色付きにならない。
+  var ver = document.getElementById("ver");
+  if (ver) { ver.style.color = "#1f9d55"; ver.textContent += " ・その場再生 有効"; }
 })();
 </script>
 
