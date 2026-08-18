@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drop 練習講評 — 2026年6月13日</title>
+<link rel="icon" href="../assets/drop-icon.jpg">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="ソフトバレーチームDropの練習講評(2026年6月13日)">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0F4;
+    --ink: #16202B;
+    --ink-muted: #5B6B78;
+    --accent: #E2572B;
+    --accent-contrast: #FFFFFF;
+    --line: #D7E0E6;
+    --radius: 14px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10171F;
+      --surface: #17212B;
+      --surface-2: #1D2833;
+      --ink: #EAF1F6;
+      --ink-muted: #93A4B2;
+      --accent: #FF7A4D;
+      --accent-contrast: #17212B;
+      --line: #2A3742;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10171F;
+    --surface: #17212B;
+    --surface-2: #1D2833;
+    --ink: #EAF1F6;
+    --ink-muted: #93A4B2;
+    --accent: #FF7A4D;
+    --accent-contrast: #17212B;
+    --line: #2A3742;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.85;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
+
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 18px 22px;
+    margin-bottom: 26px;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink-muted); text-decoration: none;
+    font-size: 14px; margin-bottom: 14px;
+  }
+  .back:hover { color: var(--accent); }
+  .title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0; font-size: 27px; letter-spacing: .01em;
+  }
+  .title img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .subtitle { color: var(--ink-muted); font-size: 15px; margin-top: 8px; }
+
+  .note {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 13px 16px;
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    margin: 0 0 26px;
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 42px 0 4px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--accent);
+  }
+  h3 { font-size: 17px; margin: 30px 0 2px; color: var(--accent); }
+
+  p { margin: 14px 0; }
+  ol, ul { padding-left: 1.3em; margin: 14px 0; }
+  li { margin: 10px 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 4px 20px 20px;
+    margin: 18px 0;
+  }
+
+  .sign {
+    margin-top: 44px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted); font-size: 15px;
+  }
+
+  footer {
+    text-align: center; color: var(--ink-muted);
+    font-size: 13px; padding: 26px 18px 40px;
+  }
+
+  @media (max-width: 480px) {
+    .title { font-size: 22px; }
+    .title img { width: 32px; height: 32px; }
+    h2 { font-size: 19px; }
+    .card { padding: 4px 15px 16px; }
+  }
+
+  /* --- 要約段階(①)専用のスタイル --- */
+  .stage-label {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--accent);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 5px 16px;
+    margin: 0 0 10px;
+  }
+
+  /* MVP の冠 */
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
+
+  .summary-card { padding: 18px 20px 22px; }
+  .summary-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-item:last-child { border-bottom: none; padding-bottom: 4px; }
+  .summary-item:first-child { padding-top: 4px; }
+  .summary-label {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .summary-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .summary-value .mvp-name { color: var(--accent); }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .chip {
+    display: inline-block;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 13px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .summary-value { font-size: 19px; }
+    .chip { font-size: 14.5px; padding: 7px 11px; }
+  }
+
+  /* --- ②から③への導線ボタン --- */
+  .next-stage {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: var(--accent-contrast) !important;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    margin: 34px 0 8px;
+  }
+  .next-stage:hover { opacity: .9; }
+  .next-stage-sub {
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 13px;
+    margin: 0 0 20px;
+  }
+
+  .stage-divider {
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 13px;
+    margin: 40px 0 -4px;
+  }
+
+  /* 本文中の時刻。押すとその少し前から YouTube が再生される。
+     壁時計ではなく動画の再生位置で書く。そのほうが探しやすい。 */
+  .card p a[href*="youtu.be"], .card li a[href*="youtu.be"] {
+    color: var(--accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .card p a[href*="youtu.be"]:hover, .card li a[href*="youtu.be"]:hover { opacity: .75; }
+
+  /* --- MVP の顔写真 --- */
+  .mvp-row { display: flex; align-items: center; gap: 16px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
+  /* --- ①の一覧。行ごと押せて、②の同じ見出しへ飛ぶ --- */
+  .award {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 6px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+  .award:last-child { border-bottom: none; }
+  .award:hover { background: var(--surface-2); border-radius: 10px; }
+  .award:hover .award-go { color: var(--accent); transform: translateX(3px); }
+
+  .award-faces { display: flex; flex-shrink: 0; }
+  .award-faces img {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+  }
+  /* 2人受賞のときは少し重ねる */
+  .award-faces img + img { margin-left: -14px; }
+
+  /* 人ではなく場面の行は、丸ではなく角丸にして見分けられるようにする */
+  .award-scene {
+    width: 58px; height: 58px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .award-none {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--surface-2);
+    border: 2px dashed var(--line);
+  }
+
+  .award-body { flex: 1; min-width: 0; }
+
+  /* 賞の名前。ここがいちばん目に入るようにする */
+  .award-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.45; }
+  .award-why { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* 「②へ飛べる」ことを示す矢印 */
+  .award-go {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: transform .12s ease, color .12s ease;
+  }
+  .award-go svg { width: 18px; height: 18px; display: block; }
+
+  @media (max-width: 480px) {
+    .award-label { font-size: 15.5px; }
+    .award-who { font-size: 17px; }
+    .award-faces img, .award-scene, .award-none { width: 48px; height: 48px; }
+  }
+
+  /* --- 場面の写真。押すと YouTube のその時刻から再生される --- */
+  .shot {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot:hover { border-color: var(--accent); }
+
+  /* 再生の三角。写真の上に重ねる */
+  .shot .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .shot .play span {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+
+  .shot .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .shot .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .shot-note { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
+  /* --- ページの中で再生するプレーヤー --- */
+  .player-box {
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: #000;
+  }
+  .player-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .player-box .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .player-box .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .player-out {
+    display: block;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    text-decoration: none;
+    border-top: 1px solid var(--line);
+  }
+  .player-out:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../">← 動画リンク集にもどる</a>
+    <h1 class="title">
+      <img src="../assets/drop-icon.jpg" alt="">
+      練習講評
+    </h1>
+    <div class="subtitle">2026年6月13日(土) 19:35〜20:43ごろ ・ 書き手: けんぴー(AI)</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <span class="stage-label">ダイジェスト</span>
+
+  <div class="card summary-card">
+    <a class="award" href="#mvp">
+      <div class="award-faces"><img src="faces/ruki.jpg" alt="りる"></div>
+      <div class="award-body">
+        <div class="award-label"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP</div>
+        <div class="award-who">りる</div>
+        <div class="award-why">3分半のあいだに2回、届かない距離へ飛び込んで拾った</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#fine">
+      <div class="award-faces"><img src="faces/yui.jpg" alt="ゆい"></div>
+      <div class="award-body">
+        <div class="award-label">ファインプレー賞</div>
+        <div class="award-who">ゆい</div>
+        <div class="award-why">この日3回の飛び込み、うち1本は16秒のラリーにつながった</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#age">
+      <div class="award-faces"><img src="faces/kazue.jpg" alt="かずえ"></div>
+      <div class="award-body">
+        <div class="award-label">上げたで賞</div>
+        <div class="award-who">かずえ</div>
+        <div class="award-why">落下点に走りきって面を作る同じ型の「上げ」が5例そろった</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#tsunaida">
+      <div class="award-faces"><img src="faces/mei.jpg" alt="めい"></div>
+      <div class="award-body">
+        <div class="award-label">つないだで賞</div>
+        <div class="award-who">めい</div>
+        <div class="award-why">ゲストながら2本の「上げ」がどちらもアタックにつながった</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#ennoshita">
+      <div class="award-faces"><img src="faces/yuriko.jpg" alt="ゆりこ"></div>
+      <div class="award-body">
+        <div class="award-label">縁の下の賞</div>
+        <div class="award-who">ゆりこ</div>
+        <div class="award-why">ラリーの最中も得点板の前を離れず、札をめくり続けた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#yasashisa">
+      <div class="award-faces"><img src="faces/yukiyo.jpg" alt="ゆきよ"></div>
+      <div class="award-body">
+        <div class="award-label">やさしさの賞</div>
+        <div class="award-who">ゆきよ</div>
+        <div class="award-why">倒れたかずえのもとへ真っ先に駆け寄り、助け起こした</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#accident">
+      <div class="award-faces"><img src="faces/ken.jpg" alt="けん"></div>
+      <div class="award-body">
+        <div class="award-label">アクシデント賞</div>
+        <div class="award-who">けん</div>
+        <div class="award-why">床に座り込んだところへ、7〜8人が集まって様子を見守った</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+  </div>
+
+  <div class="stage-divider">↓ もう少し詳しく読む ↓</div>
+
+  <span class="stage-label" style="margin-top:36px;">詳細版</span>
+
+  <h2 id="mvp"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP — りる</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/ruki.jpg" alt="りる">
+      <div class="summary-value"><span class="mvp-name">りる</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=2875" target="_blank" rel="noopener">48:03</a>。正面から来た低いボールへ迷わず飛び込み、<strong>きれいに拾いました。</strong></p>
+    <p>3分半後の<a href="https://youtu.be/fyTd9RkItXU?t=3076" target="_blank" rel="noopener">51:24</a>には、エンドライン際まで追いついて再び飛び込み、<strong>球は味方が打てる高さまで戻ってラリーが続きました。</strong></p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=3076" target="_blank" rel="noopener">
+      <img src="shots0613/ruki-dive.jpg" alt="コートの端で低く飛び込む選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">51:24</span></span>
+    </a>
+    <p><strong>3分半のあいだに2回、同じ迫力の飛び込みが決まっています。</strong>これだけの守備範囲を1試合の中で2度見せられるのは、この日の中でも際立っていました。</p>
+  </div>
+
+  <h2 id="fine">ファインプレー賞 — ゆい</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yui.jpg" alt="ゆい">
+      <div class="summary-value"><span class="mvp-name">ゆい</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=2780" target="_blank" rel="noopener">46:28</a>。フルレングスのダイブでボールに追いつきました。</p>
+    <p>続く<a href="https://youtu.be/fyTd9RkItXU?t=2857" target="_blank" rel="noopener">47:45</a>でも飛び込んで拾い、<strong>そこから16秒続くラリーの始まりになっています。</strong></p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=2857" target="_blank" rel="noopener">
+      <img src="shots0613/yui-dive.jpg" alt="コート上で体を伸ばして低いボールに飛び込む選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">47:45</span></span>
+    </a>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=3535" target="_blank" rel="noopener">59:03</a>にも3本目の飛び込み。<strong>この日は3回、毎回同じ勢いで飛び込んでいます。</strong></p>
+  </div>
+
+  <h2 id="age">上げたで賞 — かずえ</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/kazue.jpg" alt="かずえ">
+      <div class="summary-value"><span class="mvp-name">かずえ</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=3393" target="_blank" rel="noopener">56:41</a>。守っていた位置からわずかに逸れた球へ、体を投げ出して拾いました。</p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=3393" target="_blank" rel="noopener">
+      <img src="shots0613/kazue-dive.jpg" alt="低いボールへ体を伸ばして飛び込む選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">56:41</span></span>
+    </a>
+    <p>続く<a href="https://youtu.be/fyTd9RkItXU?t=3455" target="_blank" rel="noopener">57:43</a>と<a href="https://youtu.be/fyTd9RkItXU?t=3501" target="_blank" rel="noopener">58:29</a>でも、<strong>落下点に走りきってから面を作る同じ型の「上げ」</strong>を見せています。この日はこの型が5例そろいました。</p>
+    <p>次はネットとの距離がそろうと、<strong>さらに安定した上げになりそうです。</strong></p>
+  </div>
+
+  <h2 id="tsunaida">つないだで賞 — めい</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/mei.jpg" alt="めい">
+      <div class="summary-value"><span class="mvp-name">めい</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=3920" target="_blank" rel="noopener">65:28</a>と<a href="https://youtu.be/fyTd9RkItXU?t=3955" target="_blank" rel="noopener">66:03</a>、どちらも上げた球がそのままアタックにつながりました。</p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=3955" target="_blank" rel="noopener">
+      <img src="shots0613/mei-set.jpg" alt="ネット際で両手を高く上げてボールを送る選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">66:03</span></span>
+    </a>
+    <p><strong>この日はゲストとしての参加ですが、2本続けてチームの攻撃を支えています。</strong></p>
+  </div>
+
+  <h2 id="ennoshita">縁の下の賞 — ゆりこ</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yuriko.jpg" alt="ゆりこ">
+      <div class="summary-value"><span class="mvp-name">ゆりこ</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=2877" target="_blank" rel="noopener">48:05</a>。ラリーが続いているあいだも得点板の前を離れず、<strong>点が入った瞬間に札をめくっています。</strong></p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=2877" target="_blank" rel="noopener">
+      <img src="shots0613/yuriko-board.jpg" alt="得点板の前に立つ選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">48:05</span></span>
+    </a>
+    <p>目立つ役目ではありませんが、<strong>この係がいなければ得点板は動きません。</strong>プレーの合間もずっと持ち場を守っていました。</p>
+  </div>
+
+  <h2 id="yasashisa">やさしさの賞 — ゆきよ</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yukiyo.jpg" alt="ゆきよ">
+      <div class="summary-value"><span class="mvp-name">ゆきよ</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=3395" target="_blank" rel="noopener">56:43</a>。ダイビングレシーブで倒れたかずえのもとへ、<strong>真っ先に駆け寄って助け起こしました。</strong></p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=3395" target="_blank" rel="noopener">
+      <img src="shots0613/yukiyo-help.jpg" alt="床にいる選手のもとへ駆け寄る選手たち" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">56:43</span></span>
+    </a>
+    <p><strong>二人はそのまま並んで守備の位置へ戻り、</strong>プレーに戻っていきました。</p>
+  </div>
+
+  <h2 id="accident">アクシデント賞 — けん</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/ken.jpg" alt="けん">
+      <div class="summary-value"><span class="mvp-name">けん</span></div>
+    </div>
+    <p><a href="https://youtu.be/fyTd9RkItXU?t=2170" target="_blank" rel="noopener">36:18</a>。床に座り込み、しばらく動けない時間が続きました。<strong>7〜8人が集まり、「立てないですよね」の声も上がるほど心配されています。</strong></p>
+    <a class="shot" href="https://youtu.be/fyTd9RkItXU?t=2203" target="_blank" rel="noopener">
+      <img src="shots0613/ken-accident.jpg" alt="床にいる選手を囲んで心配そうに集まる選手たち" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">36:51</span></span>
+    </a>
+    <p>この状態は3分ほど続きました。<strong>これほど多くの人が駆け寄ったのは、この日の中でもここだけです。</strong>チームの近さが表れた場面でした。</p>
+  </div>
+
+  <h2 id="chin">珍プレー賞は今回は該当なし</h2>
+  <div class="card">
+    <p>音の沸いた場面もあわせて見比べましたが、<strong>今回は珍プレー賞に選ぶ場面が見つかりませんでした。</strong>次回はここもあらためて探してみます。</p>
+  </div>
+
+  <h2 id="mikokoro">この日の見どころ</h2>
+  <div class="card">
+    <p>この日の女性たちは、<strong>「上げる側」として特によく効いていました。</strong>両手を頭上に構えてから正面でボールを捉え、0.75〜1.0秒後に味方が跳ぶ形が、この日だけで6本そろっています。</p>
+    <p>そしてもうひとつ。<strong>全10班・約20分ぶんの観察を通じて、失点のあとにうつむいた人は0人でした。</strong>飛び込んで届かなかった選手も、その場で笑って次のプレーに備えていました。</p>
+  </div>
+
+  <div class="sign">
+    <p>次回を楽しみにしています。</p>
+    <p>けんぴー(AI)</p>
+  </div>
+
+</div>
+
+<footer>Drop ソフトバレーチーム · このページのURLをチームで共有してご利用ください · <span id="ver">版 2026-08-19</span></footer>
+
+
+<script>
+// 写真や時刻を押したとき、YouTube へ移動せず、その場で再生する。
+//
+// Android(Pixel)では、ブラウザから YouTube へ遷移すると自動再生が端末側で
+// 止められ、毎回 再生ボタンを押す必要があった。ページ内に埋め込めば、
+// 押した動作そのものが「利用者の操作」になるので、そのまま再生が始まる。
+//
+// もとのリンクはそのまま置いてあるので、この処理が動かない環境でも
+// これまでどおり YouTube が開く。
+(function () {
+  var parse = function (href) {
+    var m = href.match(/youtu\.be\/([\w-]+)\?t=(\d+)/);
+    return m ? { id: m[1], t: m[2] } : null;
+  };
+
+  var makeBox = function (v) {
+    var box = document.createElement("div");
+    box.className = "player-box";
+
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube.com/embed/" + v.id +
+            "?start=" + v.t + "&autoplay=1&rel=0&playsinline=1";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    box.appendChild(f);
+
+    return box;
+  };
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="youtu.be"]') : null;
+    if (!a || a.classList.contains("player-out")) return;
+    var v = parse(a.getAttribute("href"));
+    if (!v) return;
+    e.preventDefault();
+
+    var box = makeBox(v);
+
+    if (a.classList.contains("shot")) {
+      // 写真そのものをプレーヤーに置き換える。説明文は残す。
+      var cap = a.querySelector(".cap");
+      if (cap) box.appendChild(cap.cloneNode(true));
+      a.replaceWith(box);
+    } else {
+      // 本文中の時刻。その段落の直後に出して、そこまで画面を送る。
+      var host = a.closest("p, li") || a.parentElement;
+      host.after(box);
+      box.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  });
+
+  // スクリプトが動いていることを、版の印の色で示す。
+  // 端末に古いページが残っていると、ここが色付きにならない。
+  var ver = document.getElementById("ver");
+  if (ver) { ver.style.color = "#1f9d55"; ver.textContent += " ・その場再生 有効"; }
+})();
+</script>
+
+</body>
+</html>
