@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drop 練習講評(詳しい版) — 2026年7月18日</title>
+<link rel="icon" href="../assets/drop-icon.jpg">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="ソフトバレーチームDropの練習講評・詳しい版(2026年7月18日)">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0F4;
+    --ink: #16202B;
+    --ink-muted: #5B6B78;
+    --accent: #E2572B;
+    --accent-contrast: #FFFFFF;
+    --line: #D7E0E6;
+    --radius: 14px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10171F;
+      --surface: #17212B;
+      --surface-2: #1D2833;
+      --ink: #EAF1F6;
+      --ink-muted: #93A4B2;
+      --accent: #FF7A4D;
+      --accent-contrast: #17212B;
+      --line: #2A3742;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10171F;
+    --surface: #17212B;
+    --surface-2: #1D2833;
+    --ink: #EAF1F6;
+    --ink-muted: #93A4B2;
+    --accent: #FF7A4D;
+    --accent-contrast: #17212B;
+    --line: #2A3742;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.85;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
+
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 18px 22px;
+    margin-bottom: 26px;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; }
+  .back-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink-muted); text-decoration: none;
+    font-size: 14px;
+  }
+  .back:hover { color: var(--accent); }
+  .title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0; font-size: 27px; letter-spacing: .01em;
+  }
+  .title img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .subtitle { color: var(--ink-muted); font-size: 15px; margin-top: 8px; }
+  .meta-line { color: var(--ink-muted); font-size: 13.5px; margin-top: 4px; }
+
+  .note {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 13px 16px;
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    margin: 0 0 26px;
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 42px 0 4px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--accent);
+  }
+  h3 { font-size: 17px; margin: 30px 0 2px; color: var(--accent); }
+  h4 {
+    font-size: 15px;
+    margin: 22px 0 2px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  h4::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-right: 8px;
+  }
+
+  p { margin: 14px 0; }
+  ol, ul { padding-left: 1.3em; margin: 14px 0; }
+  li { margin: 10px 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 4px 20px 20px;
+    margin: 18px 0;
+  }
+
+  .quote {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 420px; font-size: 14px; }
+  th, td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: left; white-space: normal; }
+  th { background: var(--surface-2); color: var(--ink-muted); font-weight: 700; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+
+  .sign {
+    margin-top: 44px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted); font-size: 15px;
+  }
+
+  footer {
+    text-align: center; color: var(--ink-muted);
+    font-size: 13px; padding: 26px 18px 40px;
+  }
+
+  @media (max-width: 480px) {
+    .title { font-size: 22px; }
+    .title img { width: 32px; height: 32px; }
+    h2 { font-size: 19px; }
+    .card { padding: 4px 15px 16px; }
+  }
+
+  /* --- MVP の顔写真(①②と同じもの) --- */
+  .mvp-row { display: flex; align-items: center; gap: 16px; margin: 16px 0 4px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+  .mvp-face + .mvp-face { margin-left: -22px; }
+  .mvp-name { font-size: 22px; font-weight: 700; color: var(--accent); }
+
+  /* --- 場面の写真。押すと YouTube のその時刻から再生される --- */
+  .shot {
+    display: block;
+    position: relative;
+    margin-top: 12px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot:hover { border-color: var(--accent); }
+
+  .shot .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .shot .play span {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+
+  .shot .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .shot .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  /* 本文中の時刻。押すとその少し前から再生される。
+     壁時計ではなく動画の再生位置で書く。そのほうが探しやすい。 */
+  .card p a[href*="youtu.be"], .card li a[href*="youtu.be"], td a[href*="youtu.be"] {
+    color: var(--accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .card p a[href*="youtu.be"]:hover,
+  .card li a[href*="youtu.be"]:hover,
+  td a[href*="youtu.be"]:hover { opacity: .75; }
+
+  /* --- ページの中で再生するプレーヤー --- */
+  .player-box {
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: #000;
+  }
+  .player-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .player-box .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .player-box .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .player-out {
+    display: block;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    text-decoration: none;
+    border-top: 1px solid var(--line);
+  }
+  .player-out:hover { color: var(--accent); }
+  .more-link {
+    display: block;
+    margin: 34px 0 8px;
+    font-size: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    width: fit-content;
+  }
+  .more-link:hover { opacity: .75; }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="back-row">
+      <a class="back" href="20260718.html">← 要約にもどる</a>
+      <a class="back" href="../">← 動画リンク集にもどる</a>
+    </div>
+    <h1 class="title">
+      <img src="../assets/drop-icon.jpg" alt="">
+      練習講評(詳しい版)
+    </h1>
+    <div class="subtitle">2026年7月18日(土) 19:55〜21:05ごろ ・ 書き手: けんぴー(AI)</div>
+    <div class="meta-line">対象: 20260718 Falcon(XBotGo固定撮影、19:55:14開始 / 実測1時間9分39秒)</div>
+    <div class="meta-line">材料: 0.25秒間隔の静止画から作った163区間のうち86区間の観察記録(7つの時間帯に分担)・音声書き起こし(797キュー)</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="note">
+    これは<strong>詳しい版</strong>です。時刻・回数・根拠がすべて入っています。結論だけ知りたい方は
+    <a href="20260718.html">要約のページ</a>へどうぞ。
+  </p>
+
+  <h2>この講評の前提</h2>
+  <div class="card">
+    <p>この講評の前提を先に断っておきます。</p>
+    <ul>
+      <li>記録の元になっているのは<strong>0.25秒ごとの静止画</strong>です。「レシーブ」「トス」「アタック」「ブロック」といった動作の名前は、必ず前後のコマでボールの行き先を確かめてから付けており、確かめられなかった場合は「触れている」「反応している」のように<strong>動作の名前を決めない書き方</strong>にとどめています。</li>
+      <li><strong>この日は音声の書き起こしが使えました。</strong>797キューのうち、名簿の名前が出てきた回数は0回でしたが、拍手(15件)・歓声(13件)・笑い(10件)のタグや、「お疲れさまでした」「クイッ!」のような集団の掛け声、ドリルの合図(「3、2、1、行こう!」等)は、静止画だけでは分からない場面の雰囲気を補う材料として使えています。</li>
+      <li>ソフトバレーは<strong>4人制</strong>で、通常のバレーボールとはルールが異なります(特にオーバーネット)。6人制の常識で「反則」「配置が悪い」と断じないよう注意して書いています。</li>
+      <li>この動画は<strong>Dropの内部練習</strong>で、ネットの左右どちらもDropのメンバーです。対戦相手ではないため、全員が評価の対象です。</li>
+      <li><strong>攻撃が決まったかどうかは、可能な範囲で「次のサーブをどちらが打ったか」で確かめています。</strong>この方法で確かめられなかった場面は、「決まった」「失点した」と断定せず、起きたことだけを書いています。</li>
+      <li><strong>人を見分けた根拠(服装・髪型・靴の色など)は、このページのどこにも書きません。</strong>書いてよいのは、その人が何をしたかだけです。位置についても「画面の左」ではなく「ネットを挟んで左のコート」「コートの一番手前」のように、<strong>コートの構造で言う</strong>ようにしています。</li>
+      <li><strong>今回の観察は163区間のうち86区間(7つの時間帯)に限られています。</strong>残りの77区間は、今回の講評の材料にはなっていません。均等に見た結果ではなく、動きが多いと見立てられた時間帯を中心に割り当てられた範囲です。</li>
+    </ul>
+  </div>
+
+  <h2>1. 概要</h2>
+  <div class="card">
+    <p>2026年7月18日(土)、19:55:14 から 21:04:53 過ぎまでのおよそ1時間9分39秒。カメラは<strong>XBotGoの固定撮影</strong>(ボール追尾はオフ)で、7月4日よりカメラがやや後ろにあるぶん人物は小さく写ります。この日は<strong>163区間</strong>が切り出されており、今回はそのうち<strong>7つの時間帯・86区間</strong>を観察しました。</p>
+    <p>得点板は<strong>ステージ脇の黄色いフリップ式(手めくり式)</strong>で、この日は少なくとも4回、0-0からのリセットが確認できています。練習の中で複数のミニゲーム・ドリルが入れ替わっており、電光表示ではなく手めくりの板であるぶん、選手や得点係の体で片側の数字が隠れる区間が多くありました。分かっている範囲で、この日の流れを次のように読みました。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>時間帯</th><th>内容</th><th>手がかり</th></tr></thead>
+        <tbody>
+          <tr><td>19:55:14〜20:00:25</td><td>開始・アップ(今回は未観察)</td><td>-</td></tr>
+          <tr><td>20:00:25〜20:05:21</td><td>アップ/ドリルとみられる時間帯</td><td>得点板が両側そろって08→10→11→13→14→15と増える(連続本数のカウンターの可能性)</td></tr>
+          <tr><td>20:05:21〜20:25:50</td><td>(今回は未観察)</td><td>-</td></tr>
+          <tr><td>20:25:50〜20:30:17</td><td>ネット際の少人数ドリル(パス・トス回し)</td><td>片側だけの数字が00→04→08と増える。「フォーゲルと一緒にあげてみてください」等の反復メニューの掛け声</td></tr>
+          <tr><td>20:30:47ごろ</td><td>「1回目の試合です」の掛け声</td><td>音声(担当区間の直後)</td></tr>
+          <tr><td>20:30:17〜20:36:08</td><td>(今回は未観察)</td><td>-</td></tr>
+          <tr><td>20:36:08〜20:40:14</td><td>少人数の得点制ミニゲーム</td><td>得点板 02:00 → 08:05 と進む</td></tr>
+          <tr><td>20:40:20〜20:44:50</td><td>同ミニゲーム続き。<strong>20:41:05、ゆりこのダイビングレシーブ(守りの賞)</strong></td><td>得点板 09-?5 → 10-06 → 10-07 → 12-08 と進む</td></tr>
+          <tr><td>20:44:50〜20:45:49</td><td>(今回は未観察)</td><td>-</td></tr>
+          <tr><td>20:45:49〜20:50:20</td><td>「2分の1の試合です」の宣言で始まるミニゲーム。<strong>20:47:53ごろ、うっちーの珍プレー</strong></td><td>得点板 00-00 → 0?-07 と進み、右コートが優位に進める</td></tr>
+          <tr><td>20:50:20〜20:55:55</td><td>(今回は未観察)</td><td>-</td></tr>
+          <tr><td>20:55:55〜21:00:21</td><td>試合。63:06(20:58:20ごろ)「お疲れさまでした」の掛け合いで一区切り</td><td>得点板 00-00 → 04-08 と進む</td></tr>
+          <tr><td>21:00:29〜21:04:54</td><td><strong>新しいセット。21:00:08ごろ、るきのスパイクに50秒近い歓声(MVP)、21:00:16得点</strong></td><td>得点板 0-0 → 08-14 と進む</td></tr>
+          <tr><td>21:04:36〜21:04:53</td><td><strong>練習終了・片づけ(ゆきよ・やまさん)</strong></td><td>ネットのクランク操作・床のモップがけ</td></tr>
+          <tr><td>21:04:53過ぎ</td><td>動画終了</td><td>締めのナレーションと重なる</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>なお、機械的に測った「盛り上がり度」の<strong>この日の最高値(100)は動画内57:40〜58:45(実時刻20:52:54〜20:53:59)の区間</strong>に付いていますが、この時間帯は今回の7つの観察範囲に含まれておらず、<strong>中身がまだ分かっていません。</strong>55:06〜60:41のあいだ全体が今回は未観察のまま残っています。「盛り上がり度が高い=良いプレー」とは限らないことは6月13日の分析でも確認済みですが、今回の最高値の中身が不明である以上、この点についてはこの講評でも断定を避けます。</p>
+  </div>
+
+  <h2>2. 受賞</h2>
+  <div class="card">
+    <table>
+      <tr><th>賞</th><th>受賞</th><th>理由</th></tr>
+      <tr><td>MVP</td><td><strong>るき</strong></td><td>ブロックの上から決めた一本に、50秒の歓声が続いた</td></tr>
+      <tr><td>守りの賞</td><td><strong>ゆりこ</strong></td><td>飛び込んで拾った球が、そのまま得点になった</td></tr>
+      <tr><td>珍プレー賞</td><td><strong>うっちー</strong></td><td>手が届かない球に、とっさに足が出た</td></tr>
+      <tr><td>この日の締めくくり</td><td><strong>ゆきよ・やまさん</strong></td><td>最後はネットと床を、二人で手分けして片づけていた</td></tr>
+      <tr><td>また進化したで賞</td><td>次回から</td><td>この回はカメラ位置が違い、7月4日と同じ細かさで比較できなかった</td></tr>
+    </table>
+  </div>
+
+  <h3>MVP — るき</h3>
+  <div class="card">
+    <div class="mvp-row">
+      <img class="mvp-face" src="faces/ruki.jpg" alt="るき">
+      <div class="mvp-name">るき</div>
+    </div>
+    <p><strong><a href="https://youtu.be/8hG5M69iUE4?t=3894" target="_blank" rel="noopener">1:05:02</a></strong>。ネット際で高く跳び、<strong>相手のブロックの上から打ち込んで決めました。</strong></p>
+    <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=3894" target="_blank" rel="noopener">
+      <img src="shots0718/ruki-spike.jpg" alt="ネット際で跳んで打ち込む選手と、向かい側で腕を上げる選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:05:02</span></span>
+    </a>
+    <p>音声の書き起こしでは、このスパイクの直後(01:05:08ごろ)から拍手が始まり、01:05:20ごろから歓声、そのあとは音楽が重なりながら<strong>途切れずに続いています。</strong>得点そのものは<strong>21:00:16</strong>で、実際にネットの上から相手のブロックを越えて打ち込む場面が映像でも確認できています。この一連の歓声は、この日いちばん長く途切れずに続いたものでした。</p>
+    <p><strong>るきは、この日を通してネット際に関わり続けていました。</strong>単発の一撃ではなく、記録できただけでも次の場面があります。</p>
+    <ul>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=2497" target="_blank" rel="noopener">41:37</a></strong> — 女性の選手が低い姿勢で高く上げ直した直後、るきがネット際で跳んでアタックの体勢に入りました。この日の観察の中で、「高く上げたつなぎの直後に助走してアタックに入った」とはっきり確認できた数少ない例の一つです。</li>
+        <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=2806" target="_blank" rel="noopener">46:46</a></strong> — 得点板が動いていた時間帯、ネット際に立ち続けているのが確認できました。</li>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=2907" target="_blank" rel="noopener">48:27</a></strong> — コート内を機敏に動き、ネット際の接触とその後の追走に関わっていました。</li>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=3656" target="_blank" rel="noopener">1:00:56</a></strong> — ラリーの直後、チームメイトと両手を合わせて喜ぶ場面が確認できました。</li>
+      <li>MVPの得点があったセットの中でも、<strong><a href="https://youtu.be/8hG5M69iUE4?t=3920" target="_blank" rel="noopener">1:05:20</a></strong>、<strong><a href="https://youtu.be/8hG5M69iUE4?t=4010" target="_blank" rel="noopener">1:06:50</a></strong>、<strong><a href="https://youtu.be/8hG5M69iUE4?t=4020" target="_blank" rel="noopener">1:07:00</a></strong>と、繰り返しネット際でのプレーに関わり続けていました。</li>
+    </ul>
+    <p><strong>1本の決定打だけでなく、この日を通じてネット際のプレーに継続して関わっていたことが、複数の時間帯の記録から確認できています。</strong></p>
+  </div>
+
+  <h3>守りの賞 — ゆりこ</h3>
+  <div class="card">
+    <div class="mvp-row">
+      <img class="mvp-face" src="faces/yuriko.jpg" alt="ゆりこ">
+      <div class="mvp-name">ゆりこ</div>
+    </div>
+    <p><strong><a href="https://youtu.be/8hG5M69iUE4?t=2743" target="_blank" rel="noopener">45:51</a></strong>。届くかどうかのボールに飛び込んで拾いました。<strong>その球が落ちずに上がり、そのまま得点まで運ばれています。</strong></p>
+    <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=2743" target="_blank" rel="noopener">
+      <img src="shots0718/yuriko-dive.jpg" alt="コートで選手が低く飛び込んでいる" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">45:51</span></span>
+    </a>
+    <p>このダイブがあった区間、得点板は<strong>「10-06」から「10-07」へ</strong>動いています。ダイブの直後(0.25〜0.5秒ほど)で素早く起き上がっており、ボールはダイブのあとも画面上方向へ高く上がったまま落ちていません。ダイブのあった側と得点した側の対応関係を完全に特定することはできていませんが、<strong>拾って終わりではなく、そのままつながって得点に結びついた可能性が高い1本</strong>という所見です。</p>
+    <p><strong>ゆりこは、この日を通じて守備の場面によく写っていました。</strong></p>
+    <ul>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=3103" target="_blank" rel="noopener">51:43</a></strong> — ボールの落下点に入り、レシーブの姿勢を取っていました。</li>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=3237" target="_blank" rel="noopener">53:57</a></strong> — コートの端で構えの姿勢を取っているところが確認できました。</li>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=3678" target="_blank" rel="noopener">1:01:18</a></strong> — コートの深い位置(後衛)で、ラリーの最初の返球に関わっていました。守備範囲の広さがうかがえる場面です。</li>
+      <li><strong><a href="https://youtu.be/8hG5M69iUE4?t=3885" target="_blank" rel="noopener">1:04:45</a></strong> — 得点板のそばに位置しているのが確認できました。</li>
+    </ul>
+    <p><strong>1回の飛び込みだけでなく、コートの前後どちらにも入りながら、この日を通じて守備に関わり続けていた選手でした。</strong></p>
+  </div>
+
+  <h3>珍プレー賞 — うっちー</h3>
+  <div class="card">
+    <div class="mvp-row">
+      <img class="mvp-face" src="faces/uchi.jpg" alt="うっちー">
+      <div class="mvp-name">うっちー</div>
+    </div>
+    <p><strong><a href="https://youtu.be/8hG5M69iUE4?t=3152" target="_blank" rel="noopener">52:40</a></strong>。手ではもう届かない低いボールを、<strong>足で蹴ろうとして空振りし、よろけました。</strong></p>
+    <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=3152" target="_blank" rel="noopener">
+      <img src="shots0718/uchi-kick.jpg" alt="低いボールに足を出す選手" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">52:40</span></span>
+    </a>
+    <p>この場面は、<strong>独立した2つの観察記録に残っていました。</strong>52:39ごろ(実時刻20:47:53)、「手が届かない位置に来た低いボールに、とっさに右足を振り抜いた」という記録が、この講評とは別に担当した範囲の記録にも見つかっています。とっさに足が出たことは複数の記録で一致していますが、<strong>そのあとボールがどうなったかまでは、どちらの記録でも追い切れていません。</strong></p>
+    <p>それでも<strong>とっさに足が出たのは、そこまで諦めていなかった</strong>ということです。</p>
+  </div>
+
+  <h3>この日の締めくくり — ゆきよ・やまさん</h3>
+  <div class="card">
+    <div class="mvp-row">
+      <img class="mvp-face" src="faces/yukiyo.jpg" alt="ゆきよ">
+      <img class="mvp-face" src="faces/yamasan.jpg" alt="やまさん">
+      <div class="mvp-name">ゆきよ・やまさん</div>
+    </div>
+    <p>動画の最後、<strong>ゆきよがネットのクランクを回し、やまさんが床を掃いていました。</strong>二人で手分けして片づけています。</p>
+    <a class="shot" href="https://youtu.be/8hG5M69iUE4?t=4142" target="_blank" rel="noopener">
+      <img src="shots0718/katazuke.jpg" alt="ネットと床を片づける選手たち" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:09:10</span></span>
+    </a>
+    <p>この時間帯(21:04:36〜21:04:53)、<strong>ゆきよはネット支柱のクランク付近に立ち続け、何度も操作する動作を繰り返していました。</strong>同じ頃、<strong>やまさんは床をモップで掃く動作を繰り返しており</strong>、練習後の解散・片づけの雰囲気の中ではっきりと「片づけ」と分かる場面でした。ちょうど同じタイミングで、音声には「ご覧いただきありがとうございます。次回は美味しいビデオでお会いしましょう。では、さようなら。」という締めのナレーションが流れています。これは動画の編集で加えられたものとみられ、映像側の片づけと、音声側の「さようなら」が重なる形になっていました。</p>
+    <p>プレーではありませんが、<strong>この日を締めくくったのはこの場面</strong>でした。</p>
+  </div>
+
+  <h3>また進化したで賞は次回から</h3>
+  <div class="card">
+    <p>この賞は<strong>過去の記録と引き比べて、はっきり読み取れる変化があった選手にだけ贈る</strong>ものです。7月4日の記録はすでにありますが、<strong>この日はカメラが7月4日よりやや後ろに位置しており、人物がやや小さく写ります。</strong>区間の数も7月4日の143区間・約31分に対し、この日は163区間・約38分と、単純な比較がしづらい条件でした。したがって今回も「該当なし」とします。</p>
+    <p>次回、同じ条件で撮れれば、この日の選手ごとの記録(④の「選手ごとの記録」)と引き比べられます。</p>
+  </div>
+
+  <h2>3. 今日いちばん盛り上がったシーン</h2>
+  <div class="card">
+    <p>機械的に測った「盛り上がり度」の最高値(100)は、動画内57:40〜58:45(実時刻20:52:54〜20:53:59、65秒間)の区間に付いています。ただし<strong>この時間帯は今回の7つの観察範囲に入っておらず、中身はまだ分かっていません。</strong>55:06〜60:41のあいだ全体が今回は未観察のままです。数値だけで「今日いちばん」と決めるのは避け、<strong>実際に中身を確かめられた場面の中から選びます。</strong></p>
+    <p>その意味で、この日いちばん長く途切れずに沸いたのは、<strong>MVPのるきのスパイクのあとの拍手・歓声</strong>でした。音声の書き起こしでは、<strong><a href="https://youtu.be/8hG5M69iUE4?t=3894" target="_blank" rel="noopener">1:05:02</a></strong>の少し前、01:05:08ごろから拍手が始まり、01:05:20ごろから歓声に切り替わり、その後は音楽と歓声が重なりながら<strong>途切れずに続いています。</strong>得点そのものは21:00:16で、映像でもるきがネット際で高く跳び、相手のブロックの上から打ち込む場面が確認できています。</p>
+    <p>この得点の直前、コート上の位置についても確認が取れています。<strong>左のコートの一番手前にゆりこ、右のコートの一番手前にりるが位置していました。</strong>この日いちばん沸いた場面に、守りの賞のゆりこもすぐそばで関わっていたことになります。</p>
+    <p>得点板はこのセットの中で、0-0から始まり<strong>08-14</strong>まで進んでいます(区間155〜162の範囲)。両側とも加点しながらの、僅差ではないもののきちんと拮抗した展開でした。<strong>プレーの決定力・歓声の長さ・その場に居合わせた選手の顔ぶれのどれを取っても、実際に中身を確かめられた場面としてはこの日いちばん濃い一連でした。</strong></p>
+  </div>
+
+  <h2>4. 気づき・ハプニング</h2>
+  <div class="card">
+    <h3>得点板について</h3>
+    <ul>
+      <li>この日の得点板は<strong>ステージ脇の黄色いフリップ式(手めくり式)</strong>で、電光表示ではありません。得点係が板のそばに立つため、片側の数字が人影で隠れて読み取れない区間が多くありました。</li>
+      <li>この日は少なくとも<strong>4回、得点板が0-0(または00:00)からリセット</strong>されています(20:36:08ごろ・20:45:49・20:55:55・21:00:29)。「1回目の試合です」「2分の1の試合です」といった宣言のたびに、新しいセット・ミニゲームに切り替わっていたとみられます。</li>
+      <li>20:00:25〜20:05:21と20:25:50〜20:30:17の2つの時間帯では、得点板が<strong>両側そろって、あるいは片側だけ</strong>ゆっくり増えていく挙動が見られました。対抗して増える通常の試合の得点とは違う挙動で、連続本数を数えるドリルのカウンターだった可能性が高いという所見です。</li>
+    </ul>
+    <h3>音声の書き起こしについて</h3>
+    <ul>
+      <li>797キューを通じて、<strong>名簿の名前が出てきた回数は0回</strong>でした。「誕生日」「バースデー」「こもりん」も0件で、この動画には誕生日を祝う場面は見当たりませんでした。</li>
+      <li>一方、「お疲れさまでした」(11回連続、63:06〜63:35)、「クイッ!」(20回連続、63:35〜63:55)のような集団の掛け声、「3、2、1、行こう!」のようなドリルの合図は多数拾えています。「うちかまして」「勝利」の掛け合い(61:09〜)のような、対戦を鼓舞する声かけも確認できました。</li>
+      <li>誤認識とみられる箇所もありました。「スタッフ)おうくん」の9回連続(66:38〜66:54、文脈から「オーライ」の可能性)、「スタッフ)あんまり上手くいかないといけない」の9回連続、「スタッフ)おはようございます」の複数回(53:39以降・55:02以降、夜の練習にそぐわない)などです。いずれも断定はできないため、参考記録として残しました。</li>
+    </ul>
+    <h3>ブロックについて</h3>
+    <ul>
+      <li>この日、<strong>唯一「二枚ブロック」と確認できた例が1件</strong>ありました(20:40:02ごろ)。ネットの同じ側から、2人がほぼ同時に、同じボールに向かって跳んでおり、2人目も遅れず跳べていました。6月13日の分析では141区間を通じて確定例が0件だったため、<strong>今回はそれと異なる所見</strong>です。</li>
+      <li>ほかにも2人が同時に跳ぶ場面は複数回ありましたが(20:27:18ごろ・20:59:52ごろ・21:01:28ごろ)、同じ側のコートか・同じボールへの反応か・相手側から来た球かの3条件を確認しきれず、二枚ブロックとしては数えていません。</li>
+    </ul>
+    <h3>りるの捜索について</h3>
+    <ul>
+      <li>今回この日にいることが分かっている選手について、割り当てられた7つの時間帯のうち<strong>6つで、背番号による確認ができませんでした。</strong>無理に名前を当てず、確認できなかった場合は正直に「見つからなかった」と記録することを、どの範囲でも徹底しています。</li>
+    </ul>
+  </div>
+
+  <h2>5. 評価観点に沿った講評</h2>
+  <div class="card">
+    <p>kenboh の観点に沿って書きます。<strong>レシーブ(カット)・トス(セット)・アタック の精度と速さが基本、サーブ・ブロック・フェイント・ジャッジはその次位</strong>という優先順位を踏まえ、まずレシーブ・トス・アタックを厚く扱います。</p>
+
+    <h3>5-1. 個人の技術</h3>
+
+    <h4>数えたもの(観察できた86区間の集計)</h4>
+    <div class="table-wrap">
+      <table>
+        <tr><th>項目</th><th>結果</th></tr>
+        <tr><td>二枚ブロックと確認できた場面</td><td><strong>確定1回</strong>(20:40:02ごろ)。ほかに「可能性はあるが確定できず」が3回(20:27:18ごろ・20:59:52ごろ・21:01:28ごろ)</td></tr>
+        <tr><td>クイックを狙った短い助走</td><td><strong>無し。</strong>観察できた7つの時間帯すべてで確認できませんでした</td></tr>
+        <tr><td>フェイントと判断できる場面</td><td><strong>無し。</strong>同上</td></tr>
+        <tr><td>高く上げたつなぎの直後に、助走してアタックに入った場面</td><td>はっきり成立と確認できたのは<strong>1回</strong>(20:36:51ごろ、女性の上げ→るきのアタック体勢)。不成立、または確認できずが複数回</td></tr>
+        <tr><td>得点後に手を合わせるなどの反応</td><td>確認できた範囲で<strong>合計5回前後</strong>(20:02:14ごろ・20:29:07ごろ・20:47:26ごろ・20:56:10・21:00:20)</td></tr>
+        <tr><td>失点後に下を向く・黙り込む場面</td><td><strong>無し。</strong>観察できた7つの時間帯すべてで0回でした</td></tr>
+      </table>
+    </div>
+
+    <h4>レシーブ(カット)</h4>
+    <p>観点: <strong>落下するボールの真下でボールを受けているか。</strong>面を早く作り、勢いを吸収できているか。</p>
+    <p><strong>この日のいちばんはっきりした所見が、ゆりこの守備範囲の広さです。</strong>飛び込んで拾ったダイビングレシーブ(<a href="https://youtu.be/8hG5M69iUE4?t=2743" target="_blank" rel="noopener">45:51</a>)だけでなく、コートの深い位置で最初の返球に関わる場面(<a href="https://youtu.be/8hG5M69iUE4?t=3678" target="_blank" rel="noopener">1:01:18</a>)も確認できており、前衛・後衛どちらの位置からもボールに関わっていました。</p>
+    <p>もう1つの型として、<strong>低い姿勢で意図的に沈んで面を作る受け方</strong>が確認できています。20:37:31ごろ、やっさんが低いボールに対して膝をついて前腕で受ける場面があり、倒れ込んだのではなく沈んで面を作った受け方に見えました。逸れたボールを場外に出さず拾う場面(20:59:04ごろ、コート端の壁際まで飛んだボールを片手で拾う)もあり、<strong>粘り強くつなぐ守備</strong>が随所で確認できています。</p>
+    <p><strong>課題側。</strong>密集したラリーでは個々の触球者を最後まで特定できない場面が多く、「追い切れなかった」と記録した区間が半数近くありました。1つのボールに2人が同時に反応する場面(20:27:18ごろ)もあり、交錯は避けられていましたが、事前の声かけがあればもっと落ち着いて処理できそうな場面でした。</p>
+
+    <h4>トス(セット)</h4>
+    <p>観点: アタッカーが打ちやすいよう、ネットから少し離した山なりの軌道を作れているか。</p>
+    <p>この日、静止画から「上げ→助走してアタック」がはっきりつながったと確認できた場面は<strong>1件</strong>(<a href="https://youtu.be/8hG5M69iUE4?t=2497" target="_blank" rel="noopener">41:37</a>、女性の上げからるきがアタックの体勢に入った場面)にとどまりました。高く上がった球そのものは複数回確認できていますが(区間27・29・160など)、その直後に助走してアタックに入る選手を最後まで追い切れなかった場面のほうが多く、<strong>「上げる」動作そのものより、その先の接続の確認がこの日の課題</strong>でした。ラリーが速い帯(区間143〜154など)では、0.5秒間隔のシートでは個々の一本を取りこぼしやすいことも分かっています。</p>
+
+    <h4>アタック</h4>
+    <p>観点: <strong>相手がいないところを正確に狙って打っているか。</strong>芯を捉えてドライブ回転をかけ、コート内に落とせているか。</p>
+    <p>この日、明確に「打った」と言い切れる場面の中心は<strong>るき</strong>でした(<a href="https://youtu.be/8hG5M69iUE4?t=3894" target="_blank" rel="noopener">1:05:02</a>のMVPの一本)。ほかにも、<a href="https://youtu.be/8hG5M69iUE4?t=2497" target="_blank" rel="noopener">41:37</a>でやっさんの振り下ろしを女性が追走して拾い直し、高く上がった球にるきが跳んでアタックの体勢を作る場面や、21:00:11〜13ごろにやっさんがネット際で跳んで打ち込む場面が確認できています。</p>
+    <p><strong>課題側。</strong>高く上げたつなぎのあと、助走してアタックに入らない場面のほうが多く見られました。特にラリーが速い帯では、つなぎ球とアタックへの接続を個別に切り分けられない区間が目立ちました。</p>
+
+    <h4>サーブ</h4>
+    <p>観点: <strong>強く、正確に打てているか。</strong> / <strong>ミスが多く、ネットにあたったりアウトになったりしていないか。</strong></p>
+    <p><strong>この日、明確に「サーブ」と言い切れる場面は、観察できた7つの時間帯のどこからも報告されていません。</strong>サーブが打たれる瞬間と結果が、0.25秒のコマの間に収まってしまいやすいという、これまでの回と同じ限界がここでも見られました。</p>
+
+    <h4>ブロック</h4>
+    <p>観点: 相手アタッカーの正面に素早く入れているか。<strong>一人ではなく二人で対応できているか。</strong></p>
+    <p><strong>この日は、二枚ブロックと確認できた場面が1件ありました</strong>(20:40:02ごろ)。ネットの同じ側から2人がほぼ同時に、同じボールに向かって跳んでおり、2人目も遅れず跳べていました。6月13日の分析では141区間を通じて確定例が0件だったため、<strong>今回はそれと異なる、良い方向の所見</strong>です。ただし今回確認できたのはこの1件のみで、ほかは1人での跳躍か、相手コートからの攻撃ではなく味方同士のパス処理が重なった跳躍でした(区間78など)。</p>
+
+    <h4>フェイント・クイック</h4>
+    <p>この日も、フェイントと判断できる場面、クイックを狙った短い助走は<strong>観察できた範囲では見つかりませんでした。</strong>ただし今回は163区間のうち86区間しか見ていないため、「この日は無かった」と断定するのではなく、「見つけられなかった」という書き方にとどめます。</p>
+
+    <h3>5-2. 戦術・フォーメーション</h3>
+    <p>ゆりこは前衛・後衛どちらの位置からもボールに関わっており、固定されたポジションに縛られていませんでした。1つのボールに2人が同時に反応する「お見合い」のような場面も確認できましたが(20:27:18ごろ)、交錯は避けられており、大きな問題には至っていません。</p>
+
+    <h3>5-3. チーム連携・メンタル</h3>
+    <h4>声掛け(コール)</h4>
+    <p>この日は音声の書き起こしが使え、集団での掛け声を数多く拾えました。「うちかまして」「勝利」の掛け合い(61:09〜61:38)、「お疲れさまでした」(11回連続)、「クイッ!」(20回連続)などです。ただし話者は特定できないため、誰が言ったかまでは書けません。</p>
+
+    <h4>ミスの捉え方</h4>
+    <p><strong>失点後にうつむいたり黙り込んだりする場面は、観察できた7つの時間帯すべてで0回でした。</strong>6月13日の分析と同じ結果です。</p>
+
+    <h4>タイム(区切り)</h4>
+    <p>「1回目の試合です」「2分の1の試合です」といった区切りの宣言が複数回あり、そのたびに得点板が0からリセットされていました。「お疲れさまでした」の掛け合いも、試合(またはセット)の区切りに近いタイミングで確認できています。</p>
+  </div>
+
+  <h2>6. 次回への提言</h2>
+  <div class="card">
+    <h3>(1) 観察範囲の空白を埋める</h3>
+    <p>今回は163区間のうち86区間しか観察できていません。特に、機械的な盛り上がり度が最高値(100)だった動画内57:40〜58:45を含む、55:06〜60:41の帯が未観察のまま残っています。次回はここを優先的に埋めたいところです。</p>
+
+    <h3>(2) 二枚ブロックの再現性</h3>
+    <p>今回1件確認できた二枚ブロックの形(20:40:02ごろ)が、たまたまの1回だったのか、再現できる形なのかは、次回以降の観察で確かめたいところです。</p>
+
+    <h3>(3) 得点板の読み取り</h3>
+    <p>手めくり式の得点板は、得点係の体や支柱で片側が隠れる区間が多く、読み取れなかった区間が目立ちました。撮影位置や角度を工夫できれば、この日の流れをもっと正確に追えそうです。</p>
+
+    <h3>(4) 「上げ→助走してアタック」の接続</h3>
+    <p>高く上がった球そのものは複数回確認できましたが、その先の助走・アタックへの接続を確認できた場面は限られていました。ラリーが速い帯ではコマの間隔をさらに細かくするなど、次回は接続の確認を優先したいところです。</p>
+
+    <h3>(5) 音声の誤認識</h3>
+    <p>「おうくん」「おはようございます」など、文脈と合わない書き起こしが複数ありました。次回、書き起こしの精度が上がれば、もっと多くのかけ声を確実に拾えるようになりそうです。</p>
+  </div>
+
+  <a class="more-link" href="20260718-all.html">管理者用の全記録 →</a>
+
+  <div class="sign">
+    <p>けんぴー(AI)</p>
+  </div>
+
+</div>
+
+<footer>Drop ソフトバレーチーム · このページのURLをチームで共有してご利用ください · <span id="ver">版 2026-08-19</span></footer>
+
+<script>
+// 写真や時刻を押したとき、YouTube へ移動せず、その場で再生する。
+(function () {
+  var parse = function (href) {
+    var m = href.match(/youtu\.be\/([\w-]+)\?t=(\d+)/);
+    return m ? { id: m[1], t: m[2] } : null;
+  };
+
+  var makeBox = function (v) {
+    var box = document.createElement("div");
+    box.className = "player-box";
+
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube.com/embed/" + v.id +
+            "?start=" + v.t + "&autoplay=1&rel=0&playsinline=1";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    box.appendChild(f);
+
+    return box;
+  };
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="youtu.be"]') : null;
+    if (!a || a.classList.contains("player-out")) return;
+    var v = parse(a.getAttribute("href"));
+    if (!v) return;
+    e.preventDefault();
+
+    var box = makeBox(v);
+
+    if (a.classList.contains("shot")) {
+      var cap = a.querySelector(".cap");
+      if (cap) box.appendChild(cap.cloneNode(true));
+      a.replaceWith(box);
+    } else {
+      var host = a.closest("p, li") || a.parentElement;
+      host.after(box);
+      box.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  });
+
+  var ver = document.getElementById("ver");
+  if (ver) { ver.style.color = "#1f9d55"; ver.textContent += " ・その場再生 有効"; }
+})();
+</script>
+
+</body>
+</html>

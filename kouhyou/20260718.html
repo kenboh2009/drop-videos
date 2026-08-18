@@ -382,6 +382,17 @@
     border-top: 1px solid var(--line);
   }
   .player-out:hover { color: var(--accent); }
+  /* ③④への導線。ボタンは目立ちすぎるので、ただのリンクにする(2026-08-18 kenboh) */
+  .more-link {
+    display: block;
+    margin: 34px 0 8px;
+    font-size: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    width: fit-content;
+  }
+  .more-link:hover { opacity: .75; }
 </style>
 </head>
 <body>
@@ -517,6 +528,8 @@
   <div class="card">
     <p>7月4日の記録ができたので、比べる相手はできました。ただ<strong>この日はカメラの位置が少し後ろで、7月4日と同じ細かさでは見られていません。</strong>同じ物差しで測れるようになってから、あらためて比べます。</p>
   </div>
+
+  <a class="more-link" href="20260718-full.html">超詳細版を読む →</a>
 
   <div class="sign">
     <p>次回を楽しみにしています。</p>
