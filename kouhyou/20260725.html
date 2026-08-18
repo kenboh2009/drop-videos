@@ -378,6 +378,18 @@
     border-top: 1px solid var(--line);
   }
   .player-out:hover { color: var(--accent); }
+  /* ③④への導線。ボタンは目立ちすぎるので、ただのリンクにする(2026-08-18 kenboh) */
+  .more-link {
+    display: block;
+    margin: 34px 0 8px;
+    font-size: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    width: fit-content;
+  }
+  .more-link:hover { opacity: .75; }
+
 </style>
 </head>
 <body>
@@ -395,10 +407,10 @@
 
 <div class="wrap">
 
-  <span class="stage-label">① 結論だけ</span>
+  <span class="stage-label">ダイジェスト</span>
 
   <p class="shot-note" style="margin-bottom:14px">
-    どの行も押すと、下の②の詳しいところへ飛びます。
+    どの行も押すと、下の詳細版へ飛びます。
   </p>
 
   <div class="card summary-card">
@@ -478,7 +490,7 @@
 
   <div class="stage-divider">↓ もう少し詳しく読む ↓</div>
 
-  <span class="stage-label" style="margin-top:36px;">② もう少し詳しく</span>
+  <span class="stage-label" style="margin-top:36px;">詳細版</span>
 
   <h2 id="mvp">MVP — あき</h2>
   <div class="card">
@@ -616,8 +628,7 @@
     <p>過去の記録と引き比べて成長を讃える賞ですが、今回が Drop の動画としては初めての分析のため、比較対象がありません。この日の選手ごとの記録は残してあるので、次回以降で状態を比べられるようにしています。</p>
   </div>
 
-  <a class="next-stage" href="20260725-full.html">根拠の数字まで見る(詳しい版)→</a>
-  <p class="next-stage-sub">時刻・回数など、判断の根拠になった記録をすべて載せています</p>
+  <a class="more-link" href="20260725-full.html">超詳細版を読む →</a>
 
   <div class="sign">
     <p>次回を楽しみにしています。</p>
