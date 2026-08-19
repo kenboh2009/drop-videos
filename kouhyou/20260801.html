@@ -207,6 +207,16 @@
   .award:last-child { border-bottom: none; }@media (hover: hover) { .award:hover { background: var(--surface-2); border-radius: 10px; } }@media (hover: hover) { .award:hover .award-go { color: var(--accent); transform: translateX(3px); } }
 
   .award-faces { display: flex; flex-shrink: 0; }
+  /* --- 受賞者の顔写真(詳細版) --- */
+  .mvp-row { display: flex; align-items: center; gap: 16px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
   .award-faces img {
     width: 58px; height: 58px;
     border-radius: 50%;
@@ -312,7 +322,7 @@
 
   <div class="card summary-card">
     <a class="award" href="#mvp">
-      <div class="award-none"></div>
+      <div class="award-faces"><img src="faces/yamasan.jpg" alt="やまさん"></div>
       <div class="award-body">
         <div class="award-label"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP</div>
         <div class="award-who">やまさん</div>
@@ -322,7 +332,7 @@
     </a>
 
     <a class="award" href="#attack">
-      <div class="award-none"></div>
+      <div class="award-faces"><img src="faces/ruki.jpg" alt="るき"></div>
       <div class="award-body">
         <div class="award-label">アタック賞</div>
         <div class="award-who">るき</div>
@@ -332,7 +342,7 @@
     </a>
 
     <a class="award" href="#chinplay">
-      <div class="award-none"></div>
+      <div class="award-faces"><img src="faces/yassan.jpg" alt="やっさん"></div>
       <div class="award-body">
         <div class="award-label">珍プレー賞</div>
         <div class="award-who">やっさん</div>
@@ -368,7 +378,10 @@
 
   <h2 id="mvp"><svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5l3.6 2.7L12 4l5.4 7.2L21 8.5 19.3 19H4.7L3 8.5z" fill="#f0b429" stroke="#c98a10" stroke-width="1.1" stroke-linejoin="round"/><circle cx="3" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="21" cy="7.6" r="1.5" fill="#f0b429"/><circle cx="12" cy="3.2" r="1.6" fill="#f0b429"/></svg>MVP — やまさん</h2>
   <div class="card">
-    <div class="summary-value" style="margin:16px 0 4px"><span class="mvp-name">やまさん</span></div>
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yamasan.jpg" alt="やまさん">
+      <div class="summary-value"><span class="mvp-name">やまさん</span></div>
+    </div>
     <p>練習開始から間もない<a href="https://youtu.be/7jHipM13_IE?t=121" target="_blank" rel="noopener">2:09</a>、ステージ寄りの位置で周囲の選手とポジションを取り合う姿があり、<a href="https://youtu.be/7jHipM13_IE?t=296" target="_blank" rel="noopener">5:04</a>にもネット中央付近に戻って声をかけ合っていました。</p>
     <p><a href="https://youtu.be/7jHipM13_IE?t=482" target="_blank" rel="noopener">8:10</a>では、レシーブ→セット→アタックの三段の形がはっきり見える場面があり、<strong>ボールがネットを越えて相手コートへ打ち込まれるところまで確認できました。</strong></p>
     <p><a href="https://youtu.be/7jHipM13_IE?t=3487" target="_blank" rel="noopener">58:15</a>には、ネット際で低い姿勢を素早く作ってのレシーブ。落下点の下に体を運ぶ準備の早さが見て取れました。</p>
@@ -378,7 +391,10 @@
 
   <h2 id="attack">アタック賞 — るき</h2>
   <div class="card">
-    <div class="summary-value" style="margin:16px 0 4px"><span class="mvp-name">るき</span></div>
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/ruki.jpg" alt="るき">
+      <div class="summary-value"><span class="mvp-name">るき</span></div>
+    </div>
     <p><a href="https://youtu.be/7jHipM13_IE?t=2748" target="_blank" rel="noopener">45:56</a>、ネット際で高く跳び、片手でボールを打つ動作。隣の選手とほぼ同時に跳んでおり、直後には別の選手と手を合わせて喜ぶ場面もありました。<a href="https://youtu.be/7jHipM13_IE?t=2772" target="_blank" rel="noopener">46:20</a>にも同様にネット際で跳んでいます。</p>
     <p><a href="https://youtu.be/7jHipM13_IE?t=3078" target="_blank" rel="noopener">51:26</a>ではジャンプして腕を振り上げ、打つ動作。続く<a href="https://youtu.be/7jHipM13_IE?t=3140" target="_blank" rel="noopener">52:28</a>では、ボールを持って構えてからトスを上げ、ジャンプして打つ<strong>サーブの構え</strong>も見せています。</p>
     <p><a href="https://youtu.be/7jHipM13_IE?t=3657" target="_blank" rel="noopener">1:01:05</a>には、助走からジャンプ、腕の振り下ろしまでが一続きの動作として確認できる、この日でもっとも明確に追えたアタックの場面がありました。</p>
@@ -387,7 +403,10 @@
 
   <h2 id="chinplay">珍プレー賞 — やっさん</h2>
   <div class="card">
-    <div class="summary-value" style="margin:16px 0 4px"><span class="mvp-name">やっさん</span></div>
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yassan.jpg" alt="やっさん">
+      <div class="summary-value"><span class="mvp-name">やっさん</span></div>
+    </div>
     <p><a href="https://youtu.be/7jHipM13_IE?t=4602" target="_blank" rel="noopener">76:50</a>ごろから、この選手を中心に複数回のジャンプでの打球が連続しました。<a href="https://youtu.be/7jHipM13_IE?t=4609" target="_blank" rel="noopener">76:57</a>には、もう一人の選手とほぼ同時にネット際で跳ぶ場面があり、ラリーはさらに続きます。</p>
     <p>その直後(<a href="https://youtu.be/7jHipM13_IE?t=4611" target="_blank" rel="noopener">76:59</a>ごろ)、<strong>この選手がしゃがみ込んで笑い出し、</strong>周囲の選手たちも手を上げたり笑ったりして、にぎやかな輪になりました。得点板の数字はこの間動いておらず、得点そのものというより、<strong>プレーの内容自体が面白がられた場面のようです。</strong>ミートのタイミングが合いすぎたか、二人の距離が近すぎたのか――そんな一幕でした。</p>
   </div>
