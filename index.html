@@ -619,7 +619,7 @@
   // ボタンの中に帯が伸びて、あとどれくらいかが分かるようにしてある。
   (function () {
     var HOLD_MS = 5000;
-    var timer = null, raf = null, target = null;
+    var timer = null, raf = null, target = null, startX = 0, startY = 0;
 
     function reset() {
       if (timer) { clearTimeout(timer); timer = null; }
@@ -633,6 +633,7 @@
       e.preventDefault();          // ふつうの click では開かせない
       reset();
       target = a;
+      startX = e.clientX; startY = e.clientY;
       var began = Date.now();
 
       (function tick() {
@@ -652,10 +653,13 @@
     document.addEventListener("pointerdown", start);
     document.addEventListener("pointerup", reset);
     document.addEventListener("pointercancel", reset);
-    document.addEventListener("pointerleave", reset);
-    // 指を大きく動かしたら(スクロール)中止する
+    // 注意: document への pointerleave / 細かい pointermove の監視はしない。
+    // マウスのわずかな動きでも中断してしまい、PCでは事実上押せなくなるため
+    // (2026-08-19、けんぴーHPで長押しできない不具合の原因はこれだった)。
+    // 代わりに「押し始めた位置から大きく離れたか」だけを見る。
     document.addEventListener("pointermove", function (e) {
-      if (target && (Math.abs(e.movementX) > 6 || Math.abs(e.movementY) > 6)) reset();
+      if (!target) return;
+      if (Math.abs(e.clientX - startX) > 40 || Math.abs(e.clientY - startY) > 40) reset();
     });
     // 長押ししても click では飛ばない(上で preventDefault しているが念のため)
     document.addEventListener("click", function (e) {
