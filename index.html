@@ -284,6 +284,8 @@
     overflow: hidden;
     -webkit-user-select: none; user-select: none;
     -webkit-touch-callout: none;   /* 長押しでiOSのメニューが出るのを防ぐ */
+    /* 長押し中にスマホが「スクロールしようとしている」と誤解しないようにする */
+    touch-action: none;
   }
   .chip.review.coming-soon svg { color: var(--ink-muted); }
   .chip.review.coming-soon:hover { border-color: var(--line); opacity: 1; }
@@ -677,7 +679,12 @@
       timer = setTimeout(function () {
         var url = a.dataset.hold;
         reset();
-        window.open(url, "_blank", "noopener");
+        // 注意: ここで window.open を使ってはいけない。
+        // 5秒待ったあとの新規タブは「指を離した直後の操作」とみなされず、
+        // **スマホのブラウザにポップアップとしてブロックされる**
+        // (2026-08-20、けんぴーPixelで開けなかった原因はこれだった。PCでは通る)。
+        // 同じタブで移動すればブロックされない。
+        location.href = url;
       }, HOLD_MS);
     }
 
