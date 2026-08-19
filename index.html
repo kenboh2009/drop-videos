@@ -274,6 +274,30 @@
   .chip.review svg { color: var(--accent-contrast); }
   .chip.review:hover { border-color: var(--accent); opacity: .88; }
 
+  /* まだ公開していない講評。ふつうに押しても開かない(長押しで開く)。 */
+  .chip.review.coming-soon {
+    background: var(--surface-2);
+    border-color: var(--line);
+    color: var(--ink-muted);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none; user-select: none;
+    -webkit-touch-callout: none;   /* 長押しでiOSのメニューが出るのを防ぐ */
+  }
+  .chip.review.coming-soon svg { color: var(--ink-muted); }
+  .chip.review.coming-soon:hover { border-color: var(--line); opacity: 1; }
+  /* 長押し中に伸びる進捗の帯 */
+  .chip.review.coming-soon::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: var(--hold, 0%);
+    background: var(--accent);
+    opacity: .22;
+    transition: width .1s linear;
+  }
+  .chip.review.coming-soon > * { position: relative; }
+
   .empty {
     color: var(--ink-muted);
     font-size: 14px;
@@ -422,7 +446,8 @@
 
   const practiceDays = [
     { date: "2026/08/08", label: "くぬぎ台小学校 道場破り錬", videos: [{ name: "動画", id: "xZiFJFsI5cE" }] },
-    { date: "2026/08/01", label: "Drop錬", videos: [{ name: "動画", id: "7jHipM13_IE" }] },
+    { date: "2026/08/01", label: "Drop錬", reviewSoon: "kouhyou/20260801.html",
+      videos: [{ name: "動画", id: "7jHipM13_IE" }] },
     { date: "2026/07/25", label: "練習", review: "kouhyou/20260725.html",
       videos: [{ name: "メイン動画", id: "s8C9jfAcxgo" }, { name: "サブ動画", id: "EijMzowXRkw" }] },
     { date: "2026/07/18", label: "練習", review: "kouhyou/20260718.html",
@@ -470,12 +495,21 @@
     return `<a class="chip ${type}" href="${url}" target="_blank" rel="noopener">${icon}<span>${label}</span></a>`;
   }
 
+  // まだ公開していない講評。押しても何も起きず「Coming soon」と出るだけだが、
+  // **5秒長押しすると開く。** けんぼうが外出先(スマホ)から下書きを確認するための入口で、
+  // 家のLANの中でしか開けない管理画面の代わりになる(2026-08-19)。
+  function comingSoonChip(url) {
+    return `<a class="chip review coming-soon" href="${url}" target="_blank" rel="noopener"
+       data-hold="${url}">${iconReview}<span>講評 Coming soon</span></a>`;
+  }
+
   function card(item) {
     const dateBadge = item.date ? `<span class="card-date">${item.date}</span>` : "";
     let links = "";
     if (item.video) links += chip("YouTube", item.video, "video");
     if (item.photo) links += chip("Google Photos", item.photo, "photo");
     if (item.review) links += chip("講評を読む", item.review, "review");
+    else if (item.reviewSoon) links += comingSoonChip(item.reviewSoon);
     const thumbSrc = item.thumb || fallbackThumb;
     return `
       <div class="card">
@@ -499,7 +533,8 @@
       .map((v) => chip(v.name, `https://www.youtube.com/watch?v=${v.id}`, "video"))
       .join("");
     // 講評は動画とは別の列に置く。無い日も列だけ残して、縦に揃えて見えるようにする。
-    const review = d.review ? chip("講評を読む", d.review, "review") : "";
+    const review = d.review ? chip("講評を読む", d.review, "review")
+      : d.reviewSoon ? comingSoonChip(d.reviewSoon) : "";
     return `
       <div class="day">
         <div class="day-text">
@@ -576,6 +611,61 @@
   });
 
   render();
+
+  // --- 「講評 Coming soon」の長押し ---
+  //
+  // まだ公開前の講評を、けんぼうが外出先(スマホ)から確認するための入口。
+  // ふつうに押しても開かず、5秒押し続けたときだけ開く。押している間は
+  // ボタンの中に帯が伸びて、あとどれくらいかが分かるようにしてある。
+  (function () {
+    var HOLD_MS = 5000;
+    var timer = null, raf = null, target = null;
+
+    function reset() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+      if (target) { target.style.setProperty("--hold", "0%"); target = null; }
+    }
+
+    function start(e) {
+      var a = e.target.closest && e.target.closest(".coming-soon");
+      if (!a) return;
+      e.preventDefault();          // ふつうの click では開かせない
+      reset();
+      target = a;
+      var began = Date.now();
+
+      (function tick() {
+        if (!target) return;
+        var pct = Math.min(100, (Date.now() - began) / HOLD_MS * 100);
+        target.style.setProperty("--hold", pct + "%");
+        raf = requestAnimationFrame(tick);
+      })();
+
+      timer = setTimeout(function () {
+        var url = a.dataset.hold;
+        reset();
+        window.open(url, "_blank", "noopener");
+      }, HOLD_MS);
+    }
+
+    document.addEventListener("pointerdown", start);
+    document.addEventListener("pointerup", reset);
+    document.addEventListener("pointercancel", reset);
+    document.addEventListener("pointerleave", reset);
+    // 指を大きく動かしたら(スクロール)中止する
+    document.addEventListener("pointermove", function (e) {
+      if (target && (Math.abs(e.movementX) > 6 || Math.abs(e.movementY) > 6)) reset();
+    });
+    // 長押ししても click では飛ばない(上で preventDefault しているが念のため)
+    document.addEventListener("click", function (e) {
+      if (e.target.closest && e.target.closest(".coming-soon")) e.preventDefault();
+    });
+    // スマホの長押しメニューを出さない
+    document.addEventListener("contextmenu", function (e) {
+      if (e.target.closest && e.target.closest(".coming-soon")) e.preventDefault();
+    });
+  })();
 
   // 内容を更新したらこの日付も書き換える
   document.getElementById("updated").textContent = "最終更新: 2026/08/16";
