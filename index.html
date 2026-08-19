@@ -366,11 +366,14 @@
 
   .day-text {
     display: flex;
-    align-items: baseline;
+    /* サムネイルを入れたので、文字のベースラインではなく上下中央で揃える */
+    align-items: center;
     gap: 8px;
     flex-wrap: nowrap;
     min-width: 0;
   }
+  /* 練習の行のサムネイルは、大会の行より少し小さめにする */
+  .day-text .thumb { width: 44px; height: 28px; }
   /* 練習名が長いときは、途中で省略して1行に収める */
   .day-label {
     font-size: 14.5px;
@@ -543,6 +546,11 @@
   const iconCaret = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg>';
 
   // 練習日ひとつぶん。動画が複数あるときはカメラごとに並べる。
+  //
+  // 並び順は「大会・試合記録」と揃えて サムネイル → 日付 → タイトル にしてある
+  // (2026-08-19、けんぼうの指摘)。サムネイルはその日の1本目の動画のものを
+  // YouTube から借りる。またタイトルは、ほとんどの日が単に「練習」で情報が無いので、
+  // **「練習」以外の名前が付いている日だけ**出す。
   function day(d) {
     const videos = d.videos
       .map((v) => chip(v.name, `https://www.youtube.com/watch?v=${v.id}`, "video"))
@@ -550,11 +558,17 @@
     // 講評は動画とは別の列に置く。無い日も列だけ残して、縦に揃えて見えるようにする。
     const review = d.review ? chip("講評を読む", d.review, "review")
       : d.reviewSoon ? comingSoonChip(d.reviewSoon) : "";
+    const thumb = d.videos.length
+      ? `<img class="thumb" src="https://i.ytimg.com/vi/${d.videos[0].id}/mqdefault.jpg" alt="" loading="lazy">`
+      : "";
+    const label = d.label && d.label !== "練習"
+      ? `<span class="day-label">${d.label}</span>` : "";
     return `
       <div class="day">
         <div class="day-text">
+          ${thumb}
           <span class="card-date">${d.date}</span>
-          <span class="day-label">${d.label}</span>
+          ${label}
         </div>
         <div class="links day-videos">${videos}</div>
         <div class="day-review">${review}</div>
