@@ -393,8 +393,12 @@
 </div>
 
 <footer>随時更新 · このページのURLをチームで共有してご利用ください<br><span id="updated"></span>
-  <!-- 管理画面はけんぴーHPの中だけで動いている。他の人が押しても何も表示されない。 -->
-  <br><a class="admin-link" href="http://localhost:8787" target="_blank" rel="noopener">管理</a>
+  <!-- 管理画面はけんぴーHPの中だけで動いている。他の人が押しても何も表示されない。
+       以前は http://localhost:8787 と書いていたが、これは「けんぴーHP自身で開いたとき」
+       にしか正しく繋がらない(localhostは開いている端末自身を指すため)。
+       けんぴーPixel等、同じ家のLANにいる端末からも繋がるよう、
+       けんぴーHPの固定IP(ルーターでMACアドレスに紐づけ済み)に変更した(2026-08-19)。 -->
+  <br><a class="admin-link" href="http://192.168.0.12:8787" target="_blank" rel="noopener">管理</a>
 </footer>
 
 <script>
