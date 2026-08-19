@@ -493,6 +493,69 @@
   var ver = document.getElementById("ver");
   if (ver) { ver.style.color = "#1f9d55"; ver.textContent += " ・その場再生 有効"; }
 })();
+
+// --- 公開承認バー(けんぼう専用) ---
+//
+// この講評がまだ公開前(リンク集で「講評 Coming soon」)のとき、
+// **家のLANの中から開いた場合にだけ**、画面の下に承認バーが出る。
+// 押すとけんぴーHPが git push まで済ませ、誰でも読める状態になる。
+//
+// けんぴーHPのサーバーに問い合わせて返事があったときだけ出るので、
+// 家の外や他の人が開いても、そもそもバーは現れない。
+(function () {
+  var API = "http://192.168.0.12:8787";
+  var FILE = location.pathname.split("/").pop();   // 例: 20260801.html
+  if (!/^\d{8}\.html$/.test(FILE)) return;
+
+  fetch(API + "/api/review/state?file=" + encodeURIComponent(FILE))
+    .then(function (r) { return r.json(); })
+    .then(function (d) { if (d.state === "pending") showBar(); })
+    .catch(function () { /* 家の外・他の人。何も出さない */ });
+
+  function showBar() {
+    var bar = document.createElement("div");
+    bar.style.cssText =
+      "position:fixed;left:0;right:0;bottom:0;z-index:99;" +
+      "background:var(--surface);border-top:2px solid var(--accent);" +
+      "padding:12px 16px;display:flex;gap:12px;align-items:center;" +
+      "justify-content:center;flex-wrap:wrap;box-shadow:0 -3px 12px rgba(0,0,0,.12)";
+
+    var msg = document.createElement("span");
+    msg.style.cssText = "font-size:14px;color:var(--ink-muted)";
+    msg.textContent = "この講評はまだ公開前です(チームからは開けません)";
+
+    var btn = document.createElement("button");
+    btn.textContent = "公開する";
+    btn.style.cssText =
+      "background:var(--accent);color:var(--accent-contrast);border:none;" +
+      "border-radius:10px;padding:11px 22px;font-size:15px;font-weight:700;" +
+      "font-family:inherit;cursor:pointer";
+
+    btn.onclick = function () {
+      if (!confirm("この講評を公開します。チームの全員が読めるようになります。よろしいですか？")) return;
+      btn.disabled = true;
+      msg.textContent = "公開しています…";
+      fetch(API + "/api/review/approve?file=" + encodeURIComponent(FILE), { method: "POST" })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.error) { msg.textContent = "うまくいきませんでした: " + d.error; btn.disabled = false; return; }
+          btn.remove();
+          msg.style.color = "var(--accent)";
+          msg.style.fontWeight = "700";
+          msg.textContent = "公開しました。チームの全員が読めます。";
+        })
+        .catch(function (e) {
+          msg.textContent = "うまくいきませんでした: " + e.message;
+          btn.disabled = false;
+        });
+    };
+
+    bar.appendChild(msg);
+    bar.appendChild(btn);
+    document.body.appendChild(bar);
+    document.body.style.paddingBottom = "80px";   // バーが本文に重ならないように
+  }
+})();
 </script>
 
 </body>
