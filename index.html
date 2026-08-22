@@ -389,6 +389,18 @@
   .day .links { flex-wrap: wrap; }
   .day .chip { padding: 4px 9px; font-size: 11.5px; }
 
+  .new-badge {
+    display: inline-block;
+    flex-shrink: 0;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .02em;
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+
   .day-text { flex: 1; }
   .day-videos { justify-content: flex-end; }
 
@@ -465,6 +477,7 @@
   const practicePlaylist = "https://www.youtube.com/playlist?list=PLUTpvcTnAowdnav0_-O7P8cx_rl_SJqYq";
 
   const practiceDays = [
+    { date: "2026/08/22", label: "練習", addedAt: "2026-08-23", videos: [{ name: "動画", id: "flifX9vl800" }] },
     { date: "2026/08/08", label: "くぬぎ台小学校 道場破り錬", videos: [{ name: "動画", id: "xZiFJFsI5cE" }] },
     { date: "2026/08/01", label: "Drop錬", review: "kouhyou/20260801.html",
       videos: [{ name: "動画", id: "7jHipM13_IE" }] },
@@ -488,7 +501,6 @@
   ];
 
   const evergreen = [
-    { title: "2026/08/22 練習", video: "https://www.youtube.com/watch?v=flifX9vl800" },
     { title: "Drop公式試合ファインプレー集", video: "https://www.youtube.com/playlist?list=PLG93nQ7O-WOo", thumb: "thumbs/ev-01.jpg" },
     { title: "Drop!合宿", video: "https://www.youtube.com/playlist?list=PLJ7pCa6M_-j8", photo: "https://photos.app.goo.gl/mkm8Eg88DwBsZaMs7", thumb: "thumbs/ev-02.jpg" },
     { title: "Drop25thyear", photo: "https://photos.app.goo.gl/25v6etQ6R7iLJDyF9" }
@@ -566,12 +578,16 @@
       : "";
     const label = d.label && d.label !== "練習"
       ? `<span class="day-label">${d.label}</span>` : "";
+    // 追加から7日以内は「NEW!」を出す。addedAt が無い(=昔から登録済みの)行には出さない。
+    const isNew = d.addedAt && (Date.now() - new Date(d.addedAt).getTime()) < 7 * 86400000;
+    const newBadge = isNew ? `<span class="new-badge">NEW!</span>` : "";
     return `
       <div class="day">
         <div class="day-text">
           ${thumb}
           <span class="card-date">${d.date}</span>
           ${label}
+          ${newBadge}
         </div>
         <div class="links day-videos">${videos}</div>
         <div class="day-review">${review}</div>
