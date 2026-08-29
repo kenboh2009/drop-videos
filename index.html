@@ -580,8 +580,12 @@
       : "";
     const label = d.label && d.label !== "練習"
       ? `<span class="day-label">${d.label}</span>` : "";
-    // 追加から7日以内は「NEW!」を出す。addedAt が無い(=昔から登録済みの)行には出さない。
-    const isNew = d.addedAt && (Date.now() - new Date(d.addedAt).getTime()) < 7 * 86400000;
+    // 追加から7日たったら「NEW!」を消す。addedAt が無い(=昔から登録済みの)行には出さない。
+    // **時刻ではなく日付で数える。**時刻まで含めると「7日目なのにまだ出ている」
+    // ということが起きる(2026-08-30、けんぼうから「1週間前のものは削除で」と指摘)。
+    const 今日0時 = new Date(); 今日0時.setHours(0, 0, 0, 0);
+    const 経過日 = d.addedAt ? Math.floor((今日0時 - new Date(d.addedAt + "T00:00:00")) / 86400000) : 999;
+    const isNew = Boolean(d.addedAt) && 経過日 < 7;
     const newBadge = isNew ? `<span class="new-badge">NEW!</span>` : "";
     return `
       <div class="day">
