@@ -241,7 +241,7 @@
     position: absolute; left: 10px; bottom: 46px;
     background: rgba(0,0,0,.68); color: #fff; border: none;
     border-radius: 999px; padding: 9px 16px; font-size: 13.5px; font-weight: 700;
-    font-family: inherit; cursor: pointer; z-index: 2;
+    font-family: inherit; cursor: pointer; z-index: 2; text-decoration: none;
   }
   .player-box iframe {
     display: block;
@@ -705,21 +705,21 @@
     // まず無音で確実に自動再生し、タップ1回で音を出せるボタンを重ねる。
     var f = document.createElement("iframe");
     f.src = "https://www.youtube.com/embed/" + v.id +
-            "?start=" + v.t + "&autoplay=1&mute=1&rel=0&playsinline=1&enablejsapi=1";
+            "?start=" + v.t + "&rel=0&playsinline=1";
     f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     f.setAttribute("allowfullscreen", "");
     f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
     box.appendChild(f);
 
-    var unmute = document.createElement("button");
-    unmute.type = "button";
-    unmute.className = "unmute-btn";
-    unmute.textContent = "🔇 タップで音を出す";
-    unmute.onclick = function () {
-      f.contentWindow.postMessage(JSON.stringify({ event: "command", func: "unMute", args: [] }), "*");
-      unmute.remove();
-    };
-    box.appendChild(unmute);
+    // 埋め込みに YouTube の確認画面が出ることがある。そのときアプリ側なら
+    // ログイン済みで見られるので、逃げ道を必ず1つ置いておく。
+    var out = document.createElement("a");
+    out.className = "unmute-btn";
+    out.href = "https://youtu.be/" + v.id + "?t=" + v.t;
+    out.target = "_blank";
+    out.rel = "noopener";
+    out.textContent = "▶ YouTubeで開く";
+    box.appendChild(out);
 
     return box;
   };
