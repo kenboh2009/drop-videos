@@ -656,7 +656,7 @@
     // まず無音で確実に自動再生し、タップ1回で音を出せるボタンを重ねる。
     var f = document.createElement("iframe");
     f.src = "https://www.youtube.com/embed/" + v.id +
-            "?start=" + v.t + "&rel=0&playsinline=1";
+            "?start=" + v.t + "&autoplay=1&rel=0&playsinline=1";
     f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     f.setAttribute("allowfullscreen", "");
     f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
