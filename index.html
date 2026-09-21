@@ -513,7 +513,7 @@
   ];
 
   const events = [
-    { date: "2026/09/19", title: "都筑区ソフバ大会", video: "https://www.youtube.com/playlist?list=PLah7eFZQI1u0" },
+    { date: "2026/09/19", title: "都筑区ソフバ大会", video: "https://www.youtube.com/playlist?list=PLah7eFZQI1u0", thumb: "thumbs/ev-e-20260919.jpg", addedAt: "2026-09-22" },
     { date: "2026/06/27", title: "港北区ソフバ大会", video: "https://www.youtube.com/playlist?list=PLc3dZitUeYCg", photo: "https://photos.app.goo.gl/iszy8P3AXFjzrFht9", thumb: "thumbs/ev-e-00.jpg" },
     { date: "2026/06/21", title: "青葉区ソフバ大会", video: "https://www.youtube.com/playlist?list=PLUTpvcTnAoweDMHvLpkw-OzCtipgKxe_T", thumb: "thumbs/ev-e-01.jpg" },
     { date: "2026/05/31", title: "DropAKY 全国予選兼春季ソフバ大会 in 厚木", video: "https://youtube.com/playlist?list=PLSBV2Tgk67cQ&si=5hYrGzJ0NLhG5JFX", thumb: "thumbs/ev-e-02.jpg" },
@@ -551,13 +551,19 @@
     if (item.review) links += chip("講評を読む", item.review, "review");
     else if (item.reviewSoon) links += comingSoonChip(item.reviewSoon);
     const thumbSrc = item.thumb || fallbackThumb;
+    // 追加から7日たったら「NEW!」を消す。練習の一覧と同じ数え方(日付で数える)。
+    // 2026-09-22、けんぼうの依頼で 大会・試合記録 のカードにも出すようにした。
+    const 今日0時C = new Date(); 今日0時C.setHours(0, 0, 0, 0);
+    const 経過日C = item.addedAt
+      ? Math.floor((今日0時C - new Date(item.addedAt + "T00:00:00")) / 86400000) : 999;
+    const newBadgeC = (item.addedAt && 経過日C < 7) ? `<span class="new-badge">NEW!</span>` : "";
     return `
       <div class="card">
         <div class="card-main">
           <img class="thumb" src="${thumbSrc}" alt="" loading="lazy">
           <div class="card-text">
             ${dateBadge}
-            <span class="card-title">${item.title}</span>
+            <span class="card-title">${item.title}</span>${newBadgeC}
           </div>
         </div>
         <div class="links">${links}</div>
