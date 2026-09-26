@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drop 練習講評 — 2026年9月26日</title>
+<link rel="icon" href="../assets/drop-icon.jpg">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="ソフトバレーチームDropの練習講評(2026年9月26日)">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0F4;
+    --ink: #16202B;
+    --ink-muted: #5B6B78;
+    --accent: #E2572B;
+    --accent-contrast: #FFFFFF;
+    --line: #D7E0E6;
+    --radius: 14px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10171F;
+      --surface: #17212B;
+      --surface-2: #1D2833;
+      --ink: #EAF1F6;
+      --ink-muted: #93A4B2;
+      --accent: #FF7A4D;
+      --accent-contrast: #17212B;
+      --line: #2A3742;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10171F;
+    --surface: #17212B;
+    --surface-2: #1D2833;
+    --ink: #EAF1F6;
+    --ink-muted: #93A4B2;
+    --accent: #FF7A4D;
+    --accent-contrast: #17212B;
+    --line: #2A3742;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.85;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
+
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 18px 22px;
+    margin-bottom: 26px;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink-muted); text-decoration: none;
+    font-size: 14px; margin-bottom: 14px;
+  }@media (hover: hover) { .back:hover { color: var(--accent); } }
+  .title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0; font-size: 27px; letter-spacing: .01em;
+  }
+  .title img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .subtitle { color: var(--ink-muted); font-size: 15px; margin-top: 8px; }
+
+  .note {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 13px 16px;
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    margin: 0 0 26px;
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 42px 0 4px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--accent);
+  }
+  h3 { font-size: 17px; margin: 30px 0 2px; color: var(--accent); }
+
+  p { margin: 14px 0; }
+  ol, ul { padding-left: 1.3em; margin: 14px 0; }
+  li { margin: 10px 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 4px 20px 20px;
+    margin: 18px 0;
+  }
+
+  .sign {
+    margin-top: 44px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted); font-size: 15px;
+  }
+
+  footer {
+    text-align: center; color: var(--ink-muted);
+    font-size: 13px; padding: 26px 18px 40px;
+  }
+
+  @media (max-width: 480px) {
+    .title { font-size: 22px; }
+    .title img { width: 32px; height: 32px; }
+    h2 { font-size: 19px; }
+    .card { padding: 4px 15px 16px; }
+  }
+
+  .stage-label {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--accent);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 5px 16px;
+    margin: 0 0 10px;
+  }
+
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
+
+  .summary-card { padding: 18px 20px 22px; }
+  .summary-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-item:last-child { border-bottom: none; padding-bottom: 4px; }
+  .summary-item:first-child { padding-top: 4px; }
+  .summary-label {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .summary-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .summary-value .mvp-name { color: var(--accent); }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .chip {
+    display: inline-block;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 13px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .summary-value { font-size: 19px; }
+    .chip { font-size: 14.5px; padding: 7px 11px; }
+  }
+
+  .award {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 6px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+  .award:last-child { border-bottom: none; }@media (hover: hover) { .award:hover { background: var(--surface-2); border-radius: 10px; } }@media (hover: hover) { .award:hover .award-go { color: var(--accent); transform: translateX(3px); } }
+
+  .award-faces { display: flex; flex-shrink: 0; }
+  .mvp-row { display: flex; align-items: center; gap: 16px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
+  .award-faces img {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+  }
+  .award-faces img + img { margin-left: -14px; }
+
+  .award-none {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--surface-2);
+    border: 2px dashed var(--line);
+  }
+
+  .award-body { flex: 1; min-width: 0; }
+
+  .award-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.45; }
+  .award-why { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
+
+  .award-go {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: transform .12s ease, color .12s ease;
+  }
+  .award-go svg { width: 18px; height: 18px; display: block; }
+
+  @media (max-width: 480px) {
+    .award-label { font-size: 15.5px; }
+    .award-who { font-size: 17px; }
+    .award-faces img, .award-none { width: 48px; height: 48px; }
+  }
+
+  .shot {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .shot img { display: block; width: 100%; height: auto; }@media (hover: hover) { .shot:hover { border-color: var(--accent); } }
+
+  .shot .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .shot .play span {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+
+  .shot .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .shot .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .shot-note { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
+
+  .pending {
+    display: inline-block;
+    background: #fff4e5;
+    color: #a05a00;
+    border: 1px solid #f0c78a;
+    border-radius: 8px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
+  }
+  :root[data-theme="dark"] .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
+
+  .player-box {
+    position: relative;
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: #000;
+  }
+  .unmute-btn {
+    position: absolute; left: 10px; bottom: 46px;
+    background: rgba(0,0,0,.68); color: #fff; border: none;
+    border-radius: 999px; padding: 9px 16px; font-size: 13.5px; font-weight: 700;
+    font-family: inherit; cursor: pointer; z-index: 2; text-decoration: none;
+  }
+  .player-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .player-box .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .player-box .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../">← 動画リンク集にもどる</a>
+    <h1 class="title">
+      <img src="../assets/drop-icon.jpg" alt="">
+      練習講評
+    </h1>
+    <div class="subtitle">2026年9月26日(土) ・ 参加8名 ・ 動画1本(98分) ・ 書き手: けんぴー(AI)</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="note">8人で4対4、8試合。この日は<strong>拾う人の日</strong>でした。長いラリーが何度もあり、そのどれにも、後ろで粘っている人の名前が出てきます。<strong>写真をタップすると、その場面から動画が再生されます。</strong></p>
+
+  <span class="stage-label">ダイジェスト</span>
+
+  <div class="card summary-card">
+    <a class="award" href="#yui">
+      <div class="award-faces"><img src="faces/yui.jpg" alt="ゆい"></div>
+      <div class="award-body">
+        <div class="award-label">MVP</div>
+        <div class="award-who">ゆい</div>
+        <div class="award-why">この日の守りの要。どの試合にも、守備範囲の広いレシーブが入っていた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#fineplay">
+      <div class="award-faces"><img src="faces/yuriko.jpg" alt="ゆりこ"><img src="faces/aki.jpg" alt="あき"></div>
+      <div class="award-body">
+        <div class="award-label">ファインプレー賞</div>
+        <div class="award-who">ゆりこ・あき</div>
+        <div class="award-why">いちばん多くの場面に名前が出た人と、見本になる1本を出した人</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#yukiyo">
+      <div class="award-faces"><img src="faces/yukiyo.jpg" alt="ゆきよ"></div>
+      <div class="award-body">
+        <div class="award-label">縁の下賞</div>
+        <div class="award-who">ゆきよ</div>
+        <div class="award-why">全員がボールに触ったラリーの、その一角</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#koe">
+      <div class="award-faces"><img src="faces/aki.jpg" alt="あき"></div>
+      <div class="award-body">
+        <div class="award-label">声出し賞</div>
+        <div class="award-who">あき</div>
+        <div class="award-why">「かずお いけっ」。呼ばれた かずお が決めた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#komorin">
+      <div class="award-faces"><img src="faces/komorin.jpg" alt="こもりん"></div>
+      <div class="award-body">
+        <div class="award-label">珍プレー賞</div>
+        <div class="award-who">こもりん</div>
+        <div class="award-why">2回、床に崩れた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+
+    <a class="award" href="#rally">
+      <div class="award-none"></div>
+      <div class="award-body">
+        <div class="award-label">この日いちばん盛り上がった場面</div>
+        <div class="award-who">21:50〜22:19 のラリー</div>
+        <div class="award-why">この日いちばん球が続きました</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+  </div>
+
+  <h2 id="yui">MVP — ゆい</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yui.jpg" alt="ゆい">
+      <div class="summary-value"><span class="mvp-name">ゆい</span></div>
+    </div>
+    <p><strong>この日の守りの要でした。どの試合にも、ゆい の守備範囲の広いレシーブが入っています。</strong></p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=1044" target="_blank" rel="noopener">
+      <img src="shots0926/yui-receive.jpg" alt="ラリーの中でボールが上がり、両コートの選手が構えている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">17:32</span></span>
+    </a>
+    <ul>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=584" target="_blank" rel="noopener">09:52</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=1308" target="_blank" rel="noopener">21:56</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=1325" target="_blank" rel="noopener">22:13</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=3112" target="_blank" rel="noopener">52:00</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=3161" target="_blank" rel="noopener">52:49</a></li>
+    </ul>
+  </div>
+
+  <h2 id="fineplay">ファインプレー賞 — ゆりこ・あき</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yuriko.jpg" alt="ゆりこ">
+      <div class="summary-value"><span class="mvp-name">ゆりこ</span></div>
+    </div>
+    <p>この日、<strong>いちばん多くのラリーに名前が出た人</strong>です。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=1317" target="_blank" rel="noopener">
+      <img src="shots0926/yuriko-receive.jpg" alt="長いラリーの中でボールが上がっている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">22:05</span></span>
+    </a>
+    <ul>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=584" target="_blank" rel="noopener">09:52</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=2104" target="_blank" rel="noopener">35:12</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=3112" target="_blank" rel="noopener">52:00</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=4475" target="_blank" rel="noopener">1:14:43</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=5210" target="_blank" rel="noopener">1:26:58</a></li>
+    </ul>
+    <hr style="border:0;border-top:1px solid var(--line,#e5e5e5);margin:22px 0 14px">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/aki.jpg" alt="あき">
+      <div class="summary-value"><span class="mvp-name">あき</span></div>
+    </div>
+    <p><strong>完璧なレシーブ。みんなが見本にしていい1本</strong>です。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=4841" target="_blank" rel="noopener">
+      <img src="shots0926/aki-perfect.jpg" alt="コート奥でボールを受ける構えをとっている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:20:49</span></span>
+    </a>
+    <p>横っ跳びで床を滑りながら拾った1本も。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=5168" target="_blank" rel="noopener">
+      <img src="shots0926/aki-dive.jpg" alt="床に飛び込んでボールを拾おうとしている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:26:16</span></span>
+    </a>
+    <ul>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=3161" target="_blank" rel="noopener">52:49</a></li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=4718" target="_blank" rel="noopener">1:18:46</a> — かずお のアタックを正面で受けた</li>
+    </ul>
+  </div>
+
+  <h2 id="yukiyo">縁の下賞 — ゆきよ</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yukiyo.jpg" alt="ゆきよ">
+      <div class="summary-value"><span class="mvp-name">ゆきよ</span></div>
+    </div>
+    <p><strong>コートの全員がボールに触った</strong>ラリーです。その一角を、ゆきよ のレシーブが支えました。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=584" target="_blank" rel="noopener">
+      <img src="shots0926/yukiyo-rally.jpg" alt="14対14の競り合いで両コートの選手が動いている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">09:52</span></span>
+    </a>
+  </div>
+
+  <h2 id="koe">声出し賞 — あき</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/aki.jpg" alt="あき">
+      <div class="summary-value"><span class="mvp-name">あき</span></div>
+    </div>
+    <p>「<strong>かずお いけっ</strong>」。呼ばれた かずお が、そのままアタックを決めています。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=5620" target="_blank" rel="noopener">
+      <img src="shots0926/aki-voice.jpg" alt="ネット際でアタックに入ろうとしている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:33:48</span></span>
+    </a>
+    <p>あき は1日を通して声を出し続けていました。この一言は、その定番の形です。</p>
+  </div>
+
+  <h2 id="komorin">珍プレー賞 — こもりん</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/komorin.jpg" alt="こもりん">
+      <div class="summary-value"><span class="mvp-name">こもりん</span></div>
+    </div>
+    <p>相手コートへ返した球がアウトになり、そのまま床に崩れ落ちました。起こしに来たのは ゆりこ です。二人とも笑っています。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=1329" target="_blank" rel="noopener">
+      <img src="shots0926/komorin-fall.jpg" alt="床に倒れた選手に、別の選手が手を貸している場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">22:17</span></span>
+    </a>
+    <ul>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=1044" target="_blank" rel="noopener">17:32</a> — かずお のブロックがアウトになる球に触ってしまい、床に伏せた</li>
+    </ul>
+  </div>
+
+  <h2 id="rally">この日いちばん盛り上がった場面 — 21:50〜22:19</h2>
+  <div class="card">
+    <p>この日いちばん球が続いたラリーです。ゆい・ゆりこ・ゆい と拾い続けて、決着は こもりん の返球がアウト。</p>
+    <a class="shot" href="https://youtu.be/t7--tUi6n10?t=1300" target="_blank" rel="noopener">
+      <img src="shots0926/best-rally.jpg" alt="長いラリーの途中、両コートの選手が守りの構えをとっている場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">21:50</span></span>
+    </a>
+    <ul>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=584" target="_blank" rel="noopener">09:52</a> — 14対14。全員がボールに触りました</li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=4459" target="_blank" rel="noopener">1:14:27</a> — この日いちばん歓声が大きかった場面</li>
+    </ul>
+  </div>
+
+  <h2 id="kimeta">この日、決めていた人たち</h2>
+  <div class="card">
+    <ul>
+      <li><strong>やっさん</strong> — <a href="https://youtu.be/t7--tUi6n10?t=584" target="_blank" rel="noopener">09:52</a> 最後のフェイント</li>
+      <li><strong>こもりん</strong> — <a href="https://youtu.be/t7--tUi6n10?t=3112" target="_blank" rel="noopener">52:00</a>、<a href="https://youtu.be/t7--tUi6n10?t=4718" target="_blank" rel="noopener">1:18:46</a> アタック。<a href="https://youtu.be/t7--tUi6n10?t=4478" target="_blank" rel="noopener">1:14:46</a> では倒れ込みながら拾って、自分で起きて上げ直した</li>
+      <li><strong>けん</strong> — <a href="https://youtu.be/t7--tUi6n10?t=5331" target="_blank" rel="noopener">1:28:59</a> フェイント。<a href="https://youtu.be/t7--tUi6n10?t=3177" target="_blank" rel="noopener">53:05</a> では長いラリーの最後を、強いアタックで締めています</li>
+      <li><strong>かずお</strong> — <a href="https://youtu.be/t7--tUi6n10?t=5620" target="_blank" rel="noopener">1:33:48</a> 声に応えたアタック</li>
+    </ul>
+  </div>
+
+  <h2 id="kadai">課題</h2>
+  <div class="card">
+    <ul>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=2104" target="_blank" rel="noopener">35:12</a> — <strong>2人の間にボールが落ちました。</strong>どちらが行くか、声がもう一言あれば取れた球です。</li>
+      <li><a href="https://youtu.be/t7--tUi6n10?t=1044" target="_blank" rel="noopener">17:32</a> — <strong>アウトになる球に触ってしまい、得点を逃しました。</strong>ブロックのあと、落ちる場所を見てから手を出すかどうかを決めたいところです。</li>
+    </ul>
+  </div>
+
+  <p class="note" style="margin-top:28px">Produced by けんぴー(AI)</p>
+
+</div>
+
+</body>
+</html>
