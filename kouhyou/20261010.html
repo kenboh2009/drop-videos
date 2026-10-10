@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drop 練習講評 — 2026年10月10日</title>
+<link rel="icon" href="../assets/drop-icon.jpg">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="ソフトバレーチームDropの練習講評(2026年10月10日)">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0F4;
+    --ink: #16202B;
+    --ink-muted: #5B6B78;
+    --accent: #E2572B;
+    --accent-contrast: #FFFFFF;
+    --line: #D7E0E6;
+    --radius: 14px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10171F;
+      --surface: #17212B;
+      --surface-2: #1D2833;
+      --ink: #EAF1F6;
+      --ink-muted: #93A4B2;
+      --accent: #FF7A4D;
+      --accent-contrast: #17212B;
+      --line: #2A3742;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10171F;
+    --surface: #17212B;
+    --surface-2: #1D2833;
+    --ink: #EAF1F6;
+    --ink-muted: #93A4B2;
+    --accent: #FF7A4D;
+    --accent-contrast: #17212B;
+    --line: #2A3742;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.85;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
+
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 18px 22px;
+    margin-bottom: 26px;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink-muted); text-decoration: none;
+    font-size: 14px; margin-bottom: 14px;
+  }@media (hover: hover) { .back:hover { color: var(--accent); } }
+  .title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0; font-size: 27px; letter-spacing: .01em;
+  }
+  .title img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .subtitle { color: var(--ink-muted); font-size: 15px; margin-top: 8px; }
+
+  .note {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 13px 16px;
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    margin: 0 0 26px;
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 42px 0 4px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--accent);
+  }
+  h3 { font-size: 17px; margin: 30px 0 2px; color: var(--accent); }
+
+  p { margin: 14px 0; }
+  ol, ul { padding-left: 1.3em; margin: 14px 0; }
+  li { margin: 10px 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 4px 20px 20px;
+    margin: 18px 0;
+  }
+
+  .sign {
+    margin-top: 44px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted); font-size: 15px;
+  }
+
+  footer {
+    text-align: center; color: var(--ink-muted);
+    font-size: 13px; padding: 26px 18px 40px;
+  }
+
+  @media (max-width: 480px) {
+    .title { font-size: 22px; }
+    .title img { width: 32px; height: 32px; }
+    h2 { font-size: 19px; }
+    .card { padding: 4px 15px 16px; }
+  }
+
+  .stage-label {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--accent);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 5px 16px;
+    margin: 0 0 10px;
+  }
+
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
+
+  .summary-card { padding: 18px 20px 22px; }
+  .summary-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-item:last-child { border-bottom: none; padding-bottom: 4px; }
+  .summary-item:first-child { padding-top: 4px; }
+  .summary-label {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .summary-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .summary-value .mvp-name { color: var(--accent); }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .chip {
+    display: inline-block;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 13px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .summary-value { font-size: 19px; }
+    .chip { font-size: 14.5px; padding: 7px 11px; }
+  }
+
+  .award {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 6px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+  .award:last-child { border-bottom: none; }@media (hover: hover) { .award:hover { background: var(--surface-2); border-radius: 10px; } }@media (hover: hover) { .award:hover .award-go { color: var(--accent); transform: translateX(3px); } }
+
+  .award-faces { display: flex; flex-shrink: 0; }
+  .mvp-row { display: flex; align-items: center; gap: 16px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
+  .award-faces img {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+  }
+  .award-faces img + img { margin-left: -14px; }
+
+  .award-none {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--surface-2);
+    border: 2px dashed var(--line);
+  }
+
+  .award-body { flex: 1; min-width: 0; }
+
+  .award-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.45; }
+  .award-why { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
+
+  .award-go {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: transform .12s ease, color .12s ease;
+  }
+  .award-go svg { width: 18px; height: 18px; display: block; }
+
+  @media (max-width: 480px) {
+    .award-label { font-size: 15.5px; }
+    .award-who { font-size: 17px; }
+    .award-faces img, .award-none { width: 48px; height: 48px; }
+  }
+
+  .shot {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .shot img { display: block; width: 100%; height: auto; }@media (hover: hover) { .shot:hover { border-color: var(--accent); } }
+
+  .shot .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .shot .play span {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+
+  .shot .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .shot .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .shot-note { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
+
+  .pending {
+    display: inline-block;
+    background: #fff4e5;
+    color: #a05a00;
+    border: 1px solid #f0c78a;
+    border-radius: 8px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
+  }
+  :root[data-theme="dark"] .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
+
+  .player-box {
+    position: relative;
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: #000;
+  }
+  .unmute-btn {
+    position: absolute; left: 10px; bottom: 46px;
+    background: rgba(0,0,0,.68); color: #fff; border: none;
+    border-radius: 999px; padding: 9px 16px; font-size: 13.5px; font-weight: 700;
+    font-family: inherit; cursor: pointer; z-index: 2; text-decoration: none;
+  }
+  .player-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .player-box .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .player-box .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../">← 動画リンク集にもどる</a>
+    <h1 class="title">
+      <img src="../assets/drop-icon.jpg" alt="">
+      練習講評
+    </h1>
+    <div class="subtitle">2026年10月10日(土) ・ 参加12名 ・ 1面・動画1本 ・ 書き手: けんぴー(AI)</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p><strong>床に飛び込んで拾いにいく人が多かった日。</strong>長く続くラリーもたくさんありました。時刻をタップすると、その場面から動画が再生されます。</p>
+
+  <span class="stage-label">ダイジェスト</span>
+
+  <div class="card summary-card">
+    <a class="award" href="#yukiyo">
+      <div class="award-faces"><img src="faces/yukiyo.jpg" alt="ゆきよ"></div>
+      <div class="award-body">
+        <div class="award-label">MVP</div>
+        <div class="award-who">ゆきよ</div>
+        <div class="award-why">スーパーレシーブを連発。読みも冴えた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#aki">
+      <div class="award-faces"><img src="faces/aki.jpg" alt="あき"></div>
+      <div class="award-body">
+        <div class="award-label">ファインプレー賞</div>
+        <div class="award-who">あき</div>
+        <div class="award-why">スーパージャンピングレシーブ</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#yui">
+      <div class="award-faces"><img src="faces/yui.jpg" alt="ゆい"></div>
+      <div class="award-body">
+        <div class="award-label">ナイスチャレンジ賞</div>
+        <div class="award-who">ゆい</div>
+        <div class="award-why">何度も床に飛び込んで追いかけた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#uchi">
+      <div class="award-faces"><img src="faces/uchi.jpg" alt="うっちー"></div>
+      <div class="award-body">
+        <div class="award-label">決めたで賞</div>
+        <div class="award-who">うっちー</div>
+        <div class="award-why">フェイントで決めた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#chin">
+      <div class="award-faces"><img src="faces/kazuo.jpg" alt="かずお のチーム"></div>
+      <div class="award-body">
+        <div class="award-label">珍プレー賞</div>
+        <div class="award-who">かずお のチーム</div>
+        <div class="award-why">ブロックされて、全員がコートに伏せた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#birthday">
+      <div class="award-faces"><img src="faces/ken.jpg" alt="けん"></div>
+      <div class="award-body">
+        <div class="award-label">この日のひとこま</div>
+        <div class="award-who">けん</div>
+        <div class="award-why">練習の途中で誕生日の歌</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+  </div>
+
+  <h2 id="yukiyo">MVP — ゆきよ</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yukiyo.jpg" alt="ゆきよ">
+      <div class="summary-value"><span class="mvp-name">ゆきよ</span></div>
+    </div>
+    <p>1本のラリーで<strong>スーパーレシーブを2回</strong>(<a href="https://youtu.be/ODrHis8NivU?t=2495" target="_blank" rel="noopener">41:39</a> <a href="https://youtu.be/ODrHis8NivU?t=2506" target="_blank" rel="noopener">41:50</a>)。最後は せんせい の強烈なアタックで決まりました。</p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=2495" target="_blank" rel="noopener">
+      <img src="shots1010/yukiyo-receive.jpg" alt="ゆきよ がスーパーレシーブをしたラリー" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">41:39</span></span>
+    </a>
+    <p>やっさん のフェイントを<strong>読み切ってカット。</strong>頭脳プレーです。<a href="https://youtu.be/ODrHis8NivU?t=4484" target="_blank" rel="noopener">74:48</a> では本人がMVPをアピールしています。</p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=4434" target="_blank" rel="noopener">
+      <img src="shots1010/yukiyo-read.jpg" alt="ゆきよ がフェイントを読み切った場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">73:58</span></span>
+    </a>
+    <p>ほかの場面: <a href="https://youtu.be/ODrHis8NivU?t=4990" target="_blank" rel="noopener">83:14</a></p>
+  </div>
+
+  <h2 id="aki">ファインプレー賞 — あき</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/aki.jpg" alt="あき">
+      <div class="summary-value"><span class="mvp-name">あき</span></div>
+    </div>
+    <p><strong>スーパージャンピングレシーブ。</strong></p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=2341" target="_blank" rel="noopener">
+      <img src="shots1010/aki-receive.jpg" alt="あき がスーパージャンピングレシーブをした場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">39:05</span></span>
+    </a>
+    <p>ほかの場面: <a href="https://youtu.be/ODrHis8NivU?t=2218" target="_blank" rel="noopener">37:02</a> <a href="https://youtu.be/ODrHis8NivU?t=3700" target="_blank" rel="noopener">61:44</a></p>
+  </div>
+
+  <h2 id="yui">ナイスチャレンジ賞 — ゆい</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/yui.jpg" alt="ゆい">
+      <div class="summary-value"><span class="mvp-name">ゆい</span></div>
+    </div>
+    <p>床に飛び込んで<strong>ナイスレシーブ。</strong></p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=228" target="_blank" rel="noopener">
+      <img src="shots1010/yui-dive.jpg" alt="ゆい が床に飛び込んだ場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">3:52</span></span>
+    </a>
+    <p>そのあとも、届かなくても何度も飛び込んでいます。<a href="https://youtu.be/ODrHis8NivU?t=3310" target="_blank" rel="noopener">55:14</a> <a href="https://youtu.be/ODrHis8NivU?t=4902" target="_blank" rel="noopener">81:46</a> <a href="https://youtu.be/ODrHis8NivU?t=5093" target="_blank" rel="noopener">84:57</a> <a href="https://youtu.be/ODrHis8NivU?t=5632" target="_blank" rel="noopener">93:56</a></p>
+  </div>
+
+  <h2 id="uchi">決めたで賞 — うっちー</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/uchi.jpg" alt="うっちー">
+      <div class="summary-value"><span class="mvp-name">うっちー</span></div>
+    </div>
+    <p><strong>フェイントが決まりました。</strong>せんせい の強烈なサーブから始まったラリーです。</p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=3113" target="_blank" rel="noopener">
+      <img src="shots1010/uchi-feint.jpg" alt="うっちー のフェイントが決まった場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">51:57</span></span>
+    </a>
+    <p>ほかの場面: <a href="https://youtu.be/ODrHis8NivU?t=1070" target="_blank" rel="noopener">17:54</a></p>
+  </div>
+
+  <h2 id="chin">珍プレー賞 — かずお のチーム</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/kazuo.jpg" alt="かずお のチーム">
+      <div class="summary-value"><span class="mvp-name">かずお のチーム</span></div>
+    </div>
+    <p>かずお のアタックを けん が<strong>2回続けてブロック</strong>(<a href="https://youtu.be/ODrHis8NivU?t=4996" target="_blank" rel="noopener">83:20</a> <a href="https://youtu.be/ODrHis8NivU?t=4999" target="_blank" rel="noopener">83:23</a>)。終わったとき、コートの全員が床に伏せて悔しがっています。</p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=4996" target="_blank" rel="noopener">
+      <img src="shots1010/chin.jpg" alt="けん がブロックした場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">83:20</span></span>
+    </a>
+  </div>
+
+  <h2 id="birthday">この日のひとこま — けん</h2>
+  <div class="card">
+    <div class="mvp-row" style="margin:16px 0 4px">
+      <img class="mvp-face" src="faces/ken.jpg" alt="けん">
+      <div class="summary-value"><span class="mvp-name">けん</span></div>
+    </div>
+    <p>練習の途中で、ゆきよ の音頭で<strong>けん に誕生日おめでとうの歌。</strong></p>
+    <a class="shot" href="https://youtu.be/ODrHis8NivU?t=3398" target="_blank" rel="noopener">
+      <img src="shots1010/birthday.jpg" alt="けん の誕生日の歌の場面" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">56:42</span></span>
+    </a>
+  </div>
+
+  <h2>この日、床に飛び込んだ場面</h2>
+  <div class="card">
+    <p><a href="https://youtu.be/ODrHis8NivU?t=228" target="_blank" rel="noopener">3:52</a> <a href="https://youtu.be/ODrHis8NivU?t=1529" target="_blank" rel="noopener">25:33</a> <a href="https://youtu.be/ODrHis8NivU?t=1846" target="_blank" rel="noopener">30:50</a> <a href="https://youtu.be/ODrHis8NivU?t=2185" target="_blank" rel="noopener">36:29</a> <a href="https://youtu.be/ODrHis8NivU?t=2219" target="_blank" rel="noopener">37:03</a> <a href="https://youtu.be/ODrHis8NivU?t=2270" target="_blank" rel="noopener">37:54</a> <a href="https://youtu.be/ODrHis8NivU?t=3310" target="_blank" rel="noopener">55:14</a> <a href="https://youtu.be/ODrHis8NivU?t=4902" target="_blank" rel="noopener">81:46</a> <a href="https://youtu.be/ODrHis8NivU?t=5093" target="_blank" rel="noopener">84:57</a> <a href="https://youtu.be/ODrHis8NivU?t=5632" target="_blank" rel="noopener">93:56</a></p>
+  </div>
+
+  <h2>この日、決めていた人たち</h2>
+  <div class="card">
+    <ul>
+      <li><strong>せんせい</strong> — <a href="https://youtu.be/ODrHis8NivU?t=2515" target="_blank" rel="noopener">41:59</a> <a href="https://youtu.be/ODrHis8NivU?t=4480" target="_blank" rel="noopener">74:44</a> 強烈なアタック、<a href="https://youtu.be/ODrHis8NivU?t=3101" target="_blank" rel="noopener">51:45</a> 強烈なサーブ</li>
+      <li><strong>やっさん</strong> — <a href="https://youtu.be/ODrHis8NivU?t=1722" target="_blank" rel="noopener">28:46</a> けん のワンハンドトスから、強烈なアタック</li>
+      <li><strong>けん</strong> — <a href="https://youtu.be/ODrHis8NivU?t=1529" target="_blank" rel="noopener">25:33</a> こもりん のアタックをブロックでシャットアウト</li>
+      <li><strong>やまさん</strong> — <a href="https://youtu.be/ODrHis8NivU?t=4484" target="_blank" rel="noopener">74:48</a> スーパーレシーブ、<a href="https://youtu.be/ODrHis8NivU?t=1846" target="_blank" rel="noopener">30:50</a> けん のフェイントをうまく拾った</li>
+    </ul>
+  </div>
+
+  <h2>ゲストの好プレー</h2>
+  <div class="card">
+    <ul>
+      <li><strong>やすこ</strong> — <a href="https://youtu.be/ODrHis8NivU?t=441" target="_blank" rel="noopener">7:25</a> <a href="https://youtu.be/ODrHis8NivU?t=446" target="_blank" rel="noopener">7:30</a> <a href="https://youtu.be/ODrHis8NivU?t=2336" target="_blank" rel="noopener">39:00</a> ナイスレシーブ</li>
+      <li><strong>よしこ</strong> — <a href="https://youtu.be/ODrHis8NivU?t=450" target="_blank" rel="noopener">7:34</a> ナイスレシーブ、<a href="https://youtu.be/ODrHis8NivU?t=2279" target="_blank" rel="noopener">38:03</a> ジャンピングレシーブ</li>
+    </ul>
+  </div>
+
+  <p class="note" style="margin-top:28px">Produced by けんぴー(AI)</p>
+</div>
+
+</body>
+</html>
