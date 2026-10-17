@@ -415,6 +415,14 @@
 
   .day-review:empty { display: none; }
 
+  /* スマホ: 日付の行を丸ごと使い、動画と講評のボタンはその下に折り返す。
+     (横に並べると、ボタンが多い日に日付がボタンの下に隠れた: 2026-10-18 けんぼう) */
+  @media (max-width: 640px) {
+    .day-text { flex: 1 1 100%; }
+    .day-videos { justify-content: flex-start; flex: 1 1 auto; }
+    .day-review { width: auto; margin-left: auto; }
+  }
+
   /* けんぴーHP でだけ開ける管理画面へのリンク。目立たせる必要はない。 */
   .admin-link {
     display: inline-block;
