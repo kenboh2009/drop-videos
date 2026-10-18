@@ -334,6 +334,13 @@
     color: var(--accent);
     flex-shrink: 0;
   }
+
+  .toss-table { width: 100%; border-collapse: collapse; margin: 14px 0 6px; font-size: 15px; }
+  .toss-table th { text-align: left; font-size: 12.5px; font-weight: 700; color: var(--ink-muted, #5b6b78); padding: 6px 8px; border-bottom: 2px solid var(--line, #d8e0e6); }
+  .toss-table td { padding: 8px; border-bottom: 1px solid var(--line, #e3e9ee); }
+  .toss-table td:first-child { white-space: nowrap; }
+  .toss-table td:nth-child(2) { min-width: 5.6em; }
+  .toss-table .kind { margin-left: 6px; font-size: 11.5px; font-weight: 600; color: var(--accent, #D9531E); border: 1px solid var(--accent, #D9531E); border-radius: 999px; padding: 1px 7px; }
 </style>
 </head>
 <body>
@@ -417,47 +424,75 @@
 
   <h2>トスからアタックへ(だれが上げて、だれが決めたか)</h2>
   <div class="card">
-    <ul>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=276" target="_blank" rel="noopener">4:38</a> <strong>あき</strong>のトス → <strong>やっさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=381" target="_blank" rel="noopener">6:23</a> <strong>ゆきよ</strong>のトス → <strong>けん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=439" target="_blank" rel="noopener">7:21</a> <strong>あき</strong>のトス → <strong>やっさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=870" target="_blank" rel="noopener">14:32</a> <strong>ゆい</strong>のトス → <strong>せんせい</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=925" target="_blank" rel="noopener">15:27</a> <strong>ゆきよ</strong>のトス → <strong>るき</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=1031" target="_blank" rel="noopener">17:13</a> <strong>あき</strong>のトス → <strong>おおのさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=1059" target="_blank" rel="noopener">17:41</a> <strong>ゆい</strong>のトス → <strong>せんせい</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=1432" target="_blank" rel="noopener">23:54</a> <strong>あやさん</strong>のトス → <strong>しょうさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=1481" target="_blank" rel="noopener">24:43</a> <strong>しょうさん</strong>のジャンプトス → <strong>てんちょうさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=1548" target="_blank" rel="noopener">25:50</a> <strong>おおのさん</strong>のトス → <strong>るき</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=2100" target="_blank" rel="noopener">35:02</a> <strong>あき</strong>のトス → <strong>やっさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=2132" target="_blank" rel="noopener">35:34</a> <strong>ゆい</strong>のトス → <strong>やっさん</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=3131" target="_blank" rel="noopener">52:13</a> <strong>かずえ</strong>のバックトス → <strong>かずお</strong>のアタック</li>
-      <li><a href="https://youtu.be/aeL_a5Q-d4c?t=3173" target="_blank" rel="noopener">52:55</a> <strong>せんせい</strong>のジャンプトス → <strong>かずお</strong>のアタック</li>
-    </ul>
+    <table class="toss-table">
+      <thead><tr><th>時刻</th><th>トス(上げた人)</th><th>アタック(決めた人)</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=276" target="_blank" rel="noopener">4:38</a></td><td><strong>あき</strong></td><td><strong>やっさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=381" target="_blank" rel="noopener">6:23</a></td><td><strong>ゆきよ</strong></td><td><strong>けん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=439" target="_blank" rel="noopener">7:21</a></td><td><strong>あき</strong></td><td><strong>やっさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=870" target="_blank" rel="noopener">14:32</a></td><td><strong>ゆい</strong></td><td><strong>せんせい</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=925" target="_blank" rel="noopener">15:27</a></td><td><strong>ゆきよ</strong></td><td><strong>るき</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1031" target="_blank" rel="noopener">17:13</a></td><td><strong>あき</strong></td><td><strong>おおのさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1059" target="_blank" rel="noopener">17:41</a></td><td><strong>ゆい</strong></td><td><strong>せんせい</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1432" target="_blank" rel="noopener">23:54</a></td><td><strong>あやさん</strong></td><td><strong>しょうさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1481" target="_blank" rel="noopener">24:43</a></td><td><strong>しょうさん</strong><span class="kind">ジャンプトス</span></td><td><strong>てんちょうさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1548" target="_blank" rel="noopener">25:50</a></td><td><strong>おおのさん</strong></td><td><strong>るき</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=2100" target="_blank" rel="noopener">35:02</a></td><td><strong>あき</strong></td><td><strong>やっさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=2132" target="_blank" rel="noopener">35:34</a></td><td><strong>ゆい</strong></td><td><strong>やっさん</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3131" target="_blank" rel="noopener">52:13</a></td><td><strong>かずえ</strong><span class="kind">バックトス</span></td><td><strong>かずお</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3173" target="_blank" rel="noopener">52:55</a></td><td><strong>せんせい</strong><span class="kind">ジャンプトス</span></td><td><strong>かずお</strong></td></tr>
+      </tbody>
+    </table>
   </div>
 
   <h2>この日、決めていた人たち</h2>
   <div class="card">
-    <ul>
-      <li><strong>やっさん</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=345" target="_blank" rel="noopener">5:47</a> ゆきよ のトスから強力なアタック、<a href="https://youtu.be/aeL_a5Q-d4c?t=3852" target="_blank" rel="noopener">64:14</a> 長いラリーを強烈なアタックで決めた、<a href="https://youtu.be/aeL_a5Q-d4c?t=3398" target="_blank" rel="noopener">56:40</a> フェイント、<a href="https://youtu.be/aeL_a5Q-d4c?t=4115" target="_blank" rel="noopener">68:37</a> ラリーの最後にアタックで決めた。<a href="https://youtu.be/aeL_a5Q-d4c?t=3636" target="_blank" rel="noopener">60:38</a> では落ちかけた球をファインプレーでつなぎました</li>
-      <li><strong>せんせい</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=812" target="_blank" rel="noopener">13:34</a> <a href="https://youtu.be/aeL_a5Q-d4c?t=2789" target="_blank" rel="noopener">46:31</a> <a href="https://youtu.be/aeL_a5Q-d4c?t=4326" target="_blank" rel="noopener">72:08</a> 強烈なアタック、<a href="https://youtu.be/aeL_a5Q-d4c?t=2479" target="_blank" rel="noopener">41:21</a> 強烈なサーブから始まったラリーは、最後に けん のアタックが決まりました</li>
-      <li><strong>けん</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=3574" target="_blank" rel="noopener">59:36</a> <a href="https://youtu.be/aeL_a5Q-d4c?t=4202" target="_blank" rel="noopener">70:04</a> アタック</li>
-      <li><strong>かずお</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=3082" target="_blank" rel="noopener">51:24</a> アタック</li>
-      <li><strong>おおのさん</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=604" target="_blank" rel="noopener">10:06</a> お手本のような正確なトス</li>
-    </ul>
+    <table class="toss-table">
+      <thead><tr><th>時刻</th><th>人</th><th>プレー</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=345" target="_blank" rel="noopener">5:47</a></td><td><strong>やっさん</strong></td><td>ゆきよ のトスから強力なアタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=604" target="_blank" rel="noopener">10:06</a></td><td><strong>おおのさん</strong></td><td>お手本のような正確なトス</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=812" target="_blank" rel="noopener">13:34</a></td><td><strong>せんせい</strong></td><td>強烈なアタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=2479" target="_blank" rel="noopener">41:21</a></td><td><strong>せんせい</strong></td><td>強烈なサーブから始まったラリー。最後は けん のアタックが決まった</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=2789" target="_blank" rel="noopener">46:31</a></td><td><strong>せんせい</strong></td><td>強烈なアタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3082" target="_blank" rel="noopener">51:24</a></td><td><strong>かずお</strong></td><td>アタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3398" target="_blank" rel="noopener">56:40</a></td><td><strong>やっさん</strong></td><td>フェイント</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3574" target="_blank" rel="noopener">59:36</a></td><td><strong>けん</strong></td><td>アタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3636" target="_blank" rel="noopener">60:38</a></td><td><strong>やっさん</strong></td><td>落ちかけた球をファインプレーでつないだ</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3852" target="_blank" rel="noopener">64:14</a></td><td><strong>やっさん</strong></td><td>長いラリーを強烈なアタックで決めた</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=4115" target="_blank" rel="noopener">68:37</a></td><td><strong>やっさん</strong></td><td>ラリーの最後にアタックで決めた</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=4202" target="_blank" rel="noopener">70:04</a></td><td><strong>けん</strong></td><td>アタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=4326" target="_blank" rel="noopener">72:08</a></td><td><strong>せんせい</strong></td><td>長いラリーを強烈なアタックで決めた</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <h2>ゲストの好プレー</h2>
   <div class="card">
-    <ul>
-      <li><strong>しょうさん</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=1481" target="_blank" rel="noopener">24:43</a> <strong>ジャンプトス</strong>、<a href="https://youtu.be/aeL_a5Q-d4c?t=328" target="_blank" rel="noopener">5:30</a> てんちょうさん の水平の速いロングトスから決めた、<a href="https://youtu.be/aeL_a5Q-d4c?t=2878" target="_blank" rel="noopener">48:02</a> コントロールされたフェイントがラインぎりぎりに決まった</li>
-      <li><strong>てんちょうさん</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=1481" target="_blank" rel="noopener">24:43</a> アタック、<a href="https://youtu.be/aeL_a5Q-d4c?t=328" target="_blank" rel="noopener">5:30</a> 水平の速いロングトス</li>
-      <li><strong>あやさん</strong> — <a href="https://youtu.be/aeL_a5Q-d4c?t=1432" target="_blank" rel="noopener">23:54</a> トスから しょうさん のアタックにつないだ</li>
-    </ul>
+    <table class="toss-table">
+      <thead><tr><th>時刻</th><th>人</th><th>プレー</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=328" target="_blank" rel="noopener">5:30</a></td><td><strong>てんちょうさん・しょうさん</strong></td><td>てんちょうさん の水平の速いロングトスから、しょうさん が決めた</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1432" target="_blank" rel="noopener">23:54</a></td><td><strong>あやさん・しょうさん</strong></td><td>あやさん のトスから しょうさん のアタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1481" target="_blank" rel="noopener">24:43</a></td><td><strong>しょうさん・てんちょうさん</strong></td><td>しょうさん の<strong>ジャンプトス</strong>から てんちょうさん のアタック</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=2878" target="_blank" rel="noopener">48:02</a></td><td><strong>しょうさん</strong></td><td>コントロールされたフェイントがラインぎりぎりに決まった</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <h2>この日、床に飛び込んだ・拾いにいった場面</h2>
   <div class="card">
-    <p><a href="https://youtu.be/aeL_a5Q-d4c?t=144" target="_blank" rel="noopener">2:26</a> しょうさん のフェイントを あき が<strong>スーパーレシーブ。</strong><a href="https://youtu.be/aeL_a5Q-d4c?t=244" target="_blank" rel="noopener">4:06</a> あき の<strong>ワンハンドレシーブ</strong>から、いいラリーになりました(最後は しょうさん の強烈なアタック)。<a href="https://youtu.be/aeL_a5Q-d4c?t=324" target="_blank" rel="noopener">5:26</a> あき が滑り込みながらレシーブ。<a href="https://youtu.be/aeL_a5Q-d4c?t=1697" target="_blank" rel="noopener">28:19</a> あき のワンハンドレシーブを かずえ がつなぎ、おおのさん が返しました。<a href="https://youtu.be/aeL_a5Q-d4c?t=2227" target="_blank" rel="noopener">37:09</a> けん のフェイントに かずえ が反応して触りました。<a href="https://youtu.be/aeL_a5Q-d4c?t=3907" target="_blank" rel="noopener">65:09</a> やっさん のフェイントに あやさん が反応しました。</p>
+    <table class="toss-table">
+      <thead><tr><th>時刻</th><th>人</th><th>プレー</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=144" target="_blank" rel="noopener">2:26</a></td><td><strong>あき</strong></td><td>しょうさん のフェイントを<strong>スーパーレシーブ</strong></td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=244" target="_blank" rel="noopener">4:06</a></td><td><strong>あき</strong></td><td><strong>ワンハンドレシーブ</strong>から、いいラリーに(最後は しょうさん の強烈なアタック)</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=324" target="_blank" rel="noopener">5:26</a></td><td><strong>あき</strong></td><td>滑り込みながらレシーブ</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=1697" target="_blank" rel="noopener">28:19</a></td><td><strong>あき・かずえ・おおのさん</strong></td><td>あき のワンハンドレシーブを かずえ がつなぎ、おおのさん が返した</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=2227" target="_blank" rel="noopener">37:09</a></td><td><strong>かずえ</strong></td><td>けん のフェイントに反応して触った</td></tr>
+        <tr><td><a href="https://youtu.be/aeL_a5Q-d4c?t=3907" target="_blank" rel="noopener">65:09</a></td><td><strong>あやさん</strong></td><td>やっさん のフェイントに反応した</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <h2>この日のひとこま</h2>
