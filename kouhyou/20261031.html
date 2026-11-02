@@ -20,7 +20,6 @@
     --radius: 14px;
     --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #10171F;
@@ -33,7 +32,6 @@
       --line: #2A3742;
     }
   }
-
   :root[data-theme="dark"] {
     --bg: #10171F;
     --surface: #17212B;
@@ -44,9 +42,7 @@
     --accent-contrast: #17212B;
     --line: #2A3742;
   }
-
   * { box-sizing: border-box; }
-
   body {
     margin: 0;
     background: var(--bg);
@@ -55,9 +51,7 @@
     line-height: 1.85;
     -webkit-text-size-adjust: 100%;
   }
-
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
-
   .hero {
     background: var(--surface);
     border-bottom: 1px solid var(--line);
@@ -76,7 +70,6 @@
   }
   .title img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
   .subtitle { color: var(--ink-muted); font-size: 15px; margin-top: 8px; }
-
   .note {
     background: var(--surface-2);
     border-left: 3px solid var(--accent);
@@ -86,7 +79,6 @@
     color: var(--ink-muted);
     margin: 0 0 26px;
   }
-
   h2 {
     font-size: 21px;
     margin: 42px 0 4px;
@@ -94,12 +86,10 @@
     border-bottom: 2px solid var(--accent);
   }
   h3 { font-size: 17px; margin: 30px 0 2px; color: var(--accent); }
-
   p { margin: 14px 0; }
   ol, ul { padding-left: 1.3em; margin: 14px 0; }
   li { margin: 10px 0; }
   strong { color: var(--ink); font-weight: 700; }
-
   .card {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -107,25 +97,21 @@
     padding: 4px 20px 20px;
     margin: 18px 0;
   }
-
   .sign {
     margin-top: 44px; padding-top: 18px;
     border-top: 1px solid var(--line);
     color: var(--ink-muted); font-size: 15px;
   }
-
   footer {
     text-align: center; color: var(--ink-muted);
     font-size: 13px; padding: 26px 18px 40px;
   }
-
   @media (max-width: 480px) {
     .title { font-size: 22px; }
     .title img { width: 32px; height: 32px; }
     h2 { font-size: 19px; }
     .card { padding: 4px 15px 16px; }
   }
-
   .stage-label {
     display: inline-block;
     font-size: 19px;
@@ -137,10 +123,8 @@
     padding: 5px 16px;
     margin: 0 0 10px;
   }
-
   .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
   h2 .crown { width: 1.05em; height: 1.05em; }
-
   .summary-card { padding: 18px 20px 22px; }
   .summary-item {
     padding: 16px 0;
@@ -159,7 +143,6 @@
     line-height: 1.5;
   }
   .summary-value .mvp-name { color: var(--accent); }
-
   .chip-row {
     display: flex;
     flex-wrap: wrap;
@@ -175,12 +158,10 @@
     font-size: 16px;
     font-weight: 700;
   }
-
   @media (max-width: 480px) {
     .summary-value { font-size: 19px; }
     .chip { font-size: 14.5px; padding: 7px 11px; }
   }
-
   .award {
     display: flex;
     align-items: center;
@@ -191,7 +172,6 @@
     color: inherit;
   }
   .award:last-child { border-bottom: none; }@media (hover: hover) { .award:hover { background: var(--surface-2); border-radius: 10px; } }@media (hover: hover) { .award:hover .award-go { color: var(--accent); transform: translateX(3px); } }
-
   .award-faces { display: flex; flex-shrink: 0; }
   .mvp-row { display: flex; align-items: center; gap: 16px; }
   .mvp-face {
@@ -201,7 +181,6 @@
     flex-shrink: 0;
     box-shadow: 0 0 0 3px var(--accent);
   }
-
   .award-faces img {
     width: 58px; height: 58px;
     border-radius: 50%;
@@ -209,7 +188,6 @@
     box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
   }
   .award-faces img + img { margin-left: -14px; }
-
   .award-none {
     width: 58px; height: 58px;
     border-radius: 50%;
@@ -217,9 +195,7 @@
     background: var(--surface-2);
     border: 2px dashed var(--line);
   }
-
   .award-body { flex: 1; min-width: 0; }
-
   .award-label {
     font-size: 17px;
     font-weight: 800;
@@ -228,20 +204,17 @@
   }
   .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.45; }
   .award-why { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
-
   .award-go {
     flex-shrink: 0;
     color: var(--ink-muted);
     transition: transform .12s ease, color .12s ease;
   }
   .award-go svg { width: 18px; height: 18px; display: block; }
-
   @media (max-width: 480px) {
     .award-label { font-size: 15.5px; }
     .award-who { font-size: 17px; }
     .award-faces img, .award-none { width: 48px; height: 48px; }
   }
-
   .shot {
     display: block;
     position: relative;
@@ -253,7 +226,6 @@
     background: var(--surface-2);
   }
   .shot img { display: block; width: 100%; height: auto; }@media (hover: hover) { .shot:hover { border-color: var(--accent); } }
-
   .shot .play {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
@@ -266,7 +238,6 @@
     display: flex; align-items: center; justify-content: center;
   }
   .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
-
   .shot .cap {
     display: flex; align-items: center; gap: 8px;
     padding: 9px 12px;
@@ -281,9 +252,7 @@
     color: var(--accent);
     flex-shrink: 0;
   }
-
   .shot-note { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
-
   .pending {
     display: inline-block;
     background: #fff4e5;
@@ -299,7 +268,6 @@
     :root:not([data-theme="light"]) .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
   }
   :root[data-theme="dark"] .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
-
   .player-box {
     position: relative;
     margin: 12px 0;
@@ -334,7 +302,6 @@
     color: var(--accent);
     flex-shrink: 0;
   }
-
   .toss-table { width: 100%; border-collapse: collapse; margin: 14px 0 6px; font-size: 15px; }
   .toss-table th { text-align: left; font-size: 12.5px; font-weight: 700; color: var(--ink-muted, #5b6b78); padding: 6px 8px; border-bottom: 2px solid var(--line, #d8e0e6); }
   .toss-table td { padding: 8px; border-bottom: 1px solid var(--line, #e3e9ee); }
@@ -348,7 +315,6 @@
 </style>
 </head>
 <body>
-
 <header class="hero">
   <div class="hero-inner">
     <a class="back" href="../">← 動画リンク集にもどる</a>
@@ -359,62 +325,38 @@
     <div class="subtitle">2026年10月31日(土) ・ 参加14名 ・ ステージ側の動画は約90分 ・ 書き手: けんぴー(AI)</div>
   </div>
 </header>
-
 <div class="wrap">
-
-
-
   <span class="stage-label">ダイジェスト</span>
-
   <div class="card summary-card">
     <a class="award" href="#award1">
-      <div class="award-faces"><img src="faces/yui.jpg" alt="ゆい"><img src="faces/riru.jpg" alt="りる"><img src="faces/aki.jpg" alt="あき"><img src="faces/yukiyo.jpg" alt="ゆきよ"></div>
+      <div class="award-faces"><img src="faces/yui.jpg" alt="ゆい"><img src="faces/riru.jpg" alt="りる"></div>
       <div class="award-body">
         <div class="award-label">ナイスレシーブ賞</div>
-        <div class="award-who">ゆい・りる・あき・ゆきよ</div>
+        <div class="award-who">ゆい・りる</div>
         <div class="award-why">何度も拾ってつないだ</div>
       </div>
       <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
     </a>
     <a class="award" href="#award2">
-      <div class="award-faces"><img src="faces/ruki.jpg" alt="るき"><img src="faces/sensei.jpg" alt="せんせい"></div>
-      <div class="award-body">
-        <div class="award-label">稲妻アタック賞</div>
-        <div class="award-who">るき・せんせい</div>
-        <div class="award-why">稲妻が出るほど速いアタックが決まった</div>
-      </div>
-      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
-    </a>
-    <a class="award" href="#award3">
-      <div class="award-faces"><img src="faces/uchi.jpg" alt="うっちー"><img src="faces/kazuo.jpg" alt="かずお"><img src="faces/komorin.jpg" alt="こもりん"><img src="faces/yamasan.jpg" alt="やまさん"></div>
+      <div class="award-faces"><img src="faces/uchi.jpg" alt="うっちー"><img src="faces/yassan.jpg" alt="やっさん"></div>
       <div class="award-body">
         <div class="award-label">決めたで賞</div>
-        <div class="award-who">うっちー・かずお・こもりん・やまさん</div>
+        <div class="award-who">うっちー・やっさん</div>
         <div class="award-why">アタックを決めて、チームに点をもたらした</div>
       </div>
       <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
     </a>
-    <a class="award" href="#award4">
-      <div class="award-faces"><img src="faces/yassan.jpg" alt="やっさん"><img src="faces/ken.jpg" alt="けん"><img src="faces/kazue.jpg" alt="かずえ"></div>
+    <a class="award" href="#award3">
+      <div class="award-faces"><img src="faces/kazue.jpg" alt="かずえ"></div>
       <div class="award-body">
-        <div class="award-label">フェイント&ブロック賞</div>
-        <div class="award-who">やっさん・けん・かずえ</div>
-        <div class="award-why">フェイントとブロックで、前で活躍</div>
-      </div>
-      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
-    </a>
-    <a class="award" href="#award5">
-      <div class="award-faces"><img src="faces/yuriko.jpg" alt="ゆりこ"></div>
-      <div class="award-body">
-        <div class="award-label">安定トス賞</div>
-        <div class="award-who">ゆりこ</div>
-        <div class="award-why">トスが安定。バックトスも</div>
+        <div class="award-label">フェイント賞</div>
+        <div class="award-who">かずえ</div>
+        <div class="award-why">相手の意表を突くフェイントで、点を取った</div>
       </div>
       <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
     </a>
   </div>
-
-  <h2 id="award1">ナイスレシーブ賞 — ゆい・りる・あき・ゆきよ</h2>
+  <h2 id="award1">ナイスレシーブ賞 — ゆい・りる</h2>
   <div class="card">
     <a class="shot" href="https://youtu.be/I__LLPVmmiE?t=128" target="_blank" rel="noopener">
       <img src="shots1031/p9l29j89ob9-1.jpg" alt="ゆい のレシーブ" loading="lazy">
@@ -422,73 +364,46 @@
       <span class="cap"><span class="at">2:10</span></span>
     </a>
     <p>ゆい のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=128" target="_blank" rel="noopener">2:10</a> <a href="https://youtu.be/I__LLPVmmiE?t=355" target="_blank" rel="noopener">5:57</a></p>
-    <p>りる のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=345" target="_blank" rel="noopener">5:47</a> <a href="https://youtu.be/I__LLPVmmiE?t=406" target="_blank" rel="noopener">6:48</a> <a href="https://youtu.be/I__LLPVmmiE?t=1055" target="_blank" rel="noopener">17:37</a></p>
-    <p>あき のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=1052" target="_blank" rel="noopener">17:34</a> <a href="https://youtu.be/I__LLPVmmiE?t=1303" target="_blank" rel="noopener">21:45</a></p>
-    <p>ゆきよ のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=1285" target="_blank" rel="noopener">21:27</a></p>
+    <p>りる のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=345" target="_blank" rel="noopener">5:47</a> <a href="https://youtu.be/I__LLPVmmiE?t=406" target="_blank" rel="noopener">6:48</a> <a href="https://youtu.be/I__LLPVmmiE?t=1055" target="_blank" rel="noopener">17:37</a> <a href="https://youtu.be/I__LLPVmmiE?t=1949" target="_blank" rel="noopener">32:31</a></p>
+    <p>りる のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=625" target="_blank" rel="noopener">10:27</a></p>
+    <p>ゆい のトス　<a href="https://youtu.be/I__LLPVmmiE?t=1577" target="_blank" rel="noopener">26:19</a></p>
   </div>
-
-  <h2 id="award2">稲妻アタック賞 — るき・せんせい</h2>
-  <div class="card">
-    <a class="shot" href="https://youtu.be/I__LLPVmmiE?t=258" target="_blank" rel="noopener">
-      <img src="shots1031/p9l79jh9ob9-2.jpg" alt="るき のアタック" loading="lazy">
-      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">4:20</span></span>
-    </a>
-    <p>るき のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=258" target="_blank" rel="noopener">4:20</a> <a href="https://youtu.be/I__LLPVmmiE?t=1073" target="_blank" rel="noopener">17:55</a> <a href="https://youtu.be/I__LLPVmmiE?t=3507" target="_blank" rel="noopener">58:29</a> <a href="https://youtu.be/I__LLPVmmiE?t=3793" target="_blank" rel="noopener">63:15</a> <a href="https://youtu.be/I__LLPVmmiE?t=5304" target="_blank" rel="noopener">88:26</a></p>
-    <p>せんせい のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=3525" target="_blank" rel="noopener">58:47</a> <a href="https://youtu.be/I__LLPVmmiE?t=4560" target="_blank" rel="noopener">76:02</a> <a href="https://youtu.be/I__LLPVmmiE?t=4963" target="_blank" rel="noopener">82:45</a></p>
-  </div>
-
-  <h2 id="award3">決めたで賞 — うっちー・かずお・こもりん・やまさん</h2>
-  <div class="card">
-    <a class="shot" href="https://youtu.be/I__LLPVmmiE?t=627" target="_blank" rel="noopener">
-      <img src="shots1031/p9ja9k39k19-3.jpg" alt="うっちー のアタック" loading="lazy">
-      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">10:29</span></span>
-    </a>
-    <p>うっちー のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=627" target="_blank" rel="noopener">10:29</a> <a href="https://youtu.be/I__LLPVmmiE?t=1814" target="_blank" rel="noopener">30:16</a></p>
-    <p>やまさん のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=994" target="_blank" rel="noopener">16:36</a></p>
-    <p>かずお のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=1578" target="_blank" rel="noopener">26:20</a> <a href="https://youtu.be/I__LLPVmmiE?t=3697" target="_blank" rel="noopener">61:39</a></p>
-    <p>こもりん のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=1900" target="_blank" rel="noopener">31:42</a> <a href="https://youtu.be/I__LLPVmmiE?t=3233" target="_blank" rel="noopener">53:55</a></p>
-  </div>
-
-  <h2 id="award4">フェイント&ブロック賞 — やっさん・けん・かずえ</h2>
+  <h2 id="award2">決めたで賞 — うっちー・やっさん</h2>
   <div class="card">
     <a class="shot" href="https://youtu.be/I__LLPVmmiE?t=131" target="_blank" rel="noopener">
-      <img src="shots1031/p9l09k39jp9-4.jpg" alt="やっさん のフェイント" loading="lazy">
+      <img src="shots1031/p9ja9k39k19-2.jpg" alt="やっさん のフェイント" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">2:13</span></span>
     </a>
     <p>やっさん のフェイント　<a href="https://youtu.be/I__LLPVmmiE?t=131" target="_blank" rel="noopener">2:13</a> <a href="https://youtu.be/I__LLPVmmiE?t=1207" target="_blank" rel="noopener">20:09</a></p>
-    <p>けん・やっさん のブロック　<a href="https://youtu.be/I__LLPVmmiE?t=1027" target="_blank" rel="noopener">17:09</a></p>
-    <p>かずえ のフェイント　<a href="https://youtu.be/I__LLPVmmiE?t=1410" target="_blank" rel="noopener">23:32</a></p>
-    <p>けん のフェイント　<a href="https://youtu.be/I__LLPVmmiE?t=3746" target="_blank" rel="noopener">62:28</a></p>
-    <p>けん のブロック　<a href="https://youtu.be/I__LLPVmmiE?t=4159" target="_blank" rel="noopener">69:21</a> <a href="https://youtu.be/I__LLPVmmiE?t=5425" target="_blank" rel="noopener">90:27</a></p>
+    <p>うっちー のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=627" target="_blank" rel="noopener">10:29</a> <a href="https://youtu.be/I__LLPVmmiE?t=1814" target="_blank" rel="noopener">30:16</a></p>
+    <p>やっさん のブロック　<a href="https://youtu.be/I__LLPVmmiE?t=1027" target="_blank" rel="noopener">17:09</a></p>
+    <p>うっちー のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=2010" target="_blank" rel="noopener">33:32</a></p>
   </div>
-
-  <h2 id="award5">安定トス賞 — ゆり</h2>
+  <h2 id="award3">フェイント賞 — かずえ</h2>
   <div class="card">
-    <a class="shot" href="https://youtu.be/I__LLPVmmiE?t=257" target="_blank" rel="noopener">
-      <img src="shots1031/p9l29l6-5.jpg" alt="ゆりこ のトス" loading="lazy">
+    <a class="shot" href="https://youtu.be/I__LLPVmmiE?t=1410" target="_blank" rel="noopener">
+      <img src="shots1031/kazue-3.jpg" alt="かずえ のフェイント" loading="lazy">
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
-      <span class="cap"><span class="at">4:19</span></span>
+      <span class="cap"><span class="at">23:32</span></span>
     </a>
-    <p>ゆりこ のトス　<a href="https://youtu.be/I__LLPVmmiE?t=257" target="_blank" rel="noopener">4:19</a> <a href="https://youtu.be/I__LLPVmmiE?t=4633" target="_blank" rel="noopener">77:15</a> <a href="https://youtu.be/I__LLPVmmiE?t=5358" target="_blank" rel="noopener">89:20</a></p>
+    <p>かずえ のフェイント　<a href="https://youtu.be/I__LLPVmmiE?t=1410" target="_blank" rel="noopener">23:32</a></p>
+    <p>かずえ のトス　<a href="https://youtu.be/I__LLPVmmiE?t=3524" target="_blank" rel="noopener">58:46</a></p>
+    <p>かずえ のレシーブ　<a href="https://youtu.be/I__LLPVmmiE?t=4399" target="_blank" rel="noopener">73:21</a></p>
+    <p>かずえ のアタック　<a href="https://youtu.be/I__LLPVmmiE?t=4846" target="_blank" rel="noopener">80:48</a></p>
   </div>
-
-
-  <h2>この日、決めていた人たち</h2>
+  <h2>この日のファインプレー</h2>
   <div class="card">
-    <table class="toss-table">
-      <thead><tr><th>人</th><th>プレー</th><th>時刻</th></tr></thead>
-      <tbody>
-        <tr><td><strong>けん</strong></td><td>けん のアタック</td><td><a href="https://youtu.be/I__LLPVmmiE?t=611" target="_blank" rel="noopener">10:13</a> <a href="https://youtu.be/I__LLPVmmiE?t=2938" target="_blank" rel="noopener">49:00</a></td></tr>
-        <tr><td><strong>ゆきよ</strong></td><td>ゆきよ のサーブ</td><td><a href="https://youtu.be/I__LLPVmmiE?t=1268" target="_blank" rel="noopener">21:10</a></td></tr>
-        <tr><td><strong>りる</strong></td><td>りる のフェイント</td><td><a href="https://youtu.be/I__LLPVmmiE?t=3028" target="_blank" rel="noopener">50:30</a></td></tr>
-        <tr><td><strong>かずえ</strong></td><td>かずえ のアタック</td><td><a href="https://youtu.be/I__LLPVmmiE?t=4846" target="_blank" rel="noopener">80:48</a></td></tr>
-      </tbody>
-    </table>
+    <p><strong>ゆりこ</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=259" target="_blank" rel="noopener">4:19</a> トス、<a href="https://youtu.be/I__LLPVmmiE?t=1051" target="_blank" rel="noopener">17:32</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=3032" target="_blank" rel="noopener">50:33</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=4635" target="_blank" rel="noopener">1:17:15</a> トス、<a href="https://youtu.be/I__LLPVmmiE?t=5360" target="_blank" rel="noopener">1:29:21</a> トス</p>
+    <p><strong>るき</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=260" target="_blank" rel="noopener">4:21</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=1075" target="_blank" rel="noopener">17:55</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=3509" target="_blank" rel="noopener">58:29</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=3795" target="_blank" rel="noopener">1:03:16</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=5306" target="_blank" rel="noopener">1:28:27</a> アタック</p>
+    <p><strong>あき</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=611" target="_blank" rel="noopener">10:12</a> トス、<a href="https://youtu.be/I__LLPVmmiE?t=1054" target="_blank" rel="noopener">17:34</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=1169" target="_blank" rel="noopener">19:30</a> トス、<a href="https://youtu.be/I__LLPVmmiE?t=1305" target="_blank" rel="noopener">21:46</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=1506" target="_blank" rel="noopener">25:06</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=3723" target="_blank" rel="noopener">1:02:03</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=3938" target="_blank" rel="noopener">1:05:38</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=4846" target="_blank" rel="noopener">1:20:46</a> トス、<a href="https://youtu.be/I__LLPVmmiE?t=5393" target="_blank" rel="noopener">1:29:53</a> レシーブ</p>
+    <p><strong>けん</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=613" target="_blank" rel="noopener">10:13</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=1029" target="_blank" rel="noopener">17:09</a> ブロック、<a href="https://youtu.be/I__LLPVmmiE?t=2940" target="_blank" rel="noopener">49:01</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=3748" target="_blank" rel="noopener">1:02:28</a> フェイント、<a href="https://youtu.be/I__LLPVmmiE?t=4161" target="_blank" rel="noopener">1:09:22</a> ブロック、<a href="https://youtu.be/I__LLPVmmiE?t=5427" target="_blank" rel="noopener">1:30:27</a> ブロック</p>
+    <p><strong>やまさん</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=996" target="_blank" rel="noopener">16:36</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=1528" target="_blank" rel="noopener">25:29</a> レシーブ</p>
+    <p><strong>ゆきよ</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=1270" target="_blank" rel="noopener">21:11</a> サーブ、<a href="https://youtu.be/I__LLPVmmiE?t=1287" target="_blank" rel="noopener">21:28</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=4394" target="_blank" rel="noopener">1:13:15</a> レシーブ</p>
+    <p><strong>かずお</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=1580" target="_blank" rel="noopener">26:21</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=3699" target="_blank" rel="noopener">1:01:39</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=4161" target="_blank" rel="noopener">1:09:22</a> ブロック、<a href="https://youtu.be/I__LLPVmmiE?t=5427" target="_blank" rel="noopener">1:30:27</a> ブロック</p>
+    <p><strong>こもりん</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=1902" target="_blank" rel="noopener">31:42</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=3232" target="_blank" rel="noopener">53:53</a> レシーブ、<a href="https://youtu.be/I__LLPVmmiE?t=3235" target="_blank" rel="noopener">53:55</a> アタック</p>
+    <p><strong>せんせい</strong>　<a href="https://youtu.be/I__LLPVmmiE?t=3527" target="_blank" rel="noopener">58:47</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=4562" target="_blank" rel="noopener">1:16:03</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=4965" target="_blank" rel="noopener">1:22:45</a> アタック、<a href="https://youtu.be/I__LLPVmmiE?t=5166" target="_blank" rel="noopener">1:26:06</a> レシーブ</p>
   </div>
-
   <h2>みんなでつないだラリー</h2>
   <div class="card">
     <table class="toss-table">
@@ -498,20 +413,7 @@
       </tbody>
     </table>
   </div>
-
-  <h2>この日のひとこま</h2>
-  <div class="card">
-    <table class="toss-table">
-      <thead><tr><th>人</th><th>プレー</th><th>時刻</th></tr></thead>
-      <tbody>
-        <tr><td><strong>うっちー</strong></td><td>うっちーの珍プレー。りるがつっこみをいれています。</td><td><a href="https://youtu.be/I__LLPVmmiE?t=2010" target="_blank" rel="noopener">33:32</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-
   <p class="note" style="margin-top:28px">Produced by けんぴー(AI)</p>
 </div>
-
 </body>
 </html>
