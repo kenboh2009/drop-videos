@@ -343,14 +343,30 @@
   .toss-table .kind { margin-left: 6px; font-size: 11.5px; font-weight: 600; color: var(--accent, #D9531E); border: 1px solid var(--accent, #D9531E); border-radius: 999px; padding: 1px 7px; }
   .card .shot{max-width:240px}
   .card p a, .toss-table a{color:var(--accent);font-weight:600}
-  /*詰め*/ .card{padding:12px 18px}
+  /*詰め2*/ .card{padding:10px 18px}
   .card > :first-child{margin-top:0}
   .card > :last-child{margin-bottom:0}
-  .card p{margin:9px 0}
+  .card p{margin:0;padding:5px 0;line-height:1.5;border-top:1px solid var(--line)}
+  .card p:first-child, .card .shot + p{border-top:0}
+  .card .shot + p{padding-top:8px}
   .card .shot{margin-top:0}
-  .card .shot + p{margin-top:10px}
-  h2{margin-top:30px}
-  .wrap > p{margin:10px 0}
+  .card .shot + p{margin-top:8px}
+  h2{margin:22px 0 2px;padding-bottom:5px}
+  .hero{padding:14px 18px 12px;margin-bottom:14px}
+  .back{margin-bottom:6px}
+  .subtitle{margin-top:4px;line-height:1.5}
+  .stage-label{margin-bottom:6px}
+  .summary-card{padding:6px 16px}
+  .award{padding:8px 4px}
+  .award-label,.award-who{line-height:1.3}
+  .award-why{line-height:1.45}
+  .shot .cap{padding:3px 12px;line-height:1.3}
+  .note{margin:0 0 12px;padding:8px 14px}
+  footer{padding:14px 18px 20px}
+  .wrap{padding-bottom:24px}
+  .toss-table{margin:4px 0 2px}
+  .toss-table td{padding:5px 8px}
+  .wrap > p{margin:8px 0;line-height:1.5}
   @media (max-width:520px){.card{padding:10px 14px}}
 </style>
 </head>
@@ -528,7 +544,7 @@
       <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
       <span class="cap"><span class="at">1:25:24</span></span>
     </a>
-    <p>るき のブロック。ネットを越えて触っていた？　<a href="https://youtu.be/Cd3rK57Khro?t=5122" target="_blank" rel="noopener">1:25:25</a></p>
+    <p>るき のブロック。ネットを越えて触っていた？　<a href="https://youtu.be/Cd3rK57Khro?t=5122" target="_blank" rel="noopener">1:25:24</a></p>
     <video controls muted playsinline preload="metadata" style="width:100%;border-radius:10px;margin-top:10px" src="clips1107/over-2.mp4"></video>
   </div>
   <h2>みんなでつないだラリー</h2>
