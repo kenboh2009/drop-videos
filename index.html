@@ -468,8 +468,10 @@
        以前は http://localhost:8787 と書いていたが、これは「けんぴーHP自身で開いたとき」
        にしか正しく繋がらない(localhostは開いている端末自身を指すため)。
        けんぴーPixel等、同じ家のLANにいる端末からも繋がるよう、
-       けんぴーHPの固定IP(ルーターでMACアドレスに紐づけ済み)に変更した(2026-08-19)。 -->
-  <br><a class="admin-link" href="http://192.168.0.12:8787" target="_blank" rel="noopener">管理</a>
+       けんぴーHPの固定IP(ルーターでMACアドレスに紐づけ済み)に変更した(2026-08-19)。
+       2026-11-11: HP の LAN の IP が変わっていた(.12→.27)。外からも開けるよう Tailscale のアドレスに変更。
+       Tailscale の網(けんぼうの端末だけ)の中からしか届かないので、他の人が押しても開かない。 -->
+  <br><a class="admin-link" href="http://100.86.243.92:8787" target="_blank" rel="noopener">管理</a>
 </footer>
 
 <script>
