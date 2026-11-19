@@ -261,6 +261,7 @@
 
   function ytを作る() {
     const host = document.createElement('div'); host.id = 'ytp'; $('vhost').appendChild(host);
+    if (簡) $('tap').style.pointerEvents = 'none';   // 最初の再生は YouTube 自身の再生ボタンで(始まったら 状態() が戻す)
     let pl = null, 最後 = -1, 壁 = 0, 基 = 0;
     const 始める = () => {
       pl = new YT.Player('ytp', {
@@ -287,7 +288,7 @@
   function 状態() {
     const 止 = P.paused();
     $('bPlay').innerHTML = 止 ? '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>再生' : '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>一時停止';
-    if (!止) $('bigplay').hidden = true;
+    if (!止) { $('bigplay').hidden = true; $('tap').style.pointerEvents = ''; }
   }
 
   // ================= 画面の部品 =================
