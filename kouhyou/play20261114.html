@@ -500,7 +500,7 @@
         if (待) { clearTimeout(待); 待 = 0; const r = tap.getBoundingClientRect(), 右 = e.clientX - r.left > r.width / 2;
           飛ぶ(P.time() + (右 ? 10 : -10), !P.paused());
           const b = $('fast'); b.textContent = 右 ? '10秒 ▶▶' : '◀◀ 10秒'; b.style.display = 'block'; setTimeout(() => { b.style.display = 'none'; b.textContent = '2倍速 ▶▶'; }, 600); return; }
-        待 = setTimeout(() => { 待 = 0; 切替(); }, 260);
+        待 = setTimeout(() => { 待 = 0; 切替(); }, 400);   // 指の2回押しは 0.3秒前後あく。短いと 止まる→また動く になる(2026-11-20 けんぼう)
       }; }
     $('bBack').onclick = () => 飛ぶ(P.time() - 10, !P.paused());
     $('bFwd').onclick = () => 飛ぶ(P.time() + 10, !P.paused());
