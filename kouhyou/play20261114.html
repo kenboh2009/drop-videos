@@ -139,7 +139,8 @@
   body[data-mode="simple"] .btns { display: block; } body[data-mode="simple"] .legend { padding: 0 4px; }
   body[data-mode="simple"] #bFs { min-height: 38px; padding: 4px 14px; }
   /* かんたん表示: 動画の上8割は 押す=再生/停止・長押し=2倍速。下2割は動画プレーヤー自身の操作(シークバーなど)に渡す */
-  body[data-mode="simple"] .tap { bottom: 20%; }
+  /* スマホの YouTube は、スライダーが下から3割弱の高さ、設定などが上2割にある → 押す操作を受けるのは真ん中の帯だけ(2026-11-20 けんぼう: スライダーが効かない) */
+  body[data-mode="simple"] .tap { top: 22%; bottom: 42%; }
   .tap { touch-action: manipulation; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
   .fast { position: absolute; z-index: 5; left: 50%; top: 4%; transform: translateX(-50%); display: none; padding: .25em .9em; border-radius: 999px;
     background: rgba(0,0,0,.6); color: #fff; font-weight: 700; font-size: clamp(12px, 2cqw, 20px); pointer-events: none; }
