@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drop 練習講評 — 2026年11月14日</title>
+<link rel="icon" href="../assets/drop-icon.jpg">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="ソフトバレーチームDropの練習講評(2026年11月14日)">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0F4;
+    --ink: #16202B;
+    --ink-muted: #5B6B78;
+    --accent: #E2572B;
+    --accent-contrast: #FFFFFF;
+    --line: #D7E0E6;
+    --radius: 14px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10171F;
+      --surface: #17212B;
+      --surface-2: #1D2833;
+      --ink: #EAF1F6;
+      --ink-muted: #93A4B2;
+      --accent: #FF7A4D;
+      --accent-contrast: #17212B;
+      --line: #2A3742;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10171F;
+    --surface: #17212B;
+    --surface-2: #1D2833;
+    --ink: #EAF1F6;
+    --ink-muted: #93A4B2;
+    --accent: #FF7A4D;
+    --accent-contrast: #17212B;
+    --line: #2A3742;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.85;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 64px; }
+
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 18px 22px;
+    margin-bottom: 26px;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--ink-muted); text-decoration: none;
+    font-size: 14px; margin-bottom: 14px;
+  }@media (hover: hover) { .back:hover { color: var(--accent); } }
+  .title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0; font-size: 27px; letter-spacing: .01em;
+  }
+  .title img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .subtitle { color: var(--ink-muted); font-size: 15px; margin-top: 8px; }
+
+  .note {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 13px 16px;
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    margin: 0 0 26px;
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 42px 0 4px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--accent);
+  }
+  h3 { font-size: 17px; margin: 30px 0 2px; color: var(--accent); }
+
+  p { margin: 14px 0; }
+  ol, ul { padding-left: 1.3em; margin: 14px 0; }
+  li { margin: 10px 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 4px 20px 20px;
+    margin: 18px 0;
+  }
+
+  .sign {
+    margin-top: 44px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted); font-size: 15px;
+  }
+
+  footer {
+    text-align: center; color: var(--ink-muted);
+    font-size: 13px; padding: 26px 18px 40px;
+  }
+
+  @media (max-width: 480px) {
+    .title { font-size: 22px; }
+    .title img { width: 32px; height: 32px; }
+    h2 { font-size: 19px; }
+    .card { padding: 4px 15px 16px; }
+  }
+
+  .stage-label {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--accent);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 5px 16px;
+    margin: 0 0 10px;
+  }
+
+  .crown { width: 1.15em; height: 1.15em; vertical-align: -.2em; margin-right: .3em; }
+  h2 .crown { width: 1.05em; height: 1.05em; }
+
+  .summary-card { padding: 18px 20px 22px; }
+  .summary-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-item:last-child { border-bottom: none; padding-bottom: 4px; }
+  .summary-item:first-child { padding-top: 4px; }
+  .summary-label {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .summary-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .summary-value .mvp-name { color: var(--accent); }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .chip {
+    display: inline-block;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 13px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .summary-value { font-size: 19px; }
+    .chip { font-size: 14.5px; padding: 7px 11px; }
+  }
+
+  .award {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 6px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+  .award:last-child { border-bottom: none; }@media (hover: hover) { .award:hover { background: var(--surface-2); border-radius: 10px; } }@media (hover: hover) { .award:hover .award-go { color: var(--accent); transform: translateX(3px); } }
+
+  .award-faces { display: flex; flex-shrink: 0; }
+  .mvp-row { display: flex; align-items: center; gap: 16px; }
+  .mvp-face {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
+  .award-faces img {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+  }
+  .award-faces img + img { margin-left: -14px; }
+
+  .award-none {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--surface-2);
+    border: 2px dashed var(--line);
+  }
+
+  .award-body { flex: 1; min-width: 0; }
+
+  .award-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .award-who { font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.45; }
+  .award-why { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; }
+
+  .award-go {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: transform .12s ease, color .12s ease;
+  }
+  .award-go svg { width: 18px; height: 18px; display: block; }
+
+  @media (max-width: 480px) {
+    .award-label { font-size: 15.5px; }
+    .award-who { font-size: 17px; }
+    .award-faces img, .award-none { width: 48px; height: 48px; }
+  }
+
+  .shot {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 11px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .shot img { display: block; width: 100%; height: auto; }@media (hover: hover) { .shot:hover { border-color: var(--accent); } }
+
+  .shot .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .shot .play span {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .shot .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+
+  .shot .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .shot .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .shot-note { font-size: 13px; color: var(--ink-muted); margin: 8px 0 0; }
+
+  .pending {
+    display: inline-block;
+    background: #fff4e5;
+    color: #a05a00;
+    border: 1px solid #f0c78a;
+    border-radius: 8px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
+  }
+  :root[data-theme="dark"] .pending { background: #3a2a10; color: #f0c78a; border-color: #6b4a1a; }
+
+  .player-box {
+    position: relative;
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: #000;
+  }
+  .unmute-btn {
+    position: absolute; left: 10px; bottom: 46px;
+    background: rgba(0,0,0,.68); color: #fff; border: none;
+    border-radius: 999px; padding: 9px 16px; font-size: 13.5px; font-weight: 700;
+    font-family: inherit; cursor: pointer; z-index: 2; text-decoration: none;
+  }
+  .player-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .player-box .cap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .player-box .cap .at {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .toss-table { width: 100%; border-collapse: collapse; margin: 14px 0 6px; font-size: 15px; }
+  .toss-table th { text-align: left; font-size: 12.5px; font-weight: 700; color: var(--ink-muted, #5b6b78); padding: 6px 8px; border-bottom: 2px solid var(--line, #d8e0e6); }
+  .toss-table td { padding: 8px; border-bottom: 1px solid var(--line, #e3e9ee); }
+  .toss-table td:first-child { white-space: nowrap; }
+  .toss-table td:nth-child(2) { min-width: 5.6em; }
+  .toss-table .kind { margin-left: 6px; font-size: 11.5px; font-weight: 600; color: var(--accent, #D9531E); border: 1px solid var(--accent, #D9531E); border-radius: 999px; padding: 1px 7px; }
+  .card .shot{max-width:240px}
+  .card p a, .toss-table a{color:var(--accent);font-weight:600}
+  /*詰め2*/ .card{padding:10px 18px}
+  .card > :first-child{margin-top:0}
+  .card > :last-child{margin-bottom:0}
+  .card p{margin:0;padding:5px 0;line-height:1.5;border-top:1px solid var(--line)}
+  .card p:first-child, .card .shot + p{border-top:0}
+  .card .shot + p{padding-top:8px}
+  .card .shot{margin-top:0}
+  .card .shot + p{margin-top:8px}
+  h2{margin:22px 0 2px;padding-bottom:5px}
+  .hero{padding:14px 18px 12px;margin-bottom:14px}
+  .back{margin-bottom:6px}
+  .subtitle{margin-top:4px;line-height:1.5}
+  .stage-label{margin-bottom:6px}
+  .summary-card{padding:6px 16px}
+  .award{padding:8px 4px}
+  .award-label,.award-who{line-height:1.3}
+  .award-why{line-height:1.45}
+  .shot .cap{padding:3px 12px;line-height:1.3}
+  .note{margin:0 0 12px;padding:8px 14px}
+  footer{padding:14px 18px 20px}
+  .wrap{padding-bottom:24px}
+  .toss-table{margin:4px 0 2px}
+  .toss-table td{padding:5px 8px}
+  .wrap > p{margin:8px 0;line-height:1.5}
+  @media (max-width:520px){.card{padding:10px 14px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" href="../">← 動画リンク集にもどる</a>
+    <h1 class="title">
+      <img src="../assets/drop-icon.jpg" alt="">
+      練習講評
+    </h1>
+    <div class="subtitle">2026年11月14日(土) ・ 参加11名(うちゲスト1名) ・ ステージ側の動画は約90分 ・ 書き手: けんぴー(AI)</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+
+
+  <span class="stage-label">ダイジェスト</span>
+
+  <div class="card summary-card">
+    <a class="award" href="#award1">
+      <div class="award-faces"><img src="faces/aki.jpg" alt="あき"></div>
+      <div class="award-body">
+        <div class="award-label">オールラウンド賞</div>
+        <div class="award-who">あき</div>
+        <div class="award-why">サーブで点を取り、飛び込んで拾い、トスでもつないだ</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#award2">
+      <div class="award-faces"><img src="faces/yukiyo.jpg" alt="ゆきよ"></div>
+      <div class="award-body">
+        <div class="award-label">サーブ&トス賞</div>
+        <div class="award-who">ゆきよ</div>
+        <div class="award-why">サーブで相手を崩して点を取り、トスでアタックにつないだ</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#award3">
+      <div class="award-faces"><img src="faces/yuriko.jpg" alt="ゆりこ"></div>
+      <div class="award-body">
+        <div class="award-label">ナイストス賞</div>
+        <div class="award-who">ゆりこ</div>
+        <div class="award-why">後ろから高く上げたトスで、アタックにつないだ</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#award4">
+      <div class="award-faces"><img src="faces/yamasan.jpg" alt="やまさん"></div>
+      <div class="award-body">
+        <div class="award-label">つなぎ賞</div>
+        <div class="award-who">やまさん</div>
+        <div class="award-why">膝をついての低いレシーブとトスで、アタックにつないだ</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#award5">
+      <div class="award-faces"><img src="faces/kazuo.jpg" alt="かずお"></div>
+      <div class="award-body">
+        <div class="award-label">サーブ賞</div>
+        <div class="award-who">かずお</div>
+        <div class="award-why">サーブで2本、点を取った</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+    <a class="award" href="#award6">
+      <div class="award-faces"><img src="faces/yassan.jpg" alt="やっさん"><img src="faces/komorin.jpg" alt="こもりん"></div>
+      <div class="award-body">
+        <div class="award-label">ナイスコンビ賞</div>
+        <div class="award-who">やっさん・こもりん</div>
+        <div class="award-why">相手から返ってきた球を やっさん がそのままトス、こもりん が決めた</div>
+      </div>
+      <span class="award-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </a>
+  </div>
+
+  <h2 id="award1">オールラウンド賞 — あき</h2>
+  <div class="card">
+    <a class="shot" href="https://youtu.be/sIXZa3-gHss?t=4509" target="_blank" rel="noopener">
+      <img src="shots1114/aki-1.jpg" alt="あき が飛び込んで拾った" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:15:12</span></span>
+    </a>
+    <p>あき のサーブ。相手が返せず、得点　<a href="https://youtu.be/sIXZa3-gHss?t=471" target="_blank" rel="noopener">7:54</a></p>
+    <p>あき が飛び込んで拾い、長いラリーにつないだ　<a href="https://youtu.be/sIXZa3-gHss?t=4510" target="_blank" rel="noopener">1:15:13</a></p>
+    <p>ゆりこ のレシーブを あき がトス、かずお が決めた　<a href="https://youtu.be/sIXZa3-gHss?t=1377" target="_blank" rel="noopener">23:00</a></p>
+  </div>
+
+  <h2 id="award2">サーブ&トス賞 — ゆきよ</h2>
+  <div class="card">
+    <a class="shot" href="https://youtu.be/sIXZa3-gHss?t=1574" target="_blank" rel="noopener">
+      <img src="shots1114/yukiyo-2.jpg" alt="ゆきよ のサーブ" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">26:17</span></span>
+    </a>
+    <p>ゆきよ のサーブで相手が崩れ、得点　<a href="https://youtu.be/sIXZa3-gHss?t=1574" target="_blank" rel="noopener">26:17</a></p>
+    <p>ゆきよ のトスから、こもりん のアタックが決まった　<a href="https://youtu.be/sIXZa3-gHss?t=1558" target="_blank" rel="noopener">26:01</a></p>
+  </div>
+
+  <h2 id="award3">ナイストス賞 — ゆりこ</h2>
+  <div class="card">
+    <a class="shot" href="https://youtu.be/sIXZa3-gHss?t=1094" target="_blank" rel="noopener">
+      <img src="shots1114/yuriko-3.jpg" alt="ゆりこ のトス" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">18:17</span></span>
+    </a>
+    <p>戻ってきた球を ゆりこ が後ろから高くトス、けん が決めた　<a href="https://youtu.be/sIXZa3-gHss?t=1094" target="_blank" rel="noopener">18:17</a></p>
+    <p>あき のレシーブを ゆりこ がトス、かずお が決めた　<a href="https://youtu.be/sIXZa3-gHss?t=1470" target="_blank" rel="noopener">24:33</a></p>
+  </div>
+
+  <h2 id="award4">つなぎ賞 — やまさん</h2>
+  <div class="card">
+    <a class="shot" href="https://youtu.be/sIXZa3-gHss?t=1704" target="_blank" rel="noopener">
+      <img src="shots1114/yamasan-4.jpg" alt="やまさん のレシーブ" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">28:27</span></span>
+    </a>
+    <p>やまさん が膝をついて低く受け、あき のトスで かずお が決めた　<a href="https://youtu.be/sIXZa3-gHss?t=1704" target="_blank" rel="noopener">28:27</a></p>
+    <p>やまさん のトスから、かずお のアタックが決まった　<a href="https://youtu.be/sIXZa3-gHss?t=1614" target="_blank" rel="noopener">26:57</a></p>
+  </div>
+
+  <h2 id="award5">サーブ賞 — かずお</h2>
+  <div class="card">
+    <a class="shot" href="https://youtu.be/sIXZa3-gHss?t=5273" target="_blank" rel="noopener">
+      <img src="shots1114/kazuo-5.jpg" alt="かずお のサーブ" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">1:27:56</span></span>
+    </a>
+    <p>かずお のサーブ。相手はアウトと見たが、インだった　<a href="https://youtu.be/sIXZa3-gHss?t=1732" target="_blank" rel="noopener">28:55</a></p>
+    <p>かずお のサーブ。相手が返せず、得点　<a href="https://youtu.be/sIXZa3-gHss?t=5273" target="_blank" rel="noopener">1:27:56</a></p>
+  </div>
+
+  <h2 id="award6">ナイスコンビ賞 — やっさん・こもりん</h2>
+  <div class="card">
+    <a class="shot" href="https://youtu.be/sIXZa3-gHss?t=1688" target="_blank" rel="noopener">
+      <img src="shots1114/yassan-6.jpg" alt="こもりん のアタック" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+      <span class="cap"><span class="at">28:11</span></span>
+    </a>
+    <p>やっさん のトスから、こもりん のアタック　<a href="https://youtu.be/sIXZa3-gHss?t=1687" target="_blank" rel="noopener">28:10</a></p>
+  </div>
+
+  <h2>珍プレー</h2>
+  <div class="card"><p><strong>ゆきよ</strong>　返球したボールがネットにあたって悲鳴をあげましたが、なんとかネットをこえました。　<a href="https://youtu.be/sIXZa3-gHss?t=414" target="_blank" rel="noopener">6:57</a></p><p><strong>やまさん</strong>　トスを上げるはずの やまさん がメガネを落としてしまい、代わりに かずお が上げました。　<a href="https://youtu.be/sIXZa3-gHss?t=1331" target="_blank" rel="noopener">22:14</a></p></div>
+  <h2>審判のジャッジをじっくり見てみよう！</h2>
+  <div class="card">
+    <a href="20261114-judge.html" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;border-radius:14px;background:var(--accent);color:var(--accent-contrast);text-decoration:none">
+      <svg viewBox="0 0 24 24" style="width:34px;height:34px;fill:currentColor;flex:none"><path d="M8 5v14l11-7z"></path></svg>
+      <div><b style="display:block;font-size:19px;line-height:1.35">スローで見てみよう</b><span style="display:block;font-size:13px;opacity:.92">ネット際のプレー 6本</span></div>
+    </a>
+  </div>
+  <h2>この日のファインプレー</h2>
+  <div class="card"><p><strong>みなと</strong>　<a href="https://youtu.be/sIXZa3-gHss?t=165" target="_blank" rel="noopener">2:48</a> サーブ、<a href="https://youtu.be/sIXZa3-gHss?t=4009" target="_blank" rel="noopener">1:06:52</a> サーブで得点、<a href="https://youtu.be/sIXZa3-gHss?t=4023" target="_blank" rel="noopener">1:07:06</a> サーブで得点</p><p><strong>けん</strong>　<a href="https://youtu.be/sIXZa3-gHss?t=1095" target="_blank" rel="noopener">18:18</a> アタック(ゆりこ のトスから)</p></div>
+  <h2>みんなでつないだラリー</h2>
+  <div class="card">
+    <table class="toss-table">
+      <thead><tr><th>人</th><th>プレー</th><th>時刻</th></tr></thead>
+      <tbody>
+        <tr><td><strong>チーム全体</strong></td><td>よく続いたラリー</td><td><a href="https://youtu.be/sIXZa3-gHss?t=1325" target="_blank" rel="noopener">22:08</a>、<a href="https://youtu.be/sIXZa3-gHss?t=2292" target="_blank" rel="noopener">38:15</a>、<a href="https://youtu.be/sIXZa3-gHss?t=4473" target="_blank" rel="noopener">1:14:36</a>、<a href="https://youtu.be/sIXZa3-gHss?t=4505" target="_blank" rel="noopener">1:15:08</a>、<a href="https://youtu.be/sIXZa3-gHss?t=5408" target="_blank" rel="noopener">1:30:11</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<!--PLAY-ANALYSIS:START 20261114 自動生成: tools/court/講評のプレー分析欄.mjs(手で直すときはこの印の外に)-->
+<style>
+  /* プレー分析の欄(部品)。色・寸法は講評ページの変数(--surface など)を使う */
+  .pa-go { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 12px 18px; margin: 4px 0 6px; border-radius: 14px;
+    background: var(--accent); color: var(--accent-contrast); text-decoration: none; }
+  .pa-go svg { width: 34px; height: 34px; fill: currentColor; flex: none; }
+  .pa-go b { display: block; font-size: 19px; line-height: 1.35; }
+  .pa-go span { display: block; font-size: 13px; line-height: 1.4; opacity: .92; }
+  @media (hover: hover) { .pa-go:hover { filter: brightness(1.06); } }
+  .pa h3 { margin: 18px 0 2px; }
+  .pa .toss-table td, .pa .toss-table th { vertical-align: middle; }
+  .pa-mem { display: block; margin-top: 2px; font-size: 12px; font-weight: 400; line-height: 1.45; color: var(--ink-muted); }
+  .pa-sc { white-space: nowrap; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .pa-sc .w { color: var(--accent); }
+  .pa-win { display: block; font-size: 12.5px; font-weight: 400; color: var(--ink-muted); line-height: 1.3; }
+  .pa-pt small { display: block; font-size: 11px; font-weight: 400; color: var(--ink-muted); line-height: 1.2; }
+  .pa-pt { text-align: right; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .pa-pt small { display: inline; font-size: 12px; margin-left: 2px; }
+  .pa th.r { text-align: right; }
+</style>
+  <h2 id="play-analysis">プレー分析</h2>
+  <div class="card pa">
+    <a class="shot" href="play20261114.html">
+      <img src="shots1114/play-analysis.jpg" alt="プレー分析つきの動画" loading="lazy">
+      <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></span>
+    </a>
+
+
+  </div>
+<!--PLAY-ANALYSIS:END-->
+
+<p class="note" style="margin-top:28px">Produced by けんぴー(AI)</p>
+</div>
+
+</body>
+</html>
