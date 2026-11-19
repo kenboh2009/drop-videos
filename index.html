@@ -641,7 +641,7 @@
       .join("");
     // 講評は動画とは別の列に置く。無い日も列だけ残して、縦に揃えて見えるようにする。
     // analysis: AI分析動画(kouhyou/play<日>.html)。ある日だけ、講評の左に黄色のボタン
-    const review = (d.analysis ? chip("AI分析動画", d.analysis, "analysis") : "") + (d.review ? chip("講評を読む", d.review, "review")
+    const review = (d.analysis ? chip("けんP分析動画", d.analysis, "analysis") : "") + (d.review ? chip("講評を読む", d.review, "review")
       : d.reviewSoon ? comingSoonChip(d.reviewSoon) : "");
     const thumb = d.videos.length
       ? `<img class="thumb" src="https://i.ytimg.com/vi/${d.videos[0].id}/mqdefault.jpg" alt="" loading="lazy">`
