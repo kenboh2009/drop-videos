@@ -134,7 +134,7 @@
   body[data-mode="simple"] .side, body[data-mode="simple"] .bigplay, body[data-mode="simple"] .now, body[data-mode="simple"] .btn:not(#bFs) { display: none !important; }
   body[data-mode="simple"] .layout { display: block; max-width: 1100px; padding: 0 0 30px; }
   body[data-mode="simple"] .stage { position: static; }
-  body[data-mode="simple"] .ctrl { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  body[data-mode="simple"] .ctrl { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
   body[data-mode="simple"] .btns { display: block; } body[data-mode="simple"] .legend { padding: 0 4px; }
   body[data-mode="simple"] #bFs { min-height: 38px; padding: 4px 14px; }
   /* かんたん表示: 動画の上8割は 押す=再生/停止・長押し=2倍速。下2割は動画プレーヤー自身の操作(シークバーなど)に渡す */
@@ -142,6 +142,16 @@
   .tap { touch-action: manipulation; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
   .fast { position: absolute; z-index: 5; left: 50%; top: 4%; transform: translateX(-50%); display: none; padding: .25em .9em; border-radius: 999px;
     background: rgba(0,0,0,.6); color: #fff; font-weight: 700; font-size: clamp(12px, 2cqw, 20px); pointer-events: none; }
+  /* かんたん表示の全画面: 動画だけを画面いっぱいに。下の帯は出さず、「全画面をやめる」は動画の上に小さく */
+  .fsx { display: none; position: absolute; z-index: 6; left: 2.2cqw; top: 7.5cqw; border: 0; border-radius: 999px; padding: .3em .9em;
+    background: rgba(8,14,20,.45); color: rgba(255,255,255,.9); font-size: clamp(11px, 1.6cqw, 17px); font-weight: 600; cursor: pointer; }
+  body[data-mode="simple"] .stage.fs { position: fixed; }
+  body[data-mode="simple"] .stage.fs .ctrl, body[data-mode="simple"] .stage:fullscreen .ctrl { display: none; }
+  body[data-mode="simple"] .stage:-webkit-full-screen .ctrl { display: none; }
+  body[data-mode="simple"] .stage.fs .vbox, body[data-mode="simple"] .stage:fullscreen .vbox { width: min(100vw, calc(100dvh * 16 / 9)); }
+  body[data-mode="simple"] .stage:-webkit-full-screen .vbox { width: min(100vw, calc(100vh * 16 / 9)); }
+  body[data-mode="simple"] .stage.fs .fsx, body[data-mode="simple"] .stage:fullscreen .fsx { display: block; }
+  body[data-mode="simple"] .stage:-webkit-full-screen .fsx { display: block; }
   footer { text-align: center; color: var(--ink-muted); font-size: 13px; padding: 10px 16px 30px; }
 
   /* 横向きのスマホ(高さが低い): 貼りつけない */
@@ -190,6 +200,7 @@
       <div id="vhost"></div>
       <div class="tap" id="tap"></div>
       <div class="fast" id="fast">2倍速 ▶▶</div>
+      <button class="fsx" id="fsx" type="button">全画面をやめる</button>
       <div class="osd" id="osd">
         <div class="score" id="score"></div>
         <div id="rings"></div>
@@ -199,7 +210,6 @@
     </div>
     <div class="ctrl">
       <div class="now" id="now"></div>
-      <div class="legend"><b>Excellent!</b> 超ファインプレー　<b>Good!</b> ファインプレー　<i>Try again</i> 次はがんばろう</div>
       <div class="btns"><div class="row">
         <button class="btn" id="bPrev" type="button"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM20 6v12L9.5 12z"/></svg>前のラリー</button>
         <button class="btn" id="bBack" type="button"><svg viewBox="0 0 24 24"><path d="M12 5V2L7 6.5 12 11V8a5 5 0 1 1-5 5H5a7 7 0 1 0 7-8z"/></svg>10秒</button>
@@ -505,7 +515,7 @@
     $('bBack').onclick = () => 飛ぶ(P.time() - 10, !P.paused());
     $('bFwd').onclick = () => 飛ぶ(P.time() + 10, !P.paused());
     $('bPrev').onclick = () => 前後(-1); $('bNext').onclick = () => 前後(1);
-    $('bFs').onclick = 全画面;
+    $('bFs').onclick = 全画面; $('fsx').onclick = 全画面;
     $('bRate').onclick = () => { 速i = (速i + 1) % 速さ.length; P.setRate(速さ[速i]); 速さボタン(); };
     $('bCourt').onclick = () => { 出す = !出す; コートボタン(); if (出す) { コートを読む(); } 前時刻 = -1; };
     $('games').onclick = (e) => { const b = e.target.closest('.rb'); if (b) ラリーへ(Number(b.dataset.r)); };
