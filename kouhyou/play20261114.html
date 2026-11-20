@@ -521,11 +521,12 @@
     $('bRate').onclick = () => { 速i = (速i + 1) % 速さ.length; P.setRate(速さ[速i]); 速さボタン(); };
     $('bCourt').onclick = () => { 出す = !出す; コートボタン(); if (出す) { コートを読む(); } 前時刻 = -1; };
     $('games').onclick = (e) => { const b = e.target.closest('.rb'); if (b) ラリーへ(Number(b.dataset.r)); };
+    let 鍵先 = null, 鍵時 = 0;
     window.addEventListener('keydown', (e) => {   // 先取り(capture): 動画の枠が自分で飛ぶ(全体の1%)のを止める
       if (e.target.matches('input,textarea')) return;
       if (簡) {   // メンバー向け: 矢印は 2.5秒(YouTube の 5秒の半分。2026-11-20 けんぼう)、空白は 再生/停止
         if (!P.ready || e.ctrlKey || e.altKey || e.metaKey) return;
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); 飛ぶ(P.time() + (e.key === 'ArrowLeft' ? -2.5 : 2.5), !P.paused()); }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); const 今 = Date.now(), 元 = 鍵先 != null && 今 - 鍵時 < 1200 ? 鍵先 : P.time(); 鍵先 = Math.max(0, 元 + (e.key === 'ArrowLeft' ? -2.5 : 2.5)); 鍵時 = 今; 飛ぶ(鍵先, !P.paused()); }   // 続けて押したら積み上げる(YouTube は飛んだ直後の時刻が古いまま返る)
         else if (e.key === ' ' || e.key === 'k') { e.preventDefault(); e.stopPropagation(); P.paused() ? P.play() : P.pause(); }
         return;
       }
