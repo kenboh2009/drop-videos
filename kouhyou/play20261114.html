@@ -398,7 +398,7 @@
       } else if (級 === 'kd') {
         rings += '<i class="fx kd" style="left:' + (cx / W * 100).toFixed(2) + '%;top:' + (bot / H * 100).toFixed(2) + '%;width:' + (ww * 1.3 / W * 100).toFixed(2) + '%;opacity:' + (0.6 * Math.sin(Math.PI * u)).toFixed(2) + '"></i>';
       }
-      tags.push({ x: cx / W * 100, y: (top - hh * 0.08) / H * 100, 級, 文: esc(M.名[p[1]]) + ' ' + esc(M.種[p[2]]) + (級 === 'sfp' ? '<i>Excellent!</i>' : 級 === 'fp' ? '<i>Good!</i>' : 級 === 'kd' ? '<i>Try again</i>' : '') + (p[3] >= 0 ? ' <s>' + p[3] + '</s>' : '') });
+      tags.push({ x: cx / W * 100, y: (top - hh * 0.08) / H * 100, 級, 文: esc(M.名[p[1]]) + ' ' + esc(M.種[p[2]]) + (級 === 'sfp' ? '<i>Awesome!</i>' : 級 === 'fp' ? '<i>Nice!</i>' : 級 === 'kd' ? '<i>Try again</i>' : '') + (p[3] >= 0 ? ' <s>' + p[3] + '</s>' : '') });
     }
     const box = $('rings');
     box.innerHTML = rings + tags.map((g, i) => '<span class="tag ' + g.級 + '" data-i="' + i + '" style="left:' + g.x.toFixed(2) + '%;top:' + g.y.toFixed(2) + '%">' + g.文 + '</span>').join('');
