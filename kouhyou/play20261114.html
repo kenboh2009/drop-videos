@@ -278,7 +278,7 @@
     const 始める = () => {
       pl = new YT.Player('ytp', {
         videoId: M.yt, host: 'https://www.youtube.com',
-        playerVars: { controls: 簡 ? 1 : 0, disablekb: 簡 ? 0 : 1, fs: 0, rel: 0, modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: Math.floor(hashT ?? 0), origin: location.origin },
+        playerVars: { controls: 簡 ? 1 : 0, disablekb: 1, fs: 0, rel: 0, modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: Math.floor(hashT ?? 0), origin: location.origin },
         events: { onReady: () => { P.ready = true; $('loading').style.display = 'none'; if (hashT != null) { pl.seekTo(hashT - M.頭, true); $("bigplay").hidden = true; } 状態(); }, onStateChange: 状態 },
       });
     };
@@ -521,12 +521,20 @@
     $('bRate').onclick = () => { 速i = (速i + 1) % 速さ.length; P.setRate(速さ[速i]); 速さボタン(); };
     $('bCourt').onclick = () => { 出す = !出す; コートボタン(); if (出す) { コートを読む(); } 前時刻 = -1; };
     $('games').onclick = (e) => { const b = e.target.closest('.rb'); if (b) ラリーへ(Number(b.dataset.r)); };
-    document.addEventListener('keydown', (e) => {
-      if (簡 || e.target.matches('input,textarea')) return;
+    window.addEventListener('keydown', (e) => {   // 先取り(capture): 動画の枠が自分で飛ぶ(全体の1%)のを止める
+      if (e.target.matches('input,textarea')) return;
+      if (簡) {   // メンバー向け: 矢印は 2.5秒(YouTube の 5秒の半分。2026-11-20 けんぼう)、空白は 再生/停止
+        if (!P.ready || e.ctrlKey || e.altKey || e.metaKey) return;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); 飛ぶ(P.time() + (e.key === 'ArrowLeft' ? -2.5 : 2.5), !P.paused()); }
+        else if (e.key === ' ' || e.key === 'k') { e.preventDefault(); e.stopPropagation(); P.paused() ? P.play() : P.pause(); }
+        return;
+      }
       if (e.key === ' ') { e.preventDefault(); $('bPlay').click(); } else if (e.key === 'ArrowLeft') $('bBack').click(); else if (e.key === 'ArrowRight') $('bFwd').click();
       else if (e.key === '[') $('bPrev').click(); else if (e.key === ']') $('bNext').click(); else if (e.key === 'f') 全画面();
-    });
+    }, true);
   }
+
+  if (簡) window.addEventListener('blur', () => setTimeout(() => { if (document.activeElement && document.activeElement.tagName === 'IFRAME') { document.activeElement.blur(); window.focus(); } }, 700));
 
   // ================= 起動 =================
   (async () => {
