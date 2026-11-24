@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drop けんぴーAI分析動画 — 2026年11月21日</title>
+<link rel="icon" href="../assets/drop-icon.jpg">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="ソフトバレーチームDropの練習(2026年11月21日)を、プレーの分析つきで見る">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0F4;
+    --ink: #16202B;
+    --ink-muted: #5B6B78;
+    --accent: #E2572B;
+    --accent-contrast: #FFFFFF;
+    --line: #D7E0E6;
+    --radius: 14px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10171F; --surface: #17212B; --surface-2: #1D2833; --ink: #EAF1F6; --ink-muted: #93A4B2;
+      --accent: #FF7A4D; --accent-contrast: #17212B; --line: #2A3742;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10171F; --surface: #17212B; --surface-2: #1D2833; --ink: #EAF1F6; --ink-muted: #93A4B2;
+    --accent: #FF7A4D; --accent-contrast: #17212B; --line: #2A3742;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; }
+  button { font-family: inherit; }
+
+  .hero { background: var(--surface); border-bottom: 1px solid var(--line); padding: 12px 16px 10px; }
+  .hero-inner { max-width: 1240px; margin: 0 auto; }
+  .back { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-muted); text-decoration: none; font-size: 14px; min-height: 28px; }
+  .title { display: flex; align-items: center; gap: 10px; margin: 2px 0 0; font-size: 22px; letter-spacing: .01em; }
+  .title img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+  .subtitle { color: var(--ink-muted); font-size: 13.5px; margin-top: 2px; }
+
+  .layout { max-width: 1240px; margin: 0 auto; padding: 0 0 40px; }
+  .side { padding: 0 16px; }
+  .side h2 { font-size: 18px; margin: 22px 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+  .side h2 small { font-size: 12.5px; font-weight: 500; color: var(--ink-muted); margin-left: 8px; }
+
+  /* ---- 動画 + 操作(スマホ縦では上に貼りつく) ---- */
+  .stage { background: #000; position: sticky; top: 0; z-index: 20; }
+  .vbox { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; overflow: hidden; container-type: inline-size; user-select: none; -webkit-user-select: none; }
+  .vbox video, .vbox iframe, .vbox #ytp { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; background: #000; }
+  .tap { position: absolute; inset: 0; z-index: 2; }
+  .osd { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+
+  /* 得点: 数字だけ。左のチームの数字が左 */
+  .score { position: absolute; left: 2.2cqw; top: 2cqw; display: none; align-items: center; gap: .6cqw;
+    padding: .2cqw 1.1cqw .3cqw; border-radius: .9cqw; background: rgba(8,14,20,.5); color: #fff;
+    font-weight: 700; font-size: clamp(13px, 3.2cqw, 34px); line-height: 1.05; font-variant-numeric: tabular-nums; letter-spacing: .02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+  .score .sep { opacity: .55; font-weight: 600; }
+  .score .win { color: #FFD23F; }
+
+  /* 輪(だ円)と札: 名前 プレー 点 */
+  .tag { position: absolute; transform: translate(-50%, -100%); background: rgba(8,14,20,.42); color: rgba(255,255,255,.95); font-weight: 600;
+    font-size: clamp(10px, 1.75cqw, 19px); line-height: 1.2; padding: .08em .45em; border-radius: .45em; white-space: nowrap; text-shadow: 0 1px 2px rgba(0,0,0,.8); }
+  .tag i { font-style: normal; margin-left: .25em; }
+  .tag s { text-decoration: none; font-weight: 400; font-size: .9em; opacity: .28; font-variant-numeric: tabular-nums; }
+  .tag.sfp { background: rgba(120,84,0,.62); color: #FFE27A; box-shadow: 0 0 0 1px rgba(255,210,63,.8); font-weight: 700; }
+  .tag.fp { color: #FFD9A8; box-shadow: 0 0 0 1px rgba(255,170,90,.75); }
+  .tag.kd { color: #BFD6EA; box-shadow: 0 0 0 1px rgba(140,180,215,.6); }
+  /* エフェクト: 広がる輪(超ファインプレー=金の二重、ファインプレー=橙の一重)。課題は足もとの青い線 */
+  .fx { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+  .fx.sfp { border: max(1.5px, .22cqw) solid #FFD23F; }
+  .fx.fp { border: max(1px, .16cqw) solid #FFB070; }
+  .fx.kd { border-radius: 0; height: 0; border-top: max(1.5px, .2cqw) dashed #7FB2DA; }
+  .legend { color: #cfd9e0; font-size: 12px; padding: 0 4px 4px; }
+  .legend b { color: #FFD23F; } .legend i { font-style: normal; color: #9CC3E3; }
+
+  .bigplay { position: absolute; z-index: 4; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 76px; height: 76px; border-radius: 50%;
+    border: 0; background: rgba(0,0,0,.62); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .bigplay svg { width: 38px; height: 38px; fill: #fff; margin-left: 5px; }
+  .bigplay[hidden] { display: none; }
+  .loading { position: absolute; z-index: 1; inset: 0; padding-top: 22%; display: flex; align-items: center; justify-content: center; color: #9fb0bd; font-size: 14px; }
+
+  /* コート図(小さく・右上) */
+  .court { position: absolute; top: 1.6cqw; right: 1.6cqw; width: 30%; min-width: 120px; background: rgba(8,16,24,.62); border-radius: 1.4cqw; padding: .8cqw 1cqw; display: none; }
+  .court svg { display: block; width: 100%; height: auto; }
+  .court svg + svg { margin-top: .6cqw; }
+
+  .ctrl { background: #0E151C; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); }
+  .now { color: #cfd9e0; font-size: 13px; padding: 0 4px 4px; display: flex; gap: 6px 14px; flex-wrap: wrap; font-variant-numeric: tabular-nums; min-height: 22px; }
+  .now b { color: #fff; }
+  .btns { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+  .row { display: contents; }
+  #bPrev, #bBack, #bPlay, #bFwd, #bNext { grid-column: span 2; }
+  #bCourt { grid-column: span 4; } #bRate, #bFs { grid-column: span 3; }
+  .btn { min-width: 0; min-height: 46px; border-radius: 12px; border: 1px solid #2c3a47; background: #1A2530; color: #fff; font-size: 14px; font-weight: 700;
+    padding: 4px 6px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 5px; line-height: 1.2; -webkit-tap-highlight-color: transparent; }
+  .btn svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
+  .btn.main { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+  @media (max-width: 560px) {
+    .btns { grid-template-columns: repeat(6, 1fr); }
+    #bPrev, #bPlay, #bNext, #bBack, #bFwd, #bFs { grid-column: span 2; }
+    #bPrev { order: 1; } #bPlay { order: 2; } #bNext { order: 3; } #bBack { order: 4; } #bFwd { order: 5; } #bFs { order: 6; } #bCourt { order: 7; grid-column: span 3; } #bRate { order: 8; grid-column: span 3; }
+    .btn { min-height: 44px; font-size: 14px; }
+  }
+  .btn.on { background: #2a4a63; border-color: #5aa0d0; }
+  .btn:active { filter: brightness(1.25); }
+  @media (hover: hover) { .btn:hover { filter: brightness(1.2); } }
+
+  /* ---- 絞り込み・一覧 ---- */
+  .fnote { font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+
+  .game { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px 12px; margin: 10px 0; }
+  .game-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 4px; }
+  .game-h b { font-size: 17px; }
+  .game-h .fin { font-size: 17px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .game-teams { font-size: 12.5px; color: var(--ink-muted); line-height: 1.5; margin-bottom: 8px; }
+  .rl { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 6px; }
+  .rb { min-height: 46px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); cursor: pointer; padding: 3px 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; }
+  .rb .n { font-size: 11px; color: var(--ink-muted); }
+  .rb .s { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .rb .s i { font-style: normal; color: var(--accent); }
+  .rb .m { font-size: 11px; font-weight: 700; color: var(--accent); }
+  .rb.now { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+  .rb.now .n, .rb.now .m, .rb.now .s i { color: var(--accent-contrast); }
+  .rb[hidden], .game[hidden] { display: none; }
+
+  @media (hover: hover) { .rb:hover { border-color: var(--accent); } }
+  .empty { padding: 14px; color: var(--ink-muted); font-size: 14px; }
+
+  /* かんたん表示(メンバー向け): YouTube のふつうの操作だけ。分析は動画の上に重なる */
+  body[data-mode="simple"] .side, body[data-mode="simple"] .bigplay, body[data-mode="simple"] .now, body[data-mode="simple"] .btn:not(#bFs) { display: none !important; }
+  body[data-mode="simple"] .layout { display: block; max-width: 1100px; padding: 0 0 30px; }
+  body[data-mode="simple"] .stage { position: static; }
+  body[data-mode="simple"] .ctrl { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+  body[data-mode="simple"] .btns { display: block; } body[data-mode="simple"] .legend { padding: 0 4px; }
+  body[data-mode="simple"] #bFs { min-height: 38px; padding: 4px 14px; }
+  /* かんたん表示: 動画の上8割は 押す=再生/停止・長押し=2倍速。下2割は動画プレーヤー自身の操作(シークバーなど)に渡す */
+  /* スマホの YouTube は、スライダーが下から3割弱の高さ、設定などが上2割にある → 押す操作を受けるのは真ん中の帯だけ(2026-11-20 けんぼう: スライダーが効かない) */
+  body[data-mode="simple"] .tap { top: 22%; bottom: 42%; }
+  .tap { touch-action: manipulation; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+  .fast { position: absolute; z-index: 5; left: 50%; top: 4%; transform: translateX(-50%); display: none; padding: .25em .9em; border-radius: 999px;
+    background: rgba(0,0,0,.6); color: #fff; font-weight: 700; font-size: clamp(12px, 2cqw, 20px); pointer-events: none; }
+  /* かんたん表示の全画面: 動画だけを画面いっぱいに。下の帯は出さず、「全画面をやめる」は動画の上に小さく */
+  .fsx { display: none; position: absolute; z-index: 6; left: 2.2cqw; top: 7.5cqw; border: 0; border-radius: 999px; padding: .3em .9em;
+    background: rgba(8,14,20,.45); color: rgba(255,255,255,.9); font-size: clamp(11px, 1.6cqw, 17px); font-weight: 600; cursor: pointer; }
+  body[data-mode="simple"] .stage.fs { position: fixed; }
+  body[data-mode="simple"] .stage.fs .ctrl, body[data-mode="simple"] .stage:fullscreen .ctrl { display: none; }
+  body[data-mode="simple"] .stage:-webkit-full-screen .ctrl { display: none; }
+  body[data-mode="simple"] .stage.fs .vbox, body[data-mode="simple"] .stage:fullscreen .vbox { width: min(100vw, calc(100dvh * 16 / 9)); }
+  body[data-mode="simple"] .stage:-webkit-full-screen .vbox { width: min(100vw, calc(100vh * 16 / 9)); }
+  body[data-mode="simple"] .stage.fs .fsx, body[data-mode="simple"] .stage:fullscreen .fsx { display: block; }
+  body[data-mode="simple"] .stage:-webkit-full-screen .fsx { display: block; }
+  footer { text-align: center; color: var(--ink-muted); font-size: 13px; padding: 10px 16px 30px; }
+
+  /* 横向きのスマホ(高さが低い): 貼りつけない */
+  @media (max-height: 520px) {
+    .stage { position: static; } .hero { display: none; }
+    .vbox { width: min(100%, calc((100vh - 96px) * 16 / 9)); margin: 0 auto; }
+    .btns { grid-template-columns: repeat(16, 1fr); }
+    .btns .btn { grid-column: span 2 !important; order: 0 !important; min-height: 40px; font-size: 13px; }
+    .now { padding-bottom: 2px; }
+  }
+
+  /* PC: 左に動画、右に一覧 */
+  @media (min-width: 1000px) and (min-height: 600px) {
+    .layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(340px, 1fr); gap: 0 22px; padding: 16px 16px 40px; align-items: start; }
+    .stage { position: sticky; top: 12px; border-radius: 14px; overflow: hidden; }
+    .side { padding: 0; }
+    .side h2:first-child { margin-top: 0; }
+  }
+
+  /* 全画面: 動画を最大に、操作は下に */
+  .stage.fs, .stage:fullscreen { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; justify-content: center; border-radius: 0; }
+  .stage:-webkit-full-screen { display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100%; }
+  .stage.fs .vbox, .stage:fullscreen .vbox { width: min(100vw, calc((100dvh - 108px) * 16 / 9)); margin: 0 auto; }
+  .stage:-webkit-full-screen .vbox { width: min(100vw, calc((100vh - 108px) * 16 / 9)); margin: 0 auto; }
+  @media (orientation: landscape) and (max-height: 520px) {
+    .stage.fs .now, .stage:fullscreen .now { display: none; }
+    .stage.fs .vbox, .stage:fullscreen .vbox { width: min(100vw, calc((100dvh - 60px) * 16 / 9)); }
+    .stage.fs .btn, .stage:fullscreen .btn { min-height: 40px; }
+  }
+</style>
+</head>
+<body data-osd="osd1121.json" data-back="20261121.html" data-mode="simple">
+
+<header class="hero">
+  <div class="hero-inner">
+    <a class="back" id="back" href="20261121.html">← 練習講評にもどる</a>
+    <h1 class="title"><img src="../assets/drop-icon.jpg" alt="">けんぴーAI分析動画</h1>
+    <div class="subtitle">2026年11月21日(土) ステージ側の動画に、プレーの分析を重ねて見る</div>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="stage" id="stage">
+    <div class="vbox" id="vbox">
+      <div class="loading" id="loading">動画を読み込んでいます…</div>
+      <div id="vhost"></div>
+      <div class="tap" id="tap"></div>
+      <div class="fast" id="fast">2倍速 ▶▶</div>
+      <button class="fsx" id="fsx" type="button">全画面をやめる</button>
+      <div class="osd" id="osd">
+        <div class="score" id="score"></div>
+        <div id="rings"></div>
+        <div class="court" id="court"></div>
+      </div>
+      <button class="bigplay" id="bigplay" type="button" aria-label="再生"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    </div>
+    <div class="ctrl">
+      <div class="now" id="now"></div>
+      <div class="btns"><div class="row">
+        <button class="btn" id="bPrev" type="button"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM20 6v12L9.5 12z"/></svg>前のラリー</button>
+        <button class="btn" id="bBack" type="button"><svg viewBox="0 0 24 24"><path d="M12 5V2L7 6.5 12 11V8a5 5 0 1 1-5 5H5a7 7 0 1 0 7-8z"/></svg>10秒</button>
+        <button class="btn main" id="bPlay" type="button"></button>
+        <button class="btn" id="bFwd" type="button">10秒<svg viewBox="0 0 24 24"><path d="M12 5V2l5 4.5L12 11V8a5 5 0 1 0 5 5h2a7 7 0 1 1-7-8z"/></svg></button>
+        <button class="btn" id="bNext" type="button">次のラリー<svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM4 6v12l10.5-6z"/></svg></button>
+      </div>
+      <div class="row">
+        <button class="btn" id="bCourt" type="button"></button>
+        <button class="btn" id="bRate" type="button"></button>
+        <button class="btn" id="bFs" type="button"><svg viewBox="0 0 24 24"><path d="M5 5h5v2H7v3H5zm9 0h5v5h-2V7h-3zM5 14h2v3h3v2H5zm12 0h2v5h-5v-2h3z"/></svg><span id="bFsT">全画面</span></button>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="side">
+
+    <h2>ラリー<small>押すと始まりの2秒前から再生</small></h2>
+    <div id="games"></div>
+
+  </div>
+</div>
+<footer>Produced by けんぴー(AI) ・ 分析は機械の見立てで、間違うことがあります</footer>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const qs = new URLSearchParams(location.search);
+  const hashT = (() => { const m = /[#&?]t=([\d.]+)/.exec(location.hash); return m ? Number(m[1]) : null; })();
+  const mmss = (s) => { s = Math.max(0, Math.round(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(x).padStart(2, '0'); };
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  let M = null;               // 本体(osd*.json)
+  let 筋 = null;              // 絞り込み(名前の番号)。null=全員
+  let 今ラリー = -1;
+  let 絞りラリー = [];        // 絞り込みで残るラリーの番号(昇順)
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const 簡 = document.body.dataset.mode === 'simple';   // メンバー向け: YouTube の操作そのまま
+  const 細点 = null;                              // 管理者用だけ: プレーごとの細かい点(公開用は null)
+
+  // ================= 動画(YouTube か mp4。同じ形で扱う) =================
+  // 2026-11-24: 講評プレビューでも YouTube で再生する。mp4(/rangevideo)は「いまの試合」の動画を出すため、試合を切り替えると別の動画になり再生できなかった(11/21 の確認画面で発生)
+  const 種別 = qs.get('src') || (false ? 'mp4' : 'yt');
+  const P = { time: () => 0, seek() {}, play() {}, pause() {}, paused: () => true, setRate() {}, rate: 1, ready: false };
+
+  function mp4を作る() {
+    const v = document.createElement('video');
+    v.playsInline = true; if (簡) { v.controls = true; v.setAttribute('controlslist', 'nofullscreen nodownload'); } v.preload = 'metadata'; v.setAttribute('playsinline', ''); v.src = M.mp4;
+    $('vhost').appendChild(v);
+    v.addEventListener('loadedmetadata', () => { P.ready = true; $('loading').style.display = 'none'; if (hashT != null) { P.seek(hashT); $("bigplay").hidden = true; } });
+    v.addEventListener('play', 状態); v.addEventListener('pause', 状態); v.addEventListener('ended', 状態);
+    P.time = () => v.currentTime + M.頭;
+    P.seek = (t) => { v.currentTime = Math.max(0, t - M.頭); };
+    P.play = () => v.play().catch(() => {});
+    P.pause = () => v.pause();
+    P.paused = () => v.paused;
+    P.setRate = (r) => { v.playbackRate = r; P.rate = r; };
+  }
+
+  function ytを作る() {
+    const host = document.createElement('div'); host.id = 'ytp'; $('vhost').appendChild(host);
+    if (簡) $('tap').style.pointerEvents = 'none';   // 最初の再生は YouTube 自身の再生ボタンで(始まったら 状態() が戻す)
+    let pl = null, 最後 = -1, 壁 = 0, 基 = 0;
+    const 始める = () => {
+      pl = new YT.Player('ytp', {
+        videoId: M.yt, host: 'https://www.youtube.com',
+        playerVars: { controls: 簡 ? 1 : 0, disablekb: 1, fs: 0, rel: 0, modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: Math.floor(hashT ?? 0), origin: location.origin },
+        events: { onReady: () => { P.ready = true; $('loading').style.display = 'none'; if (hashT != null) { pl.seekTo(hashT - M.頭, true); $("bigplay").hidden = true; } 状態(); }, onStateChange: 状態 },
+      });
+    };
+    if (window.YT && YT.Player) 始める(); else { window.onYouTubeIframeAPIReady = 始める; const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s); }
+    P.paused = () => !pl || !pl.getPlayerState || ![1, 3].includes(pl.getPlayerState());
+    // getCurrentTime は粗く更新されるので、再生中は壁時計で補う(最大 0.5 秒)
+    P.time = () => {
+      if (!pl || !pl.getCurrentTime) return M.頭 + (hashT ?? 0) - M.頭;
+      const y = pl.getCurrentTime(), now = performance.now();
+      if (y !== 最後) { 最後 = y; 壁 = now; 基 = y; }
+      return M.頭 + (P.paused() ? y : 基 + Math.min((now - 壁) / 1000 * P.rate, 0.5));
+    };
+    P.seek = (t) => { if (pl && pl.seekTo) { 最後 = -1; pl.seekTo(Math.max(0, t - M.頭), true); } };
+    P.play = () => pl && pl.playVideo && pl.playVideo();
+    P.pause = () => pl && pl.pauseVideo && pl.pauseVideo();
+    P.setRate = (r) => { P.rate = r; if (pl && pl.setPlaybackRate) pl.setPlaybackRate(r); };
+  }
+
+  function 状態() {
+    const 止 = P.paused();
+    $('bPlay').innerHTML = 止 ? '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>再生' : '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>一時停止';
+    if (!止) { $('bigplay').hidden = true; $('tap').style.pointerEvents = ''; }
+  }
+
+  // ================= 画面の部品 =================
+  let 文 = '';
+  const 点文 = (p) => p >= 0 ? p + '点' : '';
+
+  function 絞りを作る() {
+    const 持 = new Set();
+    for (const p of M.プレー) if (筋 == null || p[1] === 筋) 持.add(p[4]);
+    絞りラリー = [...持].filter((i) => i >= 0).sort((a, b) => a - b);
+  }
+
+  function ラリーの一覧() {
+    // 人で絞ったとき、その人の そのラリーでの最高点を札に出す
+    const 最高 = new Map();
+    if (筋 != null) for (const p of M.プレー) if (p[1] === 筋 && p[4] >= 0) 最高.set(p[4], Math.max(最高.get(p[4]) ?? -1, p[3]));
+    const 残 = new Set(絞りラリー);
+    let h = '';
+    for (const g of M.ゲーム) {
+      const 中 = M.ラリー.map((r, i) => [r, i]).filter(([r]) => r[2] === g.g);
+      const 数 = 中.filter(([, i]) => 筋 == null || 残.has(i)).length;
+      const 勝 = g.勝者 === '左' ? '左の勝ち' : g.勝者 === '右' ? '右の勝ち' : g.勝者 ? '引き分け' : '';
+      h += '<div class="game" data-g="' + g.g + '"' + (数 ? '' : ' hidden') + '><div class="game-h"><b>ゲーム' + g.g + '</b>'
+        + (g.最終 ? '<span class="fin">' + g.最終[0] + ' - ' + g.最終[1] + '</span>' : '') + '<span class="fnote">' + 勝 + (筋 != null ? '・' + 数 + '本' : '') + '</span></div>'
+        + '<div class="game-teams">左 ' + esc(g.左.join('・')) + '<br>右 ' + esc(g.右.join('・')) + '</div><div class="rl">'
+        + 中.map(([r, i]) => '<button class="rb" data-r="' + i + '"' + (筋 == null || 残.has(i) ? '' : ' hidden') + '><span class="n">' + r[3] + '本目</span>'
+          + (r[4] == null ? '' : '<span class="s">' + (r[6] === 0 ? '<i>' + r[4] + '</i>' : r[4]) + '-' + (r[6] === 1 ? '<i>' + r[5] + '</i>' : r[5]) + '</span>')
+          + (筋 != null && 最高.has(i) && 最高.get(i) >= 0 ? '<span class="m">' + 最高.get(i) + '点</span>' : '') + '</button>').join('')
+        + '</div></div>';
+    }
+    $('games').innerHTML = h;
+    印を更新(true);
+  }
+
+  function ラリー探す(t) { let k = -1; const R = M.ラリー; for (let q = 0; q < R.length; q++) { if (R[q][0] - 0.3 <= t) k = q; else break; } return k; }
+
+  function 印を更新(強) {
+    const t = P.time(); const k = ラリー探す(t);
+    const 中 = k >= 0 && t <= M.ラリー[k][1] + 25 ? k : -1;
+    if (!強 && 中 === 今ラリー) return;
+    今ラリー = 中;
+    for (const e of document.querySelectorAll('.rb.now')) e.classList.remove('now');
+    if (中 >= 0) document.querySelector('.rb[data-r="' + 中 + '"]')?.classList.add('now');
+  }
+
+  function 今の表示() {
+    const t = P.time(), k = ラリー探す(t);
+    let s = '<span><b>' + mmss(t) + '</b></span>';
+    if (k >= 0 && t <= M.ラリー[k][1] + 25) { const r = M.ラリー[k]; s += '<span>ゲーム' + r[2] + ' ・ ' + r[3] + '本目</span>'; }
+    if (s !== 文) { $('now').innerHTML = s; 文 = s; }
+  }
+
+  // ================= OSD =================
+  const 窓 = 0.6;
+  let 前時刻 = -1, 前パネル = '';
+  function 位置(p, t) {
+    const T = p[5], s = (t - p[0]) * 100;
+    let a = T[0], b = T[T.length - 1];
+    if (s <= T[0][0]) return T[0].slice(1);
+    if (s >= T[T.length - 1][0]) return T[T.length - 1].slice(1);
+    for (let i = 0; i < T.length - 1; i++) if (s >= T[i][0] && s <= T[i + 1][0]) { a = T[i]; b = T[i + 1]; break; }
+    const w = (s - a[0]) / Math.max(1, b[0] - a[0]);
+    return [a[1] + (b[1] - a[1]) * w, a[2] + (b[2] - a[2]) * w, a[3] + (b[3] - a[3]) * w];
+  }
+  function 二分(A, t) { let lo = 0, hi = A.length; while (lo < hi) { const m = (lo + hi) >> 1; if (A[m][0] < t) lo = m + 1; else hi = m; } return lo; }
+
+  function 得点を描く(t) {
+    const R = M.ラリー, k = ラリー探す(t), el = $('score');
+    if (k < 0) { el.style.display = 'none'; return; }
+    const r = R[k], g = M.ゲーム.find((x) => x.g === r[2]);
+    if (t > r[1] + 25 || (g && t < g.a - 3)) { el.style.display = 'none'; return; }
+    if (r[4] == null) { el.style.display = 'none'; return; }   // 得点板と合わないゲームは途中の得点を出さない(2026-11-22)
+    const 前 = k > 0 && R[k - 1][2] === r[2] ? [R[k - 1][4], R[k - 1][5]] : [0, 0];
+    const 決 = t >= r[1], 点 = 決 ? [r[4], r[5]] : 前;
+    const 勝 = 決 && t < r[1] + 2.5 ? r[6] : -1;
+    const h = '<span' + (勝 === 0 ? ' class="win"' : '') + '>' + 点[0] + '</span><span class="sep">-</span><span' + (勝 === 1 ? ' class="win"' : '') + '>' + 点[1] + '</span>';
+    if (el.dataset.h !== h) { el.innerHTML = h; el.dataset.h = h; }
+    el.style.display = 'flex';
+  }
+
+  function 輪を描く(t) {
+    const j = 二分(M.プレー, t - 窓 - 0.01);
+    const 近 = [];
+    for (let i = j; i < M.プレー.length && M.プレー[i][0] <= t + 窓; i++) { const p = M.プレー[i]; if (Math.abs(p[0] - t) <= 窓 && (筋 == null || true)) 近.push(p); }
+    const key = 近.map((p) => p[0] + p[1]).join();
+    const W = 960, H = 540;
+    let rings = '', tags = [];
+    for (const p of 近) {
+      const [cx, top, bot] = 位置(p, t); const hh = bot - top, ww = hh * 0.55;
+      const L = (cx - ww / 2) / W * 100, Tp = (top - hh * 0.08) / H * 100, Wd = ww / W * 100, Ht = hh * 1.12 / H * 100;
+      const 級 = p[3] >= 8.5 ? 'sfp' : p[3] >= 7 ? 'fp' : (p[3] >= 0 && p[3] < 3) ? 'kd' : '';
+      const u = Math.min(1, Math.max(0, (t - p[0] + 窓) / (2 * 窓)));
+      if (級 === 'sfp' || 級 === 'fp') {
+        for (const d of 級 === 'sfp' ? [0, .35] : [0]) { const v = (u + d) % 1, 径 = hh * (0.4 + 0.8 * v) / W * 100;
+          rings += '<i class="fx ' + 級 + '" style="left:' + (cx / W * 100).toFixed(2) + '%;top:' + ((top + hh * 0.45) / H * 100).toFixed(2) + '%;width:' + 径.toFixed(2) + '%;aspect-ratio:1;opacity:' + (0.6 * (1 - v)).toFixed(2) + '"></i>'; }
+      } else if (級 === 'kd') {
+        rings += '<i class="fx kd" style="left:' + (cx / W * 100).toFixed(2) + '%;top:' + (bot / H * 100).toFixed(2) + '%;width:' + (ww * 1.3 / W * 100).toFixed(2) + '%;opacity:' + (0.6 * Math.sin(Math.PI * u)).toFixed(2) + '"></i>';
+      }
+      tags.push({ x: cx / W * 100, y: (top - hh * 0.08) / H * 100, 級, 文: esc(M.名[p[1]]) + ' ' + esc(M.種[p[2]]) + (級 === 'sfp' ? '<i>Awesome!</i>' : 級 === 'fp' ? '<i>Nice!</i>' : 級 === 'kd' ? '<i>Try again</i>' : '') + (p[3] >= 0 ? ' <s>' + p[3] + '</s>' : '') });
+    }
+    const box = $('rings');
+    box.innerHTML = rings + tags.map((g, i) => '<span class="tag ' + g.級 + '" data-i="' + i + '" style="left:' + g.x.toFixed(2) + '%;top:' + g.y.toFixed(2) + '%">' + g.文 + '</span>').join('');
+    // 札が画面の外・重なりにならないよう、横は内側へ、重なったら上へずらす
+    const vb = $('vbox'), VW = vb.clientWidth, VH = vb.clientHeight, placed = [];
+    for (const e of box.querySelectorAll('.tag')) {
+      const w = e.offsetWidth, h = e.offsetHeight; let x = parseFloat(e.style.left) / 100 * VW, y = parseFloat(e.style.top) / 100 * VH;
+      x = Math.min(Math.max(x, w / 2 + 3), VW - w / 2 - 3); y = Math.max(y, h + 3);
+      for (let n = 0; n < 4; n++) { const hit = placed.find((q) => Math.abs(q.x - x) < (q.w + w) / 2 && Math.abs(q.y - y) < h + 1); if (!hit) break; y = hit.y - h - 2; if (y < h + 3) { y = hit.y + h * 2 + 6; } }
+      placed.push({ x, y, w }); e.style.left = x + 'px'; e.style.top = y + 'px';
+    }
+  }
+
+  // ---- コート図(小さく・右上。ボタンで出す。既定で出す) ----
+  let CT = null, 読み中 = false, 出す = true;
+  const 道具 = {};
+  function コートを作る() {
+    const c = $('court');
+    c.innerHTML = '<svg viewBox="-10.6 -4.7 21.2 9.4"><rect x="-6.7" y="-3.05" width="13.4" height="6.1" fill="rgba(200,140,60,.22)" stroke="#fff" stroke-width=".06"/>'
+      + '<line x1="0" y1="-3.4" x2="0" y2="3.4" stroke="#fff" stroke-width=".12"/><line x1="-1.98" y1="-3.05" x2="-1.98" y2="3.05" stroke="rgba(255,255,255,.45)" stroke-width=".04"/><line x1="1.98" y1="-3.05" x2="1.98" y2="3.05" stroke="rgba(255,255,255,.45)" stroke-width=".04"/>'
+      + '<g id="ctrail"></g><g id="cppl"></g><g id="cball"></g></svg>'
+      + '<svg viewBox="-10.6 -5.2 21.2 5.6"><line x1="-9.6" y1="0" x2="9.6" y2="0" stroke="#fff" stroke-width=".08"/><line x1="-6.7" y1="-.25" x2="-6.7" y2=".25" stroke="#fff" stroke-width=".08"/><line x1="6.7" y1="-.25" x2="6.7" y2=".25" stroke="#fff" stroke-width=".08"/>'
+      + '<line x1="0" y1="0" x2="0" y2="-2.2" stroke="#fff" stroke-width=".12"/><line x1="-.3" y1="-2.2" x2=".3" y2="-2.2" stroke="#fff" stroke-width=".12"/><g id="sppl"></g><g id="sball"></g></svg>';
+    for (const id of ['ctrail', 'cppl', 'cball', 'sppl', 'sball']) 道具[id] = c.querySelector('#' + id);
+  }
+  async function コートを読む() {
+    if (CT || 読み中) return; 読み中 = true; $('court').innerHTML = '<div style="font:600 12px sans-serif;color:#cfd9e0;padding:6px">コート図を読み込み中…</div>';
+    try { const r = await fetch(document.body.dataset.osd.replace(/\.json$/, '_court.json')); CT = await r.json(); コートを作る(); 前時刻 = -1; } catch { 読み中 = false; $('bCourt').textContent = 'コート図を読めません'; }
+  }
+  function コートを描く(t) {
+    if (!CT || !道具.cppl) return;
+    const i = 二分(CT.人, t), A = CT.人[i - 1], B = CT.人[i]; const 女 = new Set(M.女);
+    let ps = [];
+    if (A && t - A[0] < 1.5) {
+      const w = B && B[0] > A[0] && B[0] - A[0] < 1.5 ? (t - A[0]) / (B[0] - A[0]) : 0;
+      ps = A[1].map(([n, x, y, 顔]) => { const q = w ? B[1].find((z) => z[0] === n) : null; return q ? [n, x + (q[1] - x) * w, y + (q[2] - y) * w, 顔] : [n, x, y, 顔]; });
+    }
+    const 今 = new Set(); { const j = 二分(M.プレー, t - 窓); for (let q = j; q < M.プレー.length && M.プレー[q][0] <= t + 窓; q++) 今.add(M.プレー[q][1]); }
+    道具.cppl.innerHTML = ps.map(([n, x, y, 顔]) => {
+      const nm = M.名[n], hi = 今.has(n), c = !顔 ? '#9a9a9a' : 女.has(nm) ? '#FF7AB8' : '#4FA3FF';
+      return (hi ? '<circle cx="' + x + '" cy="' + (-y) + '" r=".62" fill="none" stroke="#FFD23F" stroke-width=".16"/>' : '') + '<circle cx="' + x + '" cy="' + (-y) + '" r="' + (hi ? .34 : .28) + '" fill="' + c + '" stroke="#000" stroke-width=".05"/>'
+        + '<text x="' + x + '" y="' + (-y - .42) + '" font-size="' + (hi ? .72 : .6) + '" font-weight="800" text-anchor="middle" fill="' + (hi ? '#FFD23F' : '#fff') + '" stroke="rgba(0,0,0,.75)" stroke-width=".12" paint-order="stroke">' + esc(nm) + '</text>';
+    }).join('');
+    道具.sppl.innerHTML = ps.map(([n, x, , 顔]) => { const nm = M.名[n], c = !顔 ? '#9a9a9a' : 女.has(nm) ? '#FF7AB8' : '#4FA3FF'; return '<line x1="' + x + '" y1="0" x2="' + x + '" y2="-1.7" stroke="' + c + '" stroke-width=".22" stroke-linecap="round"/>'; }).join('');
+    const R = CT.球.find((r) => t >= r[0] - 0.2 && t <= r[1] + 1.2);
+    let tr = '', b1 = '', b2 = '';
+    if (R) {
+      const pts = R[3], k = Math.max(0, 二分(pts, t + 0.001) - 1), p = pts[k], 尾 = pts.filter((q) => q[0] <= t && q[0] >= t - 1.2);
+      if (尾.length > 1) tr = '<polyline points="' + 尾.map((q) => q[1] + ',' + (-q[2])).join(' ') + '" fill="none" stroke="rgba(255,40,40,.9)" stroke-width=".16"/>';
+      if (p && Math.abs(p[0] - t) < 0.3) {
+        const 後 = R[2] ? t > R[2][0] + 0.06 : t > R[1], col = 後 ? '#B0B0B0' : '#FF2A2A';
+        b1 = '<circle cx="' + p[1] + '" cy="' + (-p[2]) + '" r=".5" fill="' + col + '" stroke="#fff" stroke-width=".14"/>';
+        b2 = '<circle cx="' + p[1] + '" cy="' + (-p[3]) + '" r=".5" fill="' + col + '" stroke="#fff" stroke-width=".14"/>';
+      }
+    }
+    道具.ctrail.innerHTML = tr; 道具.cball.innerHTML = b1; 道具.sball.innerHTML = b2;
+  }
+  function コートボタン() { $('bCourt').classList.toggle('on', 出す); $('bCourt').textContent = 出す ? 'コート図を消す' : 'コート図を出す'; $('court').style.display = 出す ? 'block' : 'none'; }
+
+  function 回す() {
+    if (M && P.ready) {
+      const t = P.time();
+      if (Math.abs(t - 前時刻) > 0.02 || 前時刻 < 0) { 前時刻 = t; 得点を描く(t); 輪を描く(t); 今の表示(); if (出す) コートを描く(t); }
+    }
+    requestAnimationFrame(回す);
+  }
+  setInterval(() => { if (M && P.ready) 印を更新(false); }, 400);
+
+  // ================= 操作 =================
+  function 飛ぶ(t, 再生 = true) {
+    P.seek(Math.max(0, t)); 前時刻 = -1;
+    if (再生) { P.play(); $('bigplay').hidden = true; }
+    // 画面が一覧の途中にいるときは、動画が見える位置へ(スマホ縦で動画が貼りつかないとき用)
+    const r = $('stage').getBoundingClientRect(); if (r.top < -4 || r.bottom < 80) $('stage').scrollIntoView({ block: 'start', behavior: 'smooth' });
+    setTimeout(状態, 300);
+  }
+  function ラリーへ(i) { 飛ぶ(M.ラリー[i][0] - 2); }
+  function 前後(d) {
+    const t = P.time(); const L = 絞りラリー; if (!L.length) return;
+    if (d > 0) { const i = L.find((q) => M.ラリー[q][0] - 2 > t + 0.5); if (i != null) ラリーへ(i); }
+    else { const c = L.filter((q) => M.ラリー[q][0] - 2 < t - 1.5); if (c.length) ラリーへ(c[c.length - 1]); else ラリーへ(L[0]); }
+  }
+  const 速さ = [1, 0.5, 0.25]; let 速i = 0;
+  const 速さボタン = () => { $('bRate').textContent = '速さ ×' + 速さ[速i]; };
+
+  function 全画面() {
+    const st = $('stage');
+    const 今 = document.fullscreenElement || document.webkitFullscreenElement;
+    if (今) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    if (st.classList.contains('fs')) { st.classList.remove('fs'); document.body.style.overflow = ''; $('bFsT').textContent = '全画面'; return; }
+    const f = st.requestFullscreen || st.webkitRequestFullscreen;
+    if (f) { f.call(st).catch?.(() => 擬似全画面()); } else 擬似全画面();
+  }
+  function 擬似全画面() { $('stage').classList.add('fs'); document.body.style.overflow = 'hidden'; $('bFsT').textContent = '全画面をやめる'; 前時刻 = -1; }
+  const fsChange = () => { const on = !!(document.fullscreenElement || document.webkitFullscreenElement); $('bFsT').textContent = on ? '全画面をやめる' : '全画面'; 前時刻 = -1; };
+  document.addEventListener('fullscreenchange', fsChange); document.addEventListener('webkitfullscreenchange', fsChange);
+
+  function 結ぶ() {
+    const 切替 = () => { if (P.paused()) { P.play(); $('bigplay').hidden = true; } else P.pause(); setTimeout(状態, 200); };
+    $('bPlay').onclick = 切替; $('bigplay').onclick = 切替;
+    // 動画を長押し=押している間だけ2倍速(YouTube と同じ)。短く押す=再生/停止
+    { const tap = $('tap'); let 押 = 0, 長 = false, 元 = 1;
+      const 離す = () => { clearTimeout(押); if (長) { P.setRate(元); $('fast').style.display = 'none'; } };
+      tap.addEventListener('pointerdown', () => { 長 = false; clearTimeout(押); 押 = setTimeout(() => { 長 = true; 元 = P.rate; P.setRate(2); if (P.paused()) { P.play(); $('bigplay').hidden = true; } $('fast').style.display = 'block'; }, 450); });
+      for (const ev of ['pointerup', 'pointercancel', 'pointerleave']) tap.addEventListener(ev, 離す);
+      tap.addEventListener('contextmenu', (e) => e.preventDefault());
+      // 2回続けて押す: 画面の右=10秒進む、左=10秒戻る(YouTube と同じ)。1回だけなら再生/停止
+      let 待 = 0;
+      tap.onclick = (e) => {
+        if (長) { 長 = false; return; }
+        if (待) { clearTimeout(待); 待 = 0; const r = tap.getBoundingClientRect(), 右 = e.clientX - r.left > r.width / 2;
+          飛ぶ(P.time() + (右 ? 10 : -10), !P.paused());
+          const b = $('fast'); b.textContent = 右 ? '10秒 ▶▶' : '◀◀ 10秒'; b.style.display = 'block'; setTimeout(() => { b.style.display = 'none'; b.textContent = '2倍速 ▶▶'; }, 600); return; }
+        待 = setTimeout(() => { 待 = 0; 切替(); }, 400);   // 指の2回押しは 0.3秒前後あく。短いと 止まる→また動く になる(2026-11-20 けんぼう)
+      }; }
+    $('bBack').onclick = () => 飛ぶ(P.time() - 10, !P.paused());
+    $('bFwd').onclick = () => 飛ぶ(P.time() + 10, !P.paused());
+    $('bPrev').onclick = () => 前後(-1); $('bNext').onclick = () => 前後(1);
+    $('bFs').onclick = 全画面; $('fsx').onclick = 全画面;
+    $('bRate').onclick = () => { 速i = (速i + 1) % 速さ.length; P.setRate(速さ[速i]); 速さボタン(); };
+    $('bCourt').onclick = () => { 出す = !出す; コートボタン(); if (出す) { コートを読む(); } 前時刻 = -1; };
+    $('games').onclick = (e) => { const b = e.target.closest('.rb'); if (b) ラリーへ(Number(b.dataset.r)); };
+    let 鍵先 = null, 鍵時 = 0;
+    window.addEventListener('keydown', (e) => {   // 先取り(capture): 動画の枠が自分で飛ぶ(全体の1%)のを止める
+      if (e.target.matches('input,textarea')) return;
+      if (簡) {   // メンバー向け: 矢印は 2.5秒(YouTube の 5秒の半分。2026-11-20 けんぼう)、空白は 再生/停止
+        if (!P.ready || e.ctrlKey || e.altKey || e.metaKey) return;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); const 今 = Date.now(), 元 = 鍵先 != null && 今 - 鍵時 < 1200 ? 鍵先 : P.time(); 鍵先 = Math.max(0, 元 + (e.key === 'ArrowLeft' ? -2.5 : 2.5)); 鍵時 = 今; 飛ぶ(鍵先, !P.paused()); }   // 続けて押したら積み上げる(YouTube は飛んだ直後の時刻が古いまま返る)
+        else if (e.key === ' ' || e.key === 'k') { e.preventDefault(); e.stopPropagation(); P.paused() ? P.play() : P.pause(); }
+        return;
+      }
+      if (e.key === ' ') { e.preventDefault(); $('bPlay').click(); } else if (e.key === 'ArrowLeft') $('bBack').click(); else if (e.key === 'ArrowRight') $('bFwd').click();
+      else if (e.key === '[') $('bPrev').click(); else if (e.key === ']') $('bNext').click(); else if (e.key === 'f') 全画面();
+    }, true);
+  }
+
+  if (簡) window.addEventListener('blur', () => setTimeout(() => { if (document.activeElement && document.activeElement.tagName === 'IFRAME') { document.activeElement.blur(); window.focus(); } }, 700));
+
+  // ================= 起動 =================
+  (async () => {
+    try {
+      M = await (await fetch(document.body.dataset.osd, { cache: 'no-cache' })).json();
+    } catch { $('loading').textContent = '分析のデータを読めませんでした'; return; }
+    if (細点 && 細点.length === M.プレー.length) M.プレー.forEach((p, i) => { p[3] = 細点[i]; });   // 管理者用: 区分ではなく細かい点で
+    if (種別 === 'mp4') mp4を作る(); else ytを作る();
+    絞りを作る(); ラリーの一覧(); 結ぶ(); 状態(); 速さボタン(); コートボタン(); if (出す) コートを読む();
+    if (P.ready === false && 種別 === 'mp4') {} // loadedmetadata で ready
+    requestAnimationFrame(回す);
+  })();
+})();
+</script>
+</body>
+</html>
